@@ -3,5 +3,96 @@
   "dataset_role": "group",
   "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [{
+  "id": "G01_single_robotics_news",
+  "phase": "B",
+  "query": "Tìm tin robotics trong tuần này.",
+  "failure_type": "wrong_arg_value",
+  "expect": {
+    "tool_calls": [
+      {
+        "name": "lookup",
+        "args": {
+          "query": "robotics",
+          "topic": "news",
+          "timeframe": "week"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "what_it_tests": "Kiểm tra agent gọi đúng lookup và truyền chính xác query, topic, timeframe."
+  }
+},
+{
+  "id": "G02_single_missing_info",
+  "phase": "B",
+  "query": "Tìm tin trong tuần này về công ty đó.",
+  "failure_type": "missing_info",
+  "expect": {
+    "no_tool": true
+  },
+  "metadata": {
+    "what_it_tests": "Agent phải hỏi lại tên công ty thay vì tự đoán và gọi tool."
+  }
+},
+{
+  "id": "G03_multi_change_topic",
+  "phase": "B",
+  "turns": [
+    {
+      "role": "user",
+      "content": "Tìm tin AI trong tuần này."
+    },
+    {
+      "role": "user",
+      "content": "Tôi đổi ý, không tìm AI nữa."
+    },
+    {
+      "role": "user",
+      "content": "Hãy tìm tin robotics trong tuần này."
+    }
+  ],
+  "failure_type": "wrong_arg_value",
+  "expect": {
+    "tool_calls": [
+      {
+        "name": "lookup",
+        "args": {
+          "query": "robotics",
+          "topic": "news",
+          "timeframe": "week"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "what_it_tests": "Kiểm tra agent ưu tiên chủ đề ở lượt cuối, không tiếp tục tìm AI."
+  }
+},
+{
+  "id": "G04_multi_cancel_request",
+  "phase": "B",
+  "turns": [
+    {
+      "role": "user",
+      "content": "Tìm tin robotics trong tuần này."
+    },
+    {
+      "role": "user",
+      "content": "Khoan, tôi đổi ý."
+    },
+    {
+      "role": "user",
+      "content": "Không cần tìm nữa, chỉ dừng lại thôi."
+    }
+  ],
+  "failure_type": "wrong_boundary",
+  "expect": {
+    "no_tool": true
+  },
+  "metadata": {
+    "what_it_tests": "Kiểm tra agent tôn trọng việc hủy yêu cầu và không gọi tool theo lượt trước."
+  }
+}]
 }
