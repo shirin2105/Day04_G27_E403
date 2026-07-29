@@ -18,67 +18,94 @@ load_lab_env(ROOT)
 
 st.set_page_config(
     page_title="Research Agent UI | Day 04 Lab",
-    page_icon="🤖",
+    page_icon="🌸",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# --- CUSTOM DESIGN SYSTEM CSS (ui-ux-pro-max Data-Dense Dashboard) ---
+# --- CUSTOM DESIGN SYSTEM CSS (Soft Minimalist & Pastel Vibe) ---
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: #FAFAFA;
     }
 
-    /* Header styling */
+    /* Header styling - Soft Pastel Gradient */
     .main-header {
-        background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-        padding: 1.25rem 1.75rem;
-        border-radius: 12px;
-        border: 1px solid #334155;
-        margin-bottom: 1.5rem;
-        color: #F8FAFC;
+        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        padding: 1.75rem 2rem;
+        border-radius: 16px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(166, 193, 238, 0.25);
+        margin-bottom: 2rem;
+        color: #1E293B;
     }
     .main-header h2 {
-        color: #60A5FA;
+        color: #0F172A;
         font-weight: 700;
-        margin: 0 0 0.25rem 0;
-        font-size: 1.5rem;
+        margin: 0 0 0.5rem 0;
+        font-size: 1.8rem;
+        letter-spacing: -0.5px;
     }
     .main-header p {
-        color: #94A3B8;
+        color: #334155;
         margin: 0;
-        font-size: 0.9rem;
+        font-size: 1rem;
+        font-weight: 500;
     }
 
-    /* Version Badge */
+    /* Version Badge - Glassmorphism Pill */
     .version-badge {
         display: inline-block;
-        background-color: #1E3A8A;
-        color: #93C5FD;
-        font-family: 'Fira Code', monospace;
-        font-size: 0.8rem;
-        padding: 0.2rem 0.6rem;
-        border-radius: 6px;
-        border: 1px solid #2563EB;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: #334155;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     }
 
-    /* Tool Event Card */
+    /* Tool Event Card - Clean & Minimalist */
     .tool-card {
-        background: #1E293B;
-        border-left: 4px solid #3B82F6;
-        padding: 0.75rem 1rem;
-        border-radius: 6px;
-        margin-bottom: 0.5rem;
+        background: #FFFFFF;
+        border-left: 4px solid #a6c1ee;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
         font-family: 'Fira Code', monospace;
         font-size: 0.85rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        color: #475569;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tool-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(166, 193, 238, 0.15);
     }
     .tool-name {
-        color: #F97316;
-        font-weight: 600;
+        color: #c968a5;
+        font-weight: 700;
+        background: rgba(251, 194, 235, 0.2);
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+    
+    /* Streamlit Chat elements override for a softer look */
+    .stChatMessage {
+        background-color: transparent;
+    }
+    .stChatMessage[data-testid="chatAvatarIcon-user"] {
+        background-color: #fbc2eb !important;
     }
     </style>
     """,
@@ -87,20 +114,20 @@ st.markdown(
 
 # --- SIDEBAR CONTROLS ---
 with st.sidebar:
-    st.title("⚙️ Agent Settings")
+    st.title("⚙️ Tùy chỉnh Agent")
     
     provider_name = st.selectbox(
         "Model Provider",
         options=["deepseek", "gemini", "openrouter", "openai"],
         index=0,
-        help="Select LLM provider for live tool calls."
+        help="Chọn LLM provider để thực thi tool."
     )
     
     version_label = st.selectbox(
         "Artifact Version",
         options=["v1", "v0", "v2", "v3"],
         index=0,
-        help="Choose version label corresponding to prompt & tools artifact."
+        help="Chọn nhãn phiên bản tương ứng với prompt & tools artifact."
     )
     
     max_tool_rounds = st.slider("Max Tool Rounds", min_value=1, max_value=8, value=4)
@@ -120,7 +147,8 @@ with st.sidebar:
     st.text(f"Prompt Hash: {artifact_ver.prompt_hash[:12]}...")
     st.text(f"Tools Hash:  {artifact_ver.tools_hash[:12]}...")
     
-    if st.button("🧹 Clear Chat History"):
+    st.divider()
+    if st.button("✨ Xóa lịch sử trò chuyện", use_container_width=True):
         st.session_state.messages = []
         st.session_state.history = []
         st.session_state.turns = []
@@ -131,8 +159,8 @@ with st.sidebar:
 st.markdown(
     f"""
     <div class="main-header">
-        <h2>🤖 Research Agent Dashboard</h2>
-        <p>Evidence-Driven Agent Tool Execution | Active Version: <span class="version-badge">{artifact_ver.artifact_version}</span> | Provider: <b>{provider_name}</b></p>
+        <h2>✨ Trợ lý Nghiên cứu Thông minh</h2>
+        <p>Thực thi tác vụ với dữ liệu chuẩn xác | Active Version: <span class="version-badge">{artifact_ver.artifact_version}</span> | Provider: <b>{provider_name}</b></p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -158,18 +186,19 @@ for msg in st.session_state.messages:
         
         # Render Tool Trace inside Assistant messages if available
         if "rounds" in msg and msg["rounds"]:
-            with st.expander("🛠️ View Tool Trace & Execution Details", expanded=False):
+            with st.expander("🌸 Xem chi tiết quá trình xử lý (Tool Trace)", expanded=False):
                 for r in msg["rounds"]:
                     st.caption(f"**Round {r.get('round')}**")
                     for tc in r.get("tool_calls", []):
-                        st.markdown(f"🔹 Called tool: `<span class='tool-name'>{tc['name']}</span>`", unsafe_allow_html=True)
+                        st.markdown(f"<div class='tool-card'>🔹 Gọi công cụ: <span class='tool-name'>{tc['name']}</span>", unsafe_allow_html=True)
                         st.json(tc.get("args", {}))
+                        st.markdown("</div>", unsafe_allow_html=True)
                     for tr in r.get("tool_results", []):
-                        st.caption("Result:")
+                        st.caption("Kết quả trả về:")
                         st.json(tr.get("result", {}))
 
 # User Chat Input
-user_input = st.chat_input("Nhập yêu cầu nghiên cứu (VD: 'Tweet mới nhất của Sam Altman là gì?')...")
+user_input = st.chat_input("Nhập yêu cầu nghiên cứu của bạn (VD: 'Tin tức công nghệ mới nhất hôm nay?')...")
 
 if user_input:
     # Display User message
@@ -184,7 +213,7 @@ if user_input:
     try:
         provider = make_provider(provider_name)
     except Exception as exc:
-        st.error(f"Error initializing provider {provider_name}: {exc}")
+        st.error(f"Lỗi khởi tạo provider {provider_name}: {exc}")
         st.stop()
         
     messages_payload = [
@@ -194,7 +223,7 @@ if user_input:
     ]
     
     with st.chat_message("assistant"):
-        with st.spinner("Agent đang xử lý & chọn tool..."):
+        with st.spinner("Agent đang suy nghĩ & chọn tool..."):
             turn_record = {
                 "turn_index": len(st.session_state.turns) + 1,
                 "started_at": now_iso(),
@@ -219,14 +248,15 @@ if user_input:
                 
                 # Show Tool Trace Accordion
                 if rounds and any(r.get("tool_calls") for r in rounds):
-                    with st.expander("🛠️ View Tool Trace & Execution Details", expanded=True):
+                    with st.expander("🌸 Xem chi tiết quá trình xử lý (Tool Trace)", expanded=True):
                         for r in rounds:
                             st.caption(f"**Round {r.get('round')}**")
                             for tc in r.get("tool_calls", []):
-                                st.markdown(f"🔹 Called tool: `<span class='tool-name'>{tc['name']}</span>`", unsafe_allow_html=True)
+                                st.markdown(f"<div class='tool-card'>🔹 Gọi công cụ: <span class='tool-name'>{tc['name']}</span>", unsafe_allow_html=True)
                                 st.json(tc.get("args", {}))
+                                st.markdown("</div>", unsafe_allow_html=True)
                             for tr in r.get("tool_results", []):
-                                st.caption("Result:")
+                                st.caption("Kết quả trả về:")
                                 st.json(tr.get("result", {}))
 
                 # Update State
@@ -265,4 +295,4 @@ if user_input:
                 write_transcript(transcript_path, transcript_data)
                 
             except Exception as exc:
-                st.error(f"❌ Error during agent execution: {exc}")
+                st.error(f"❌ Có lỗi trong quá trình thực thi: {exc}")
