@@ -7,7 +7,11 @@
 ## Team
 
 - **Team:** Group27
-- **Members:** Hải Văn, Tố Minh Quân, Shirin
+- **Members:** 	Trần Đăng Bách - 2A202601266
+		Nguyễn Phi Hoàng - 2A202601818
+		Tô Minh Quân - 2A202601680
+		Nguyễn Trọng Đức - 2A202601636
+		Sái Hồng Anh - 2A202601018
 - **Provider/model:** DeepSeek (`deepseek-chat`) / Gemini (`gemini-3.5-flash`)
 
 ---

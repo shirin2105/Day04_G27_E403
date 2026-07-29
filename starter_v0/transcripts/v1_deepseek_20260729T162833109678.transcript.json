@@ -1,0 +1,637 @@
+{
+  "transcript_id": "v1_deepseek_20260729T162833109678",
+  "version": "v1",
+  "artifact_version": "v1+pe06b4492ddc2+t1af99313ae63",
+  "prompt_hash": "e06b4492ddc24d8252f223cf1d1f005ed9e2d82e93899e4fbc0d9d8869b55f58",
+  "tools_hash": "1af99313ae634d3230c0c2479bff563e67ca13c0d0fb37f7bd97e5d64dc9e686",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "system_prompt": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\tools.yaml",
+  "created_at": "2026-07-29T16:32:47",
+  "updated_at": "2026-07-29T16:32:47",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:28:36",
+      "user": "tìm các thông tin về sam altman trên mạng xã hội",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:28:42",
+      "assistant_text": "Hiện tại công cụ tìm kiếm mạng xã hội (Twitter/X) đang gặp lỗi kết nối (403 Forbidden), không thể truy xuất được các bài đăng về **Sam Altman** trên mạng xã hội vào lúc này.\n\nTuy nhiên, tôi có thể hỗ trợ bạn theo các cách khác:\n\n1. **Tìm kiếm tin tức/web** về Sam Altman — gọi `lookup` với topic=\"news\"\n2. **Xem timeline Twitter** của Sam Altman (handle: `sama`) — gọi `timeline`\n3. **Tìm kiếm bài báo khoa học** của Sam Altman — gọi `papers`\n\nBạn muốn tôi tra cứu theo hướng nào không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi sẽ tìm kiếm thông tin về Sam Altman trên mạng xã hội.",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "Sam Altman",
+                "search_type": "Latest",
+                "limit": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "Sam Altman",
+                "search_type": "Latest",
+                "limit": 5
+              },
+              "result": {
+                "tool": "search_tweets",
+                "error": "HTTPError",
+                "message": "403 Client Error: Forbidden for url: https://twitter-api45.p.rapidapi.com/search.php?query=Sam+Altman&search_type=Latest"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại công cụ tìm kiếm mạng xã hội (Twitter/X) đang gặp lỗi kết nối (403 Forbidden), không thể truy xuất được các bài đăng về **Sam Altman** trên mạng xã hội vào lúc này.\n\nTuy nhiên, tôi có thể hỗ trợ bạn theo các cách khác:\n\n1. **Tìm kiếm tin tức/web** về Sam Altman — gọi `lookup` với topic=\"news\"\n2. **Xem timeline Twitter** của Sam Altman (handle: `sama`) — gọi `timeline`\n3. **Tìm kiếm bài báo khoa học** của Sam Altman — gọi `papers`\n\nBạn muốn tôi tra cứu theo hướng nào không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "Sam Altman",
+            "search_type": "Latest",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "HTTPError",
+            "message": "403 Client Error: Forbidden for url: https://twitter-api45.p.rapidapi.com/search.php?query=Sam+Altman&search_type=Latest"
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T16:30:43",
+      "user": "tìm bài báo về kiến trúc transformer",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:30:52",
+      "assistant_text": "Dưới đây là 5 bài báo về **kiến trúc Transformer** mà tôi tìm được trên arXiv:\n\n---\n\n### 📄 1. **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture**\n- **Tác giả:** Kai Han, Jianyuan Guo, Yehui Tang, Yunhe Wang\n- **Ngày đăng:** 04/01/2022\n- **Tóm tắt:** Cải tiến kiến trúc Transformer-in-Transformer (TNT) bằng cách thêm pyramid architecture và convolutional stem, giúp thiết lập biểu diễn phân cấp (hierarchical representations). PyramidTNT đạt hiệu suất tốt hơn Swin Transformer.\n- 🔗 [arxiv.org/abs/2201.00978](http://arxiv.org/abs/2201.00978)\n\n---\n\n### 📄 2. **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic**\n- **Tác giả:** Hansheng Ren\n- **Ngày đăng:** 26/01/2026\n- **Tóm tắt:** Đề xuất Halo Architecture — một kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology giúp loại bỏ các heuristics số học phức tạp, hướng tới suy luận chính xác và ổn định.\n- 🔗 [arxiv.org/abs/2601.18702](http://arxiv.org/abs/2601.18702)\n\n---\n\n### 📄 3. **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture**\n- **Tác giả:** Kieran Wood, Sven Giegerich, Stephen Roberts, Stefan Zohren\n- **Ngày đăng:** 16/12/2021\n- **Tóm tắt:** Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học được các phụ thuộc dài hạn và có khả năng giải thích (interpretable) qua multiple attention heads.\n- 🔗 [arxiv.org/abs/2112.08534](http://arxiv.org/abs/2112.08534)\n\n---\n\n### 📄 4. **A Novel Architecture of Area Efficient FFT Algorithm for FPGA Implementation**\n- *Bài này về FFT, không liên quan đến Transformer neural network — có thể do trùng từ khóa \"architecture\".*\n\n---\n\n### 📄 5. **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow**\n- **Tác giả:** Corey Lammie\n- **Ngày đăng:** 01/06/2026\n- **Tóm tắt:** Nghiên cứu về ánh xạ không đồng nhất cho các accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác.\n- 🔗 [arxiv.org/abs/2606.02672](http://arxiv.org/abs/2606.02672)\n\n---\n\nBạn có muốn tôi đọc chi tiết nội dung của bài báo nào không? Hoặc tôi có thể tìm kiếm bài báo kinh điển về Transformer — **\"Attention Is All You Need\"** (Vaswani et al., 2017) — nếu bạn muốn.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "transformer architecture",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "transformer architecture",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "transformer architecture",
+                "api_query": "all:transformer AND all:architecture",
+                "total_results": 22906,
+                "items": [
+                  {
+                    "arxiv_id": "2201.00978v1",
+                    "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                    "summary": "Transformer networks have achieved great progress for computer vision tasks. Transformer-in-Transformer (TNT) architecture utilizes inner transformer and outer transformer to extract both local and global representations. In this work, we present new TNT baselines by introducing two advanced designs: 1) pyramid architecture, and 2) convolutional stem. The new \"PyramidTNT\" significantly improves the original TNT by establishing hierarchical representations. PyramidTNT achieves better performances than the previous state-of-the-art vision transformers such as Swin Transformer. We hope this new baseline will be helpful to the further research and application of vision transformer. Code will be available at https://github.com/huawei-noah/CV-Backbones/tree/master/tnt_pytorch.",
+                    "authors": [
+                      "Kai Han",
+                      "Jianyuan Guo",
+                      "Yehui Tang",
+                      "Yunhe Wang"
+                    ],
+                    "published": "2022-01-04T04:56:57Z",
+                    "updated": "2022-01-04T04:56:57Z",
+                    "url": "http://arxiv.org/abs/2201.00978v1",
+                    "pdf_url": "https://arxiv.org/pdf/2201.00978v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2601.18702v4",
+                    "title": "From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic",
+                    "summary": "The prevailing scaling paradigm of Large Language Models (LLMs) rests on a substrate of \"Fuzzy\" floating-point arithmetic. To mitigate the inherent instability of this approximate foundation, modern architectures have erected a complex scaffolding of structural and numerical heuristics--Complex Residuals, Pre-RMSNorm, Attention Scaling, and Gradient Clipping--consuming significant compute solely to prevent numerical collapse. We propose a paradigm shift to the \"Exact\". We introduce the Halo Architecture, grounded in the Rational Field (Q) and powered by a custom Exact Inference Unit (EIU). To resolve the exponential bit-width growth of rational arithmetic, Halo employs a Dual-Ring Topology that unifies two complementary control mechanisms: (1) The Micro-Ring (Continuum Maintenance), which strictly bounds memory complexity via Diophantine Approximation; and (2) The Macro-Ring (Symbolic Alignment), which enforces logical consistency via periodic state collapse. This stable dual-ring substrate allows for the \"Great Dismantling\" of numerical scaffolding, reducing the Transformer block to its \"Clean\" algebraic form (Tabula Rasa). Furthermore, we verify the \"Efficiency Paradox\": the elimination of gradient noise (sigma -> 0) allows for Macro-Learning Rates, potentially reducing the Total Time-to-Convergence by orders of magnitude. Halo demonstrates that General Intelligence requires the hybridization of continuous fields and discrete chains under a rigorous mathematical framework.",
+                    "authors": [
+                      "Hansheng Ren"
+                    ],
+                    "published": "2026-01-26T17:24:34Z",
+                    "updated": "2026-02-16T07:24:47Z",
+                    "url": "http://arxiv.org/abs/2601.18702v4",
+                    "pdf_url": "https://arxiv.org/pdf/2601.18702v4",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.AR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2112.08534v3",
+                    "title": "Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture",
+                    "summary": "We introduce the Momentum Transformer, an attention-based deep-learning architecture, which outperforms benchmark time-series momentum and mean-reversion trading strategies. Unlike state-of-the-art Long Short-Term Memory (LSTM) architectures, which are sequential in nature and tailored to local processing, an attention mechanism provides our architecture with a direct connection to all previous time-steps. Our architecture, an attention-LSTM hybrid, enables us to learn longer-term dependencies, improves performance when considering returns net of transaction costs and naturally adapts to new market regimes, such as during the SARS-CoV-2 crisis. Via the introduction of multiple attention heads, we can capture concurrent regimes, or temporal dynamics, which are occurring at different timescales. The Momentum Transformer is inherently interpretable, providing us with greater insights into our deep-learning momentum trading strategy, including the importance of different factors over time and the past time-steps which are of the greatest significance to the model.",
+                    "authors": [
+                      "Kieran Wood",
+                      "Sven Giegerich",
+                      "Stephen Roberts",
+                      "Stefan Zohren"
+                    ],
+                    "published": "2021-12-16T00:04:12Z",
+                    "updated": "2022-11-22T22:53:47Z",
+                    "url": "http://arxiv.org/abs/2112.08534v3",
+                    "pdf_url": "https://arxiv.org/pdf/2112.08534v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "q-fin.TR",
+                      "stat.ML"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1502.07055v1",
+                    "title": "A Novel Architecture of Area Efficient FFT Algorithm for FPGA Implementation",
+                    "summary": "Fast Fourier transform (FFT) of large number of samples requires huge hardware resources of field programmable gate arrays (FPGA), which needs more area and power. In this paper, we present an area efficient architecture of FFT processor that reuses the butterfly elements several times. The FFT processor is simulated using VHDL and the results are validated on a Virtex-6 FPGA. The proposed architecture outperforms the conventional architecture of a $N$-point FFT processor in terms of area which is reduced by a factor of $log_N 2$ with negligible increase in processing time.",
+                    "authors": [
+                      "Atin Mukherjee",
+                      "Amitabha Sinha",
+                      "Debesh Choudhury"
+                    ],
+                    "published": "2015-02-25T05:45:08Z",
+                    "updated": "2015-02-25T05:45:08Z",
+                    "url": "http://arxiv.org/abs/1502.07055v1",
+                    "pdf_url": "https://arxiv.org/pdf/1502.07055v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AR",
+                    "categories": [
+                      "cs.AR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02672v1",
+                    "title": "Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow",
+                    "summary": "Analog In-Memory Computing (AIMC) accelerators execute matrix-vector multiplications directly within memory arrays, reducing data movement and improving DNN inference efficiency. Their limited effective precision motivates heterogeneous architectures that combine analog compute tiles with digital processing units. This letter classifies existing methods for partitioning DNN workloads across these resources by mapping granularity, optimization strategy, and model support, and distills them into a unified four-stage workflow. To demonstrate the workflow on a model class not yet addressed by existing methods, we apply its first two stages to GPT-2, producing the first AIMC-specific precision sensitivity profile for a decoder-only transformer. Sensitivity is dominated by 4 of 49 projections, with the first decoder block's attention output dominating by an order of magnitude. This suggests that projection-level mapping and selective digital execution of early-block and output-facing projections are important for reliable decoder-transformer deployment on AIMC hardware.",
+                    "authors": [
+                      "Corey Lammie"
+                    ],
+                    "published": "2026-06-01T12:17:51Z",
+                    "updated": "2026-06-01T12:17:51Z",
+                    "url": "http://arxiv.org/abs/2606.02672v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02672v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AR",
+                    "categories": [
+                      "cs.AR",
+                      "cs.ET"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 5 bài báo về **kiến trúc Transformer** mà tôi tìm được trên arXiv:\n\n---\n\n### 📄 1. **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture**\n- **Tác giả:** Kai Han, Jianyuan Guo, Yehui Tang, Yunhe Wang\n- **Ngày đăng:** 04/01/2022\n- **Tóm tắt:** Cải tiến kiến trúc Transformer-in-Transformer (TNT) bằng cách thêm pyramid architecture và convolutional stem, giúp thiết lập biểu diễn phân cấp (hierarchical representations). PyramidTNT đạt hiệu suất tốt hơn Swin Transformer.\n- 🔗 [arxiv.org/abs/2201.00978](http://arxiv.org/abs/2201.00978)\n\n---\n\n### 📄 2. **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic**\n- **Tác giả:** Hansheng Ren\n- **Ngày đăng:** 26/01/2026\n- **Tóm tắt:** Đề xuất Halo Architecture — một kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology giúp loại bỏ các heuristics số học phức tạp, hướng tới suy luận chính xác và ổn định.\n- 🔗 [arxiv.org/abs/2601.18702](http://arxiv.org/abs/2601.18702)\n\n---\n\n### 📄 3. **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture**\n- **Tác giả:** Kieran Wood, Sven Giegerich, Stephen Roberts, Stefan Zohren\n- **Ngày đăng:** 16/12/2021\n- **Tóm tắt:** Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học được các phụ thuộc dài hạn và có khả năng giải thích (interpretable) qua multiple attention heads.\n- 🔗 [arxiv.org/abs/2112.08534](http://arxiv.org/abs/2112.08534)\n\n---\n\n### 📄 4. **A Novel Architecture of Area Efficient FFT Algorithm for FPGA Implementation**\n- *Bài này về FFT, không liên quan đến Transformer neural network — có thể do trùng từ khóa \"architecture\".*\n\n---\n\n### 📄 5. **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow**\n- **Tác giả:** Corey Lammie\n- **Ngày đăng:** 01/06/2026\n- **Tóm tắt:** Nghiên cứu về ánh xạ không đồng nhất cho các accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác.\n- 🔗 [arxiv.org/abs/2606.02672](http://arxiv.org/abs/2606.02672)\n\n---\n\nBạn có muốn tôi đọc chi tiết nội dung của bài báo nào không? Hoặc tôi có thể tìm kiếm bài báo kinh điển về Transformer — **\"Attention Is All You Need\"** (Vaswani et al., 2017) — nếu bạn muốn.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "transformer architecture",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "transformer architecture",
+            "api_query": "all:transformer AND all:architecture",
+            "total_results": 22906,
+            "items": [
+              {
+                "arxiv_id": "2201.00978v1",
+                "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                "summary": "Transformer networks have achieved great progress for computer vision tasks. Transformer-in-Transformer (TNT) architecture utilizes inner transformer and outer transformer to extract both local and global representations. In this work, we present new TNT baselines by introducing two advanced designs: 1) pyramid architecture, and 2) convolutional stem. The new \"PyramidTNT\" significantly improves the original TNT by establishing hierarchical representations. PyramidTNT achieves better performances than the previous state-of-the-art vision transformers such as Swin Transformer. We hope this new baseline will be helpful to the further research and application of vision transformer. Code will be available at https://github.com/huawei-noah/CV-Backbones/tree/master/tnt_pytorch.",
+                "authors": [
+                  "Kai Han",
+                  "Jianyuan Guo",
+                  "Yehui Tang",
+                  "Yunhe Wang"
+                ],
+                "published": "2022-01-04T04:56:57Z",
+                "updated": "2022-01-04T04:56:57Z",
+                "url": "http://arxiv.org/abs/2201.00978v1",
+                "pdf_url": "https://arxiv.org/pdf/2201.00978v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2601.18702v4",
+                "title": "From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic",
+                "summary": "The prevailing scaling paradigm of Large Language Models (LLMs) rests on a substrate of \"Fuzzy\" floating-point arithmetic. To mitigate the inherent instability of this approximate foundation, modern architectures have erected a complex scaffolding of structural and numerical heuristics--Complex Residuals, Pre-RMSNorm, Attention Scaling, and Gradient Clipping--consuming significant compute solely to prevent numerical collapse. We propose a paradigm shift to the \"Exact\". We introduce the Halo Architecture, grounded in the Rational Field (Q) and powered by a custom Exact Inference Unit (EIU). To resolve the exponential bit-width growth of rational arithmetic, Halo employs a Dual-Ring Topology that unifies two complementary control mechanisms: (1) The Micro-Ring (Continuum Maintenance), which strictly bounds memory complexity via Diophantine Approximation; and (2) The Macro-Ring (Symbolic Alignment), which enforces logical consistency via periodic state collapse. This stable dual-ring substrate allows for the \"Great Dismantling\" of numerical scaffolding, reducing the Transformer block to its \"Clean\" algebraic form (Tabula Rasa). Furthermore, we verify the \"Efficiency Paradox\": the elimination of gradient noise (sigma -> 0) allows for Macro-Learning Rates, potentially reducing the Total Time-to-Convergence by orders of magnitude. Halo demonstrates that General Intelligence requires the hybridization of continuous fields and discrete chains under a rigorous mathematical framework.",
+                "authors": [
+                  "Hansheng Ren"
+                ],
+                "published": "2026-01-26T17:24:34Z",
+                "updated": "2026-02-16T07:24:47Z",
+                "url": "http://arxiv.org/abs/2601.18702v4",
+                "pdf_url": "https://arxiv.org/pdf/2601.18702v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.AR"
+                ]
+              },
+              {
+                "arxiv_id": "2112.08534v3",
+                "title": "Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture",
+                "summary": "We introduce the Momentum Transformer, an attention-based deep-learning architecture, which outperforms benchmark time-series momentum and mean-reversion trading strategies. Unlike state-of-the-art Long Short-Term Memory (LSTM) architectures, which are sequential in nature and tailored to local processing, an attention mechanism provides our architecture with a direct connection to all previous time-steps. Our architecture, an attention-LSTM hybrid, enables us to learn longer-term dependencies, improves performance when considering returns net of transaction costs and naturally adapts to new market regimes, such as during the SARS-CoV-2 crisis. Via the introduction of multiple attention heads, we can capture concurrent regimes, or temporal dynamics, which are occurring at different timescales. The Momentum Transformer is inherently interpretable, providing us with greater insights into our deep-learning momentum trading strategy, including the importance of different factors over time and the past time-steps which are of the greatest significance to the model.",
+                "authors": [
+                  "Kieran Wood",
+                  "Sven Giegerich",
+                  "Stephen Roberts",
+                  "Stefan Zohren"
+                ],
+                "published": "2021-12-16T00:04:12Z",
+                "updated": "2022-11-22T22:53:47Z",
+                "url": "http://arxiv.org/abs/2112.08534v3",
+                "pdf_url": "https://arxiv.org/pdf/2112.08534v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "q-fin.TR",
+                  "stat.ML"
+                ]
+              },
+              {
+                "arxiv_id": "1502.07055v1",
+                "title": "A Novel Architecture of Area Efficient FFT Algorithm for FPGA Implementation",
+                "summary": "Fast Fourier transform (FFT) of large number of samples requires huge hardware resources of field programmable gate arrays (FPGA), which needs more area and power. In this paper, we present an area efficient architecture of FFT processor that reuses the butterfly elements several times. The FFT processor is simulated using VHDL and the results are validated on a Virtex-6 FPGA. The proposed architecture outperforms the conventional architecture of a $N$-point FFT processor in terms of area which is reduced by a factor of $log_N 2$ with negligible increase in processing time.",
+                "authors": [
+                  "Atin Mukherjee",
+                  "Amitabha Sinha",
+                  "Debesh Choudhury"
+                ],
+                "published": "2015-02-25T05:45:08Z",
+                "updated": "2015-02-25T05:45:08Z",
+                "url": "http://arxiv.org/abs/1502.07055v1",
+                "pdf_url": "https://arxiv.org/pdf/1502.07055v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02672v1",
+                "title": "Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow",
+                "summary": "Analog In-Memory Computing (AIMC) accelerators execute matrix-vector multiplications directly within memory arrays, reducing data movement and improving DNN inference efficiency. Their limited effective precision motivates heterogeneous architectures that combine analog compute tiles with digital processing units. This letter classifies existing methods for partitioning DNN workloads across these resources by mapping granularity, optimization strategy, and model support, and distills them into a unified four-stage workflow. To demonstrate the workflow on a model class not yet addressed by existing methods, we apply its first two stages to GPT-2, producing the first AIMC-specific precision sensitivity profile for a decoder-only transformer. Sensitivity is dominated by 4 of 49 projections, with the first decoder block's attention output dominating by an order of magnitude. This suggests that projection-level mapping and selective digital execution of early-block and output-facing projections are important for reliable decoder-transformer deployment on AIMC hardware.",
+                "authors": [
+                  "Corey Lammie"
+                ],
+                "published": "2026-06-01T12:17:51Z",
+                "updated": "2026-06-01T12:17:51Z",
+                "url": "http://arxiv.org/abs/2606.02672v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02672v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR",
+                  "cs.ET"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T16:31:24",
+      "user": "upload kết quả lên telegram",
+      "status": "waiting_for_user",
+      "ended_at": "2026-07-29T16:31:26",
+      "assistant_text": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+                "response_type": "yes_no"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+                "response_type": "yes_no"
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+                "response_type": "yes_no",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có xác nhận muốn đăng kết quả các bài báo về kiến trúc Transformer lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T16:31:52",
+      "user": "yes",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:32:02",
+      "assistant_text": "Rất tiếc, hiện tại không thể gửi tin nhắn lên Telegram do thiếu cấu hình biến môi trường (bot token / chat ID) trên hệ thống. \n\nTuy nhiên, đây là nội dung đã được chuẩn bị sẵn để bạn có thể copy và tự đăng:\n\n---\n\n# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)\n\n---\n\nVui lòng thử lại sau khi hệ thống được cấu hình đầy đủ, hoặc bạn có thể copy nội dung trên để đăng thủ công nhé!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                    "url": "http://arxiv.org/abs/2201.00978",
+                    "source": "arXiv",
+                    "summary": "Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic",
+                    "url": "http://arxiv.org/abs/2601.18702",
+                    "source": "arXiv",
+                    "summary": "Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture",
+                    "url": "http://arxiv.org/abs/2112.08534",
+                    "source": "arXiv",
+                    "summary": "Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow",
+                    "url": "http://arxiv.org/abs/2606.02672",
+                    "source": "arXiv",
+                    "summary": "Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác.",
+                    "section": "Kiến trúc Transformer"
+                  }
+                ],
+                "template": "sections",
+                "headline": "📄 Các bài báo về Kiến trúc Transformer"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                    "url": "http://arxiv.org/abs/2201.00978",
+                    "source": "arXiv",
+                    "summary": "Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic",
+                    "url": "http://arxiv.org/abs/2601.18702",
+                    "source": "arXiv",
+                    "summary": "Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture",
+                    "url": "http://arxiv.org/abs/2112.08534",
+                    "source": "arXiv",
+                    "summary": "Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích.",
+                    "section": "Kiến trúc Transformer"
+                  },
+                  {
+                    "title": "Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow",
+                    "url": "http://arxiv.org/abs/2606.02672",
+                    "source": "arXiv",
+                    "summary": "Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác.",
+                    "section": "Kiến trúc Transformer"
+                  }
+                ],
+                "template": "sections",
+                "headline": "📄 Các bài báo về Kiến trúc Transformer"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)\n",
+                "item_count": 4
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "send",
+              "args": {
+                "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+                "confirmed": true
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "send",
+              "args": {
+                "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+                "confirmed": true
+              },
+              "result": {
+                "tool": "send_telegram",
+                "error": "RuntimeError",
+                "message": "Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Rất tiếc, hiện tại không thể gửi tin nhắn lên Telegram do thiếu cấu hình biến môi trường (bot token / chat ID) trên hệ thống. \n\nTuy nhiên, đây là nội dung đã được chuẩn bị sẵn để bạn có thể copy và tự đăng:\n\n---\n\n# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)\n\n---\n\nVui lòng thử lại sau khi hệ thống được cấu hình đầy đủ, hoặc bạn có thể copy nội dung trên để đăng thủ công nhé!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                "url": "http://arxiv.org/abs/2201.00978",
+                "source": "arXiv",
+                "summary": "Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer.",
+                "section": "Kiến trúc Transformer"
+              },
+              {
+                "title": "From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic",
+                "url": "http://arxiv.org/abs/2601.18702",
+                "source": "arXiv",
+                "summary": "Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology.",
+                "section": "Kiến trúc Transformer"
+              },
+              {
+                "title": "Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture",
+                "url": "http://arxiv.org/abs/2112.08534",
+                "source": "arXiv",
+                "summary": "Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích.",
+                "section": "Kiến trúc Transformer"
+              },
+              {
+                "title": "Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow",
+                "url": "http://arxiv.org/abs/2606.02672",
+                "source": "arXiv",
+                "summary": "Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác.",
+                "section": "Kiến trúc Transformer"
+              }
+            ],
+            "template": "sections",
+            "headline": "📄 Các bài báo về Kiến trúc Transformer"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)\n",
+            "item_count": 4
+          }
+        },
+        {
+          "tool": "send",
+          "args": {
+            "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "error": "RuntimeError",
+            "message": "Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var"
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-07-29T16:32:37",
+      "user": "thử lại",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:32:47",
+      "assistant_text": "✅ **Đã gửi thành công!** Kết quả các bài báo về kiến trúc Transformer đã được đăng lên Telegram.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "send",
+              "args": {
+                "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+                "confirmed": true
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "send",
+              "args": {
+                "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+                "confirmed": true
+              },
+              "result": {
+                "tool": "send_telegram",
+                "status": "sent"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "✅ **Đã gửi thành công!** Kết quả các bài báo về kiến trúc Transformer đã được đăng lên Telegram.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "# 📄 Các bài báo về Kiến trúc Transformer\n\n## Kiến trúc Transformer\n- **PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture** — Cải tiến kiến trúc Transformer-in-Transformer (TNT) với pyramid architecture và convolutional stem, đạt hiệu suất tốt hơn Swin Transformer. - [arXiv](http://arxiv.org/abs/2201.00978)\n- **From Fuzzy to Exact: The Halo Architecture for Infinite-Depth Reasoning via Rational Arithmetic** — Đề xuất Halo Architecture — kiến trúc Transformer mới dựa trên số hữu tỉ (Rational Field Q) thay vì floating-point, với Dual-Ring Topology. - [arXiv](http://arxiv.org/abs/2601.18702)\n- **Trading with the Momentum Transformer: An Intelligent and Interpretable Architecture** — Kiến trúc attention-LSTM hybrid (Momentum Transformer) ứng dụng trong giao dịch tài chính, học phụ thuộc dài hạn và có khả năng giải thích. - [arXiv](http://arxiv.org/abs/2112.08534)\n- **Heterogeneous Mapping for Analog In-Memory Computing Accelerators: A Unified Workflow** — Nghiên cứu ánh xạ không đồng nhất cho accelerator AIMC, áp dụng lên GPT-2 (decoder-only transformer) để phân tích độ nhạy độ chính xác. - [arXiv](http://arxiv.org/abs/2606.02672)",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "status": "sent"
+          }
+        }
+      ]
+    }
+  ]
+}

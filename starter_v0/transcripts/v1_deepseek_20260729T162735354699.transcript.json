@@ -1,0 +1,75 @@
+{
+  "transcript_id": "v1_deepseek_20260729T162735354699",
+  "version": "v1",
+  "artifact_version": "v1+pe06b4492ddc2+t1af99313ae63",
+  "prompt_hash": "e06b4492ddc24d8252f223cf1d1f005ed9e2d82e93899e4fbc0d9d8869b55f58",
+  "tools_hash": "1af99313ae634d3230c0c2479bff563e67ca13c0d0fb37f7bd97e5d64dc9e686",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "system_prompt": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\tools.yaml",
+  "created_at": "2026-07-29T16:27:44",
+  "updated_at": "2026-07-29T16:27:44",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:27:39",
+      "user": "tìm các thông tin về sam altman trên mạng xã hội",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:27:44",
+      "assistant_text": "Hiện tại công cụ tìm kiếm mạng xã hội đang gặp lỗi kỹ thuật (thiếu biến môi trường API) nên tôi không thể truy xuất được các bài đăng trên mạng xã hội về Sam Altman vào lúc này.\n\nTuy nhiên, tôi có thể hỗ trợ bạn một số cách khác:\n\n1. **Tra cứu tin tức về Sam Altman** — tìm kiếm bài báo/web về các chủ đề liên quan đến Sam Altman.\n2. **Xem dòng thời gian (timeline) từ tài khoản Twitter/X của Sam Altman** — nếu bạn muốn, tôi có thể lấy các tweet gần đây từ tài khoản của ông ấy (handle: `sama`).\n3. **Tìm kiếm bài báo khoa học** liên quan đến Sam Altman / OpenAI.\n\nBạn muốn tôi thử cách nào trong các cách trên không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi sẽ tìm kiếm thông tin về Sam Altman trên mạng xã hội.",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "Sam Altman",
+                "search_type": "Latest",
+                "limit": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "Sam Altman",
+                "search_type": "Latest",
+                "limit": 5
+              },
+              "result": {
+                "tool": "search_tweets",
+                "error": "RuntimeError",
+                "message": "Missing RAPIDAPI_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại công cụ tìm kiếm mạng xã hội đang gặp lỗi kỹ thuật (thiếu biến môi trường API) nên tôi không thể truy xuất được các bài đăng trên mạng xã hội về Sam Altman vào lúc này.\n\nTuy nhiên, tôi có thể hỗ trợ bạn một số cách khác:\n\n1. **Tra cứu tin tức về Sam Altman** — tìm kiếm bài báo/web về các chủ đề liên quan đến Sam Altman.\n2. **Xem dòng thời gian (timeline) từ tài khoản Twitter/X của Sam Altman** — nếu bạn muốn, tôi có thể lấy các tweet gần đây từ tài khoản của ông ấy (handle: `sama`).\n3. **Tìm kiếm bài báo khoa học** liên quan đến Sam Altman / OpenAI.\n\nBạn muốn tôi thử cách nào trong các cách trên không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "Sam Altman",
+            "search_type": "Latest",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    }
+  ]
+}
