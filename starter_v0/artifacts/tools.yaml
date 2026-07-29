@@ -28,7 +28,7 @@ tools:
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Tìm kiếm các thông tin từ các nền tảng mạng xã hội."
     parameters:
       type: object
       properties:
