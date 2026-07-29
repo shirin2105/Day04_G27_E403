@@ -1,9 +1,9 @@
 {
-  "run_id": "v0_B_base_deepseek_20260729T151127475918",
-  "version": "v0",
-  "artifact_version": "v0+peb1c8179815b+t6cdb53d5d7b8",
-  "prompt_hash": "eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68",
-  "tools_hash": "6cdb53d5d7b8de80d60b298b1357f462cedbedfae261d5ba60b08ccc401687c5",
+  "run_id": "v1_B_base_deepseek_20260729T154631762545",
+  "version": "v1",
+  "artifact_version": "v1+p0d09c29914df+tc7480feaea51",
+  "prompt_hash": "0d09c29914df67768faebc49a958f1287b2b6c4bcd5089cc4d3de7557f35bad8",
+  "tools_hash": "c7480feaea51b0ba58a4a8df8f02931dc8ba92d6ede955a428399d78fedc065b",
   "phase": "B",
   "suite": "base",
   "provider": "deepseek",
@@ -14,27 +14,23 @@
   "dataset_id": "day04_v2_research_base",
   "dataset_role": "base",
   "description": "Core eval cho research agent: routing đúng tool + đúng args, hỏi lại khi thiếu (ask_user), xác nhận trước khi gửi, và xử lý câu ngoài phạm vi / không cần tool. Chấm trên tool_calls + args (subset). KHÔNG sửa file này — chỉ thêm case vào eval_group.json.",
-  "generated_at": "2026-07-29T15:11:27",
+  "generated_at": "2026-07-29T15:46:31",
   "summary": {
     "total_cases": 20,
     "measured_cases": 20,
     "provider_error_cases": 0,
-    "passed_cases": 12,
-    "case_accuracy": 0.6,
-    "tool_routing_accuracy": 0.8,
-    "argument_accuracy": 0.6,
-    "multiturn_accuracy": 0.6667,
+    "passed_cases": 17,
+    "case_accuracy": 0.85,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 0.85,
+    "multiturn_accuracy": 0.8333,
     "failure_counts": {
-      "wrong_tool": 3,
-      "missing_info": 2,
+      "wrong_tool": 1,
       "wrong_boundary": 1,
-      "out_of_scope": 1,
       "wrong_arg_value": 1
     },
     "observed_mismatch_counts": {
-      "wrong_arg_value": 4,
-      "missing_tool_call": 3,
-      "unexpected_tool_call": 1
+      "wrong_arg_value": 3
     }
   },
   "results": [
@@ -69,7 +65,7 @@
             "name": "timeline",
             "args": {
               "screenname": "sama",
-              "limit": 1
+              "limit": 5
             }
           }
         ],
@@ -84,7 +80,7 @@
           "tool": "timeline",
           "args": {
             "screenname": "sama",
-            "limit": 1
+            "limit": 5
           },
           "result": {
             "tool": "get_user_tweets",
@@ -182,10 +178,10 @@
           {
             "name": "lookup",
             "args": {
-              "query": "tin tức AI nổi bật hôm nay",
+              "query": "AI tin tức nổi bật hôm nay",
               "topic": "news",
               "timeframe": "day",
-              "max_results": 10
+              "max_results": 5
             }
           }
         ],
@@ -194,17 +190,17 @@
         "observed_mismatch": "wrong_arg_value",
         "failure_type": "wrong_tool",
         "failures": [
-          "query: expected 'AI', got 'tin tức AI nổi bật hôm nay'"
+          "query: expected 'AI', got 'AI tin tức nổi bật hôm nay'"
         ]
       },
       "tool_results": [
         {
           "tool": "lookup",
           "args": {
-            "query": "tin tức AI nổi bật hôm nay",
+            "query": "AI tin tức nổi bật hôm nay",
             "topic": "news",
             "timeframe": "day",
-            "max_results": 10
+            "max_results": 5
           },
           "result": {
             "tool": "web_search",
@@ -356,10 +352,10 @@
           {
             "name": "lookup",
             "args": {
-              "query": "tin công nghệ tuần này 2025",
+              "query": "tin công nghệ",
               "topic": "news",
               "timeframe": "week",
-              "max_results": 10
+              "max_results": 8
             }
           }
         ],
@@ -373,10 +369,10 @@
         {
           "tool": "lookup",
           "args": {
-            "query": "tin công nghệ tuần này 2025",
+            "query": "tin công nghệ",
             "topic": "news",
             "timeframe": "week",
-            "max_results": 10
+            "max_results": 8
           },
           "result": {
             "tool": "web_search",
@@ -418,7 +414,7 @@
             "args": {
               "query": "OpenAI",
               "search_type": "Top",
-              "limit": 10
+              "limit": 5
             }
           }
         ],
@@ -434,7 +430,7 @@
           "args": {
             "query": "OpenAI",
             "search_type": "Top",
-            "limit": 10
+            "limit": 5
           },
           "result": {
             "tool": "search_tweets",
@@ -465,7 +461,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Nguyên hàm của \\( x^2 \\) là:\n\n\\[\n\\int x^2 \\, dx = \\frac{x^3}{3} + C\n\\]\n\nTrong đó \\( C \\) là hằng số tích phân.",
+        "actual_text": "Đây là một câu hỏi về toán học (tính nguyên hàm), nằm ngoài phạm vi công việc của tôi với tư cách là trợ lý nghiên cứu.\n\nTôi có thể hỗ trợ bạn trong các việc sau:\n- **Tra cứu thông tin** trên web (tin tức, kiến thức tổng hợp)\n- **Tìm kiếm bài đăng** trên mạng xã hội/Twitter\n- **Đọc và tóm tắt nội dung** từ một đường link/URL cụ thể\n- **Định dạng và gửi thông tin** lên kênh Telegram\n\nBạn có cần tôi giúp gì về những việc trên không?",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -494,7 +490,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Tôi là một trợ lý nghiên cứu nhanh nhẹn, chủ động, được trang bị các công cụ để giúp bạn:\n\n**📡 Tra cứu & Tìm kiếm**\n- Tra cứu thông tin trên internet (`lookup`)\n- Tìm kiếm trên mạng xã hội (`social_search`)\n- Lấy bài đăng gần đây từ một tài khoản (`timeline`)\n- Đọc nội dung từ một URL (`fetch`)\n\n**📄 Nghiên cứu học thuật**\n- Tìm bài báo khoa học (`papers`)\n- Đọc nội dung chi tiết của bài báo (`paper_text`)\n\n**📝 Soạn thảo & Gửi**\n- Trình bày dữ liệu thành văn bản theo nhiều khuôn mẫu (`format`)\n- Gửi nội dung đi (`send`)\n\n**📋 Nội bộ**\n- Tra cứu tài liệu chính sách nội bộ (`policy`)\n\n**💬 Hỏi đáp**\n- Hỏi bạn khi thực sự cần (`clarify`)\n\nĐiểm mạnh của tôi: **không hỏi lại** nếu thiếu thông tin — tôi sẽ tự suy luận và hành động ngay. Bạn cần gì?",
+        "actual_text": "Tôi là một trợ lý nghiên cứu (research assistant) chuyên dụng trong môi trường doanh nghiệp. Tôi có thể giúp bạn những việc sau:\n\n**🌐 Tra cứu thông tin trên web**\n- Tìm kiếm tin tức, thông tin tổng hợp với từ khóa chính xác bạn cung cấp\n- Lọc theo khoảng thời gian (ngày/tuần/tháng/năm)\n\n**📱 Tìm kiếm trên mạng xã hội**\n- Tra cứu bài đăng gần đây từ một tài khoản cụ thể (cần cung cấp tên tài khoản)\n- Tìm kiếm thông tin trên các nền tảng mạng xã hội\n\n**📄 Đọc & tóm tắt nội dung**\n- Lấy nội dung từ một URL cụ thể (bạn cần cung cấp link)\n- Tóm tắt bài báo, bài viết\n\n**🔬 Nghiên cứu học thuật**\n- Tìm kiếm bài báo khoa học trên arXiv\n- Đọc nội dung chi tiết của paper\n\n**📤 Định dạng & gửi thông tin**\n- Trình bày kết quả theo nhiều mẫu (tóm tắt, bullet, luồng tin...)\n- Gửi nội dung ra kênh ngoài (cần xác nhận trước)\n\n**📋 Tra cứu chính sách nội bộ**\n- Tìm kiếm tài liệu chính sách doanh nghiệp\n\n---\n\n**Lưu ý:** Tôi không thể viết code, giải toán, hay trò chuyện phiếm — tôi chỉ tập trung vào các tác vụ nghiên cứu như trên. Bạn cần tôi tra cứu gì không? 😊",
         "case_failure_type": "unnecessary_tool",
         "observed_mismatch": null,
         "failure_type": null,
@@ -525,36 +521,37 @@
         ]
       },
       "result": {
-        "passed": false,
-        "routing_correct": false,
-        "args_correct": false,
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
         "actual_tool_calls": [
           {
-            "name": "timeline",
+            "name": "clarify",
             "args": {
-              "limit": 5
+              "question": "Bạn muốn xem timeline của tài khoản Twitter nào? Vui lòng cho mình biết username/handle nhé.",
+              "response_type": "text"
             }
           }
         ],
         "actual_text": "",
         "case_failure_type": "missing_info",
-        "observed_mismatch": "missing_tool_call",
-        "failure_type": "missing_info",
-        "failures": [
-          "missing tool call clarify",
-          "extra tool call timeline"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
-          "tool": "timeline",
+          "tool": "clarify",
           "args": {
-            "limit": 5
+            "question": "Bạn muốn xem timeline của tài khoản Twitter nào? Vui lòng cho mình biết username/handle nhé.",
+            "response_type": "text"
           },
           "result": {
-            "tool": "get_user_tweets",
-            "error": "RuntimeError",
-            "message": "Missing RAPIDAPI_KEY env var"
+            "tool": "ask_user",
+            "question": "Bạn muốn xem timeline của tài khoản Twitter nào? Vui lòng cho mình biết username/handle nhé.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
           }
         }
       ]
@@ -582,36 +579,37 @@
         ]
       },
       "result": {
-        "passed": false,
-        "routing_correct": false,
-        "args_correct": false,
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
         "actual_tool_calls": [
           {
-            "name": "fetch",
+            "name": "clarify",
             "args": {
-              "url": "https://vnexpress.net"
+              "question": "Bạn ơi, bạn muốn mình tóm tắt bài viết nào? Bạn có thể gửi link (URL) cụ thể cho mình được không?",
+              "response_type": "text"
             }
           }
         ],
         "actual_text": "",
         "case_failure_type": "missing_info",
-        "observed_mismatch": "missing_tool_call",
-        "failure_type": "missing_info",
-        "failures": [
-          "missing tool call clarify",
-          "extra tool call fetch"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
-          "tool": "fetch",
+          "tool": "clarify",
           "args": {
-            "url": "https://vnexpress.net"
+            "question": "Bạn ơi, bạn muốn mình tóm tắt bài viết nào? Bạn có thể gửi link (URL) cụ thể cho mình được không?",
+            "response_type": "text"
           },
           "result": {
-            "tool": "read_url",
-            "error": "RuntimeError",
-            "message": "Missing FIRECRAWL_API_KEY env var"
+            "tool": "ask_user",
+            "question": "Bạn ơi, bạn muốn mình tóm tắt bài viết nào? Bạn có thể gửi link (URL) cụ thể cho mình được không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
           }
         }
       ]
@@ -640,37 +638,38 @@
       },
       "result": {
         "passed": false,
-        "routing_correct": false,
+        "routing_correct": true,
         "args_correct": false,
         "actual_tool_calls": [
           {
-            "name": "timeline",
+            "name": "clarify",
             "args": {
-              "screenname": "samaltman",
-              "limit": 5
+              "question": "Bạn muốn đăng nội dung bản tin nào lên Telegram? Bạn có thể gửi nội dung cụ thể để mình xác nhận trước khi đăng nhé.",
+              "response_type": "text"
             }
           }
         ],
         "actual_text": "",
         "case_failure_type": "wrong_boundary",
-        "observed_mismatch": "missing_tool_call",
+        "observed_mismatch": "wrong_arg_value",
         "failure_type": "wrong_boundary",
         "failures": [
-          "missing tool call clarify",
-          "extra tool call timeline"
+          "response_type: expected 'yes_no', got 'text'"
         ]
       },
       "tool_results": [
         {
-          "tool": "timeline",
+          "tool": "clarify",
           "args": {
-            "screenname": "samaltman",
-            "limit": 5
+            "question": "Bạn muốn đăng nội dung bản tin nào lên Telegram? Bạn có thể gửi nội dung cụ thể để mình xác nhận trước khi đăng nhé.",
+            "response_type": "text"
           },
           "result": {
-            "tool": "get_user_tweets",
-            "error": "RuntimeError",
-            "message": "Missing RAPIDAPI_KEY env var"
+            "tool": "ask_user",
+            "question": "Bạn muốn đăng nội dung bản tin nào lên Telegram? Bạn có thể gửi nội dung cụ thể để mình xác nhận trước khi đăng nhé.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
           }
         }
       ]
@@ -706,14 +705,14 @@
         ]
       },
       "result": {
-        "passed": false,
+        "passed": true,
         "routing_correct": true,
-        "args_correct": false,
+        "args_correct": true,
         "actual_tool_calls": [
           {
             "name": "lookup",
             "args": {
-              "query": "AI news today",
+              "query": "AI",
               "topic": "news",
               "timeframe": "day",
               "max_results": 5
@@ -730,17 +729,15 @@
         ],
         "actual_text": "",
         "case_failure_type": "wrong_tool",
-        "observed_mismatch": "wrong_arg_value",
-        "failure_type": "wrong_tool",
-        "failures": [
-          "query: expected 'AI', got 'AI news today'"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
           "tool": "lookup",
           "args": {
-            "query": "AI news today",
+            "query": "AI",
             "topic": "news",
             "timeframe": "day",
             "max_results": 5
@@ -783,40 +780,17 @@
         "behavior": "refuse"
       },
       "result": {
-        "passed": false,
-        "routing_correct": false,
-        "args_correct": false,
-        "actual_tool_calls": [
-          {
-            "name": "lookup",
-            "args": {
-              "query": "Python Fibonacci recursion function example",
-              "max_results": 3
-            }
-          }
-        ],
-        "actual_text": "",
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Xin lỗi, yêu cầu viết code/hàm Python (tính Fibonacci) nằm ngoài phạm vi công việc của tôi. Tôi là trợ lý nghiên cứu, chuyên hỗ trợ các tác vụ sau:\n\n- **Tra cứu thông tin** trên web (tin tức, kiến thức)\n- **Tìm kiếm** trên mạng xã hội / Twitter\n- **Đọc và tóm tắt** nội dung bài báo, link\n- **Định dạng** và **gửi** kết quả nghiên cứu\n\nNếu bạn có nhu cầu tra cứu thông tin gì, hãy cho tôi biết nhé!",
         "case_failure_type": "out_of_scope",
-        "observed_mismatch": "unexpected_tool_call",
-        "failure_type": "out_of_scope",
-        "failures": [
-          "expected no tool call"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
-      "tool_results": [
-        {
-          "tool": "lookup",
-          "args": {
-            "query": "Python Fibonacci recursion function example",
-            "max_results": 3
-          },
-          "result": {
-            "tool": "web_search",
-            "error": "RuntimeError",
-            "message": "Missing TAVILY_API_KEY env var"
-          }
-        }
-      ]
+      "tool_results": []
     },
     {
       "id": "M01_clarify_then_fill",
@@ -926,14 +900,14 @@
         ]
       },
       "result": {
-        "passed": false,
+        "passed": true,
         "routing_correct": true,
-        "args_correct": false,
+        "args_correct": true,
         "actual_tool_calls": [
           {
             "name": "lookup",
             "args": {
-              "query": "robotics news today",
+              "query": "robotics",
               "topic": "news",
               "timeframe": "day",
               "max_results": 5
@@ -942,17 +916,15 @@
         ],
         "actual_text": "",
         "case_failure_type": "wrong_arg_value",
-        "observed_mismatch": "wrong_arg_value",
-        "failure_type": "wrong_arg_value",
-        "failures": [
-          "query: expected 'robotics', got 'robotics news today'"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
           "tool": "lookup",
           "args": {
-            "query": "robotics news today",
+            "query": "robotics",
             "topic": "news",
             "timeframe": "day",
             "max_results": 5
@@ -1002,29 +974,31 @@
         ]
       },
       "result": {
-        "passed": true,
+        "passed": false,
         "routing_correct": true,
-        "args_correct": true,
+        "args_correct": false,
         "actual_tool_calls": [
           {
             "name": "timeline",
             "args": {
-              "screenname": "karpathy",
+              "screenname": "AndrejKarpathy",
               "limit": 3
             }
           }
         ],
         "actual_text": "",
         "case_failure_type": "wrong_arg_value",
-        "observed_mismatch": null,
-        "failure_type": null,
-        "failures": []
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "screenname: expected 'karpathy', got 'AndrejKarpathy'"
+        ]
       },
       "tool_results": [
         {
           "tool": "timeline",
           "args": {
-            "screenname": "karpathy",
+            "screenname": "AndrejKarpathy",
             "limit": 3
           },
           "result": {
@@ -1209,14 +1183,14 @@
         ]
       },
       "result": {
-        "passed": false,
+        "passed": true,
         "routing_correct": true,
-        "args_correct": false,
+        "args_correct": true,
         "actual_tool_calls": [
           {
             "name": "lookup",
             "args": {
-              "query": "OpenAI tin tức mới nhất",
+              "query": "OpenAI",
               "topic": "news",
               "timeframe": "week",
               "max_results": 5
@@ -1225,17 +1199,15 @@
         ],
         "actual_text": "",
         "case_failure_type": "wrong_tool",
-        "observed_mismatch": "wrong_arg_value",
-        "failure_type": "wrong_tool",
-        "failures": [
-          "query: expected 'OpenAI', got 'OpenAI tin tức mới nhất'"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
           "tool": "lookup",
           "args": {
-            "query": "OpenAI tin tức mới nhất",
+            "query": "OpenAI",
             "topic": "news",
             "timeframe": "week",
             "max_results": 5
