@@ -1,98 +1,246 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "Bộ 10 eval cases của nhóm Group27: 5 single-turn và 5 multi-turn kiểm thử định tuyến tool, xử lý thông tin thiếu, xác nhậnTelegram và chuyển đổi ngữ cảnh thoại.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": [{
-  "id": "G01_single_robotics_news",
-  "phase": "B",
-  "query": "Tìm tin robotics trong tuần này.",
-  "failure_type": "wrong_arg_value",
-  "expect": {
-    "tool_calls": [
-      {
-        "name": "lookup",
-        "args": {
-          "query": "robotics",
-          "topic": "news",
-          "timeframe": "week"
-        }
+  "cases": [
+    {
+      "id": "G01_single_robotics_news",
+      "phase": "B",
+      "query": "Tìm tin robotics trong tuần này.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Kiểm tra agent gọi đúng lookup và truyền chính xác query, topic, timeframe."
       }
-    ]
-  },
-  "metadata": {
-    "what_it_tests": "Kiểm tra agent gọi đúng lookup và truyền chính xác query, topic, timeframe."
-  }
-},
-{
-  "id": "G02_single_missing_info",
-  "phase": "B",
-  "query": "Tìm tin trong tuần này về công ty đó.",
-  "failure_type": "missing_info",
-  "expect": {
-    "no_tool": true
-  },
-  "metadata": {
-    "what_it_tests": "Agent phải hỏi lại tên công ty thay vì tự đoán và gọi tool."
-  }
-},
-{
-  "id": "G03_multi_change_topic",
-  "phase": "B",
-  "turns": [
-    {
-      "role": "user",
-      "content": "Tìm tin AI trong tuần này."
     },
     {
-      "role": "user",
-      "content": "Tôi đổi ý, không tìm AI nữa."
-    },
-    {
-      "role": "user",
-      "content": "Hãy tìm tin robotics trong tuần này."
-    }
-  ],
-  "failure_type": "wrong_arg_value",
-  "expect": {
-    "tool_calls": [
-      {
-        "name": "lookup",
-        "args": {
-          "query": "robotics",
-          "topic": "news",
-          "timeframe": "week"
-        }
+      "id": "G02_single_missing_info",
+      "phase": "B",
+      "query": "Tóm tắt bài viết này giúp mình",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Agent phải hỏi lại URL bài viết (clarify text) thay vì tự đoán và gọi fetch."
       }
-    ]
-  },
-  "metadata": {
-    "what_it_tests": "Kiểm tra agent ưu tiên chủ đề ở lượt cuối, không tiếp tục tìm AI."
-  }
-},
-{
-  "id": "G04_multi_cancel_request",
-  "phase": "B",
-  "turns": [
-    {
-      "role": "user",
-      "content": "Tìm tin robotics trong tuần này."
     },
     {
-      "role": "user",
-      "content": "Khoan, tôi đổi ý."
+      "id": "G03_multi_change_topic",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin AI trong tuần này."
+        },
+        {
+          "role": "user",
+          "content": "Tôi đổi ý, không tìm AI nữa."
+        },
+        {
+          "role": "user",
+          "content": "Hãy tìm tin robotics trong tuần này."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Kiểm tra agent ưu tiên chủ đề ở lượt cuối, không tiếp tục tìm AI."
+      }
     },
     {
-      "role": "user",
-      "content": "Không cần tìm nữa, chỉ dừng lại thôi."
+      "id": "G04_multi_cancel_request",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin robotics trong tuần này."
+        },
+        {
+          "role": "user",
+          "content": "Khoan, tôi đổi ý."
+        },
+        {
+          "role": "user",
+          "content": "Không cần tìm nữa, chỉ dừng lại thôi."
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Kiểm tra agent tôn trọng việc hủy yêu cầu và không gọi tool theo lượt trước."
+      }
+    },
+    {
+      "id": "G05_single_confirm_telegram",
+      "phase": "B",
+      "query": "Gửi thông báo 'Bài lab đã hoàn thành 100%' lên Telegram giúp mình",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Yêu cầu gửi Telegram → BẮT BUỘC gọi clarify(response_type='yes_no') xin xác nhận trước khi gọi send."
+      }
+    },
+    {
+      "id": "G06_single_read_url",
+      "phase": "B",
+      "query": "Đọc bài viết tại https://openai.com/index/gpt-4o/",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/index/gpt-4o/"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Có URL cụ thể → gọi fetch đúng URL đó."
+      }
+    },
+    {
+      "id": "G07_single_out_of_scope_coding",
+      "phase": "B",
+      "query": "Viết giúp mình thuật toán Python sắp xếp mảng QuickSort",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Câu hỏi lập trình ngoài phạm vi research → không gọi tool."
+      }
+    },
+    {
+      "id": "G08_multi_handle_correction",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tweet mới nhất của Sam Altman"
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, của Andrej Karpathy"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 tweet mới nhất nhé"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Chuyển đối tượng người nổi tiếng → map đúng handle chính thức karpathy."
+      }
+    },
+    {
+      "id": "G09_multi_clarify_then_fetch",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tóm tắt trang web này hộ mình"
+        },
+        {
+          "role": "user",
+          "content": "https://deepseek.com"
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://deepseek.com"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Sau khi người dùng cấp URL ở lượt thoại 2 → gọi fetch đúng URL."
+      }
+    },
+    {
+      "id": "G10_multi_switch_web_to_twitter",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin tức AI trên web"
+        },
+        {
+          "role": "user",
+          "content": "Đổi sang tìm trên Twitter xem mọi người bàn luận gì"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Chuyển từ web search sang Twitter search → gọi social_search với query AI."
+      }
     }
-  ],
-  "failure_type": "wrong_boundary",
-  "expect": {
-    "no_tool": true
-  },
-  "metadata": {
-    "what_it_tests": "Kiểm tra agent tôn trọng việc hủy yêu cầu và không gọi tool theo lượt trước."
-  }
-}]
+  ]
 }
