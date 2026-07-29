@@ -6,8 +6,7 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: >
-      Gửi một câu hỏi cho người dùng để xin thông tin còn thiếu HOẶC xin xác nhận
+    description: Gửi một câu hỏi cho người dùng để xin thông tin còn thiếu HOẶC xin xác nhận
       trước khi thực hiện một hành động nhạy cảm (ví dụ: gửi tin nhắn ra bên ngoài).
       BẮT BUỘC dùng tool này (thay vì tự suy đoán, dùng giá trị mặc định, hoặc tự
       bịa dữ liệu) trong các trường hợp:
@@ -43,8 +42,7 @@ tools:
       required: [screenname]
 
   - name: social_search
-    description: >
-      Tìm kiếm bài đăng công khai trên mạng xã hội (ví dụ Twitter/X) theo từ khóa.
+    description: Tìm kiếm bài đăng công khai trên mạng xã hội (ví dụ Twitter/X) theo từ khóa.
       Dùng tool này khi người dùng muốn tìm thông tin/tin tức TRÊN mạng xã hội,
       hoặc khi người dùng yêu cầu tìm trên "cả web lẫn Twitter/mạng xã hội" —
       trường hợp này phải gọi CẢ social_search (hoặc timeline nếu có tài khoản
@@ -59,9 +57,8 @@ tools:
         limit: {type: integer, default: 5, description: "Số lượng"}
       required: [query]
 
-  - name: lookup
-    description: >
-      Tra cứu thông tin/tin tức trên internet (web search, không phải mạng xã hội).
+  - name: internet_lookup
+    description: Tra cứu thông tin/tin tức trên internet (web search, không phải mạng xã hội).
       Dùng khi người dùng hỏi tin tức chung hoặc tìm thông tin trên "web".
       QUAN TRỌNG - giữ nguyên query: KHÔNG tự ý mở rộng, dịch, hoặc thêm từ đồng
       nghĩa vào từ khóa người dùng cung cấp (ví dụ: người dùng nói "AI" thì
@@ -82,7 +79,7 @@ tools:
         max_results: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
-  - name: fetch
+  - name: fetch_URL
     description: >
       Lấy nội dung từ một địa chỉ URL CỤ THỂ mà người dùng đã cung cấp (hoặc lấy
       được từ kết quả lookup/social_search trước đó). TUYỆT ĐỐI KHÔNG tự bịa,
@@ -95,7 +92,7 @@ tools:
         url: {type: string, default: "", description: "Địa chỉ — chỉ dùng URL có thật do người dùng cung cấp hoặc lấy từ kết quả tool trước, không tự đoán"}
       required: [url]
 
-  - name: format
+  - name: format_text
     description: "Trình bày dữ liệu đã có thành văn bản."
     parameters:
       type: object
@@ -118,8 +115,7 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: >
-      Gửi một đoạn văn bản ra bên ngoài hệ thống (ví dụ Telegram). Đây là hành
+    description: Gửi một đoạn văn bản ra bên ngoài hệ thống (ví dụ Telegram). Đây là hành
       động KHÔNG THỂ HOÀN TÁC và tác động ra bên ngoài, nên BẮT BUỘC phải xin
       xác nhận người dùng trước: gọi `clarify` với response_type="yes_no" để
       hỏi "Bạn có muốn gửi nội dung này không?" và chỉ gọi `send` với
@@ -133,7 +129,7 @@ tools:
         confirmed: {type: boolean, default: false, description: "Chỉ true sau khi đã xác nhận Có/Không qua clarify"}
       required: [text]
 
-  - name: policy
+  - name: policy_search
     description: "Tìm trong tài liệu nội bộ."
     parameters:
       type: object
@@ -143,7 +139,7 @@ tools:
         top_k: {type: integer, default: 3, description: "Số mục"}
       required: [query]
 
-  - name: papers
+  - name: papers_search
     description: "Tìm bài báo khoa học."
     parameters:
       type: object
