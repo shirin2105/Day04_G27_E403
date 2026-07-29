@@ -1,109 +1,78 @@
-# starter_v1 — tool declarations (đã làm rõ routing rules, missing-info handling,
-# confirmation boundary, và arg conventions để agent route đúng trên eval).
-#
-# Nếu rename tool, đồng bộ tên tool trong: tools/__init__.py (TOOL_FUNCTIONS) ->
-# data/eval_base.json + data/eval_research_extension.json -> system_prompt.md -> TOOL.md
+# starter_v2 — Tool Declarations (English specifications for precise LLM tool routing)
+
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
     description: >
-      Gửi một câu hỏi cho người dùng để xin thông tin còn thiếu HOẶC xin xác nhận
-      trước khi thực hiện một hành động nhạy cảm (ví dụ: gửi tin nhắn ra bên ngoài).
-      BẮT BUỘC dùng tool này (thay vì tự suy đoán, dùng giá trị mặc định, hoặc tự
-      bịa dữ liệu) trong các trường hợp:
-        1) Thiếu tham số bắt buộc mà không có cách suy ra hợp lý từ hội thoại
-           (ví dụ: người dùng nói "tóm tắt tweet mới nhất" nhưng chưa nói xem
-           tweet của tài khoản nào -> phải hỏi username trước khi gọi timeline;
-           người dùng nói "tóm tắt bài viết này" nhưng không đưa link -> phải hỏi
-           link trước khi gọi fetch, TUYỆT ĐỐI không tự đoán/bịa URL).
-        2) Trước khi gọi tool `send` (gửi tin nhắn/nội dung ra ngoài hệ thống,
-           ví dụ Telegram) -> dùng response_type="yes_no" để hỏi "Có/Không" xác
-           nhận nội dung, CHỈ gọi `send` với confirmed=true sau khi người dùng
-           xác nhận đồng ý.
+      Ask the user a question to request missing required information OR to request explicit user confirmation
+      before performing an external/sensitive action (such as sending a message via `send`).
+      MUST use response_type="text" when asking for missing parameters (e.g. missing screenname or missing URL).
+      MUST use response_type="yes_no" when asking for user confirmation before executing any send/publish request.
     parameters:
       type: object
       properties:
-        question: {type: string, default: "", description: "Câu hỏi"}
-        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời"}
-        options: {type: array, default: [], items: {type: string}, description: "Các lựa chọn"}
+        question: {type: string, default: "", description: "Clarification question or confirmation prompt for the user."}
+        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Response type: 'text' for missing info, 'yes_no' for action confirmation."}
+        options: {type: array, default: [], items: {type: string}, description: "List of options if response_type is 'choice'."}
       required: [question]
 
   - name: timeline
     description: >
-      Lấy các bài đăng gần đây của MỘT tài khoản mạng xã hội cụ thể (dùng handle chính thức trên Twitter như sama, elonmusk, karpathy).
-      Chỉ gọi tool này khi đã biết rõ screenname (do người dùng cung cấp trong
-      hội thoại). Nếu người dùng chưa cho biết muốn xem tweet/bài đăng của ai,
-      KHÔNG được gọi timeline với screenname rỗng hoặc đoán bừa — phải gọi
-      `clarify` để hỏi tên tài khoản trước.
+      Retrieve recent posts/tweets from a single specific social media account using their official screenname handle (e.g. sama, elonmusk, karpathy).
+      Requires an explicit, known screenname. If the user does not specify whose tweets to retrieve, call `clarify(response_type="text")` to ask for the account handle.
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản (bắt buộc phải có giá trị thật, không để trống/đoán)"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        screenname: {type: string, default: "", description: "Official account handle (e.g., sama, elonmusk). Must not be empty or guessed."}
+        limit: {type: integer, default: 5, description: "Maximum number of recent posts to retrieve."}
       required: [screenname]
 
   - name: social_search
     description: >
-      Tìm kiếm bài đăng công khai trên mạng xã hội (ví dụ Twitter/X) theo từ khóa.
-      Dùng tool này khi người dùng muốn tìm thông tin/tin tức TRÊN mạng xã hội,
-      hoặc khi người dùng yêu cầu tìm trên "cả web lẫn Twitter/mạng xã hội" —
-      trường hợp này phải gọi CẢ social_search (hoặc timeline nếu có tài khoản
-      cụ thể) VÀ lookup (cho web) trong cùng một lượt trả lời, không được chỉ
-      gọi một trong hai. Giữ nguyên từ khóa người dùng cung cấp, không tự ý
-      diễn giải/mở rộng thêm từ đồng nghĩa.
+      Search public social media posts (e.g., Twitter/X) by keyword query.
+      Use this when the user wants to search topic discussions on social media, or when asked to search both web AND social media (call both `lookup` and `social_search`).
+      Keep the query exact and concise to the core subject without adding filler words.
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa — giữ nguyên như người dùng nêu, không tự thêm/dịch từ"}
-        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        query: {type: string, default: "", description: "Search keyword query. Keep to the core subject."}
+        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Search sort type."}
+        limit: {type: integer, default: 5, description: "Maximum number of items to return."}
       required: [query]
 
   - name: lookup
     description: >
-      Tra cứu thông tin/tin tức trên internet (web search, không phải mạng xã hội).
-      Dùng khi người dùng hỏi tin tức chung hoặc tìm thông tin trên "web".
-      QUAN TRỌNG - giữ nguyên query: KHÔNG tự ý mở rộng, dịch, hoặc thêm từ đồng
-      nghĩa vào từ khóa người dùng cung cấp (ví dụ: người dùng nói "AI" thì
-      query phải là "AI", KHÔNG tự sửa thành "AI tin tức nổi bật hôm nay" hay "AI artificial intelligence").
-      Nếu người dùng yêu cầu tìm trên nhiều nguồn (web + mạng xã hội), tool này
-      chỉ đáp ứng phần "web" — phải gọi thêm social_search/timeline cho phần
-      mạng xã hội trong cùng lượt trả lời.
-      Tham số timeframe: nếu người dùng đã nêu rõ khung thời gian ở lượt hội
-      thoại trước và không nói gì khác ở lượt hiện tại, GIỮ NGUYÊN timeframe đó
-      (kế thừa ngữ cảnh multi-turn); chỉ đổi khi người dùng nêu khung thời gian
-      mới một cách rõ ràng.
+      Search web or news articles on the internet (not social media).
+      CRITICAL: Use the exact core subject keyword as `query`. Do NOT expand or add filler words (e.g. for "Tin tức AI hôm nay có gì nổi bật?", query must be "AI", topic="news", timeframe="day").
+      Preserve multi-turn timeframe context across turns unless the user explicitly specifies a new timeframe.
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Truy vấn — giữ nguyên nguyên văn từ khóa người dùng, không tự thêm/dịch"}
-        topic: {type: string, enum: [general, news], default: "general", description: "Phân loại"}
-        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian — kế thừa từ lượt trước nếu người dùng không đổi"}
-        max_results: {type: integer, default: 5, description: "Số kết quả"}
+        query: {type: string, default: "", description: "Exact core subject search query without filler words."}
+        topic: {type: string, enum: [general, news], default: "general", description: "Search category topic."}
+        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Time filter frame."}
+        max_results: {type: integer, default: 5, description: "Maximum results to return."}
       required: [query]
 
   - name: fetch
     description: >
-      Lấy nội dung từ một địa chỉ URL CỤ THỂ mà người dùng đã cung cấp (hoặc lấy
-      được từ kết quả lookup/social_search trước đó). TUYỆT ĐỐI KHÔNG tự bịa,
-      đoán, hoặc dùng URL mặc định (ví dụ không tự chọn https://vnexpress.net)
-      khi người dùng chỉ nói "bài viết này" mà không đưa link. Trường hợp đó
-      phải gọi `clarify` để xin link trước.
+      Fetch full page content from a specific, real URL provided by the user or from previous search results.
+      NEVER guess or invent URLs. If the user asks to summarize "this article" without providing a URL, call `clarify(response_type="text")` to ask for the URL.
     parameters:
       type: object
       properties:
-        url: {type: string, default: "", description: "Địa chỉ — chỉ dùng URL có thật do người dùng cung cấp hoặc lấy từ kết quả tool trước, không tự đoán"}
+        url: {type: string, default: "", description: "Target URL to fetch. Must be a real URL provided by the user."}
       required: [url]
 
   - name: format
-    description: "Trình bày dữ liệu đã có thành văn bản."
+    description: "Format retrieved research items into structured markdown text templates."
     parameters:
       type: object
       properties:
         items:
           type: array
           default: []
-          description: "Danh sách item"
+          description: "List of research items to format."
           items:
             type: object
             properties:
@@ -112,53 +81,49 @@ tools:
               source: {type: string}
               summary: {type: string}
               section: {type: string}
-        template: {type: string, enum: [brief, sections, bullets, thread, daily_ai_vn], default: "sections", description: "Khuôn"}
-        headline: {type: string, default: "", description: "Tiêu đề"}
+        template: {type: string, enum: [brief, sections, bullets, thread, daily_ai_vn], default: "sections", description: "Formatting template style."}
+        headline: {type: string, default: "", description: "Optional title headline."}
       required: [items, template]
 
   # ---------------- Bonus tools ----------------
   - name: send
     description: >
-      Gửi một đoạn văn bản ra bên ngoài hệ thống (ví dụ Telegram). Đây là hành
-      động KHÔNG THỂ HOÀN TÁC và tác động ra bên ngoài, nên BẮT BUỘC phải xin
-      xác nhận người dùng trước: gọi `clarify` với response_type="yes_no" để
-      hỏi "Bạn có muốn gửi nội dung này không?" và chỉ gọi `send` với
-      confirmed=true SAU KHI người dùng xác nhận "Có". TUYỆT ĐỐI không gọi
-      send trực tiếp ngay khi nhận yêu cầu, kể cả khi người dùng đã nêu rõ nội
-      dung cần gửi.
+      Send text message to an external destination (e.g. Telegram).
+      Irreversible action that REQUIRES prior user confirmation via `clarify(response_type="yes_no")`.
+      Only call `send` with confirmed=true AFTER the user explicitly confirms "yes".
     parameters:
       type: object
       properties:
-        text: {type: string, default: "", description: "Nội dung"}
-        confirmed: {type: boolean, default: false, description: "Chỉ true sau khi đã xác nhận Có/Không qua clarify"}
+        text: {type: string, default: "", description: "Message content to send."}
+        confirmed: {type: boolean, default: false, description: "Must be true only after user confirmation via yes_no clarify."}
       required: [text]
 
   - name: policy
-    description: "Tìm trong tài liệu nội bộ."
+    description: "Search internal enterprise policy documents."
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Truy vấn"}
-        policy_area: {type: string, enum: [all, ai_research, source_citation, data_privacy, external_publishing, tool_usage], default: "all", description: "Nhóm"}
-        top_k: {type: integer, default: 3, description: "Số mục"}
+        query: {type: string, default: "", description: "Search query."}
+        policy_area: {type: string, enum: [all, ai_research, source_citation, data_privacy, external_publishing, tool_usage], default: "all", description: "Policy domain area."}
+        top_k: {type: integer, default: 3, description: "Number of policy matches."}
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học."
+    description: "Search scientific research papers on arXiv."
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa"}
-        max_results: {type: integer, default: 5, description: "Số lượng"}
-        sort_by: {type: string, enum: [relevance, lastUpdatedDate, submittedDate], default: "relevance", description: "Sắp xếp"}
+        query: {type: string, default: "", description: "Search query."}
+        max_results: {type: integer, default: 5, description: "Max results."}
+        sort_by: {type: string, enum: [relevance, lastUpdatedDate, submittedDate], default: "relevance", description: "Sort criteria."}
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung text của một bài báo."
+    description: "Extract text content from an arXiv research paper PDF."
     parameters:
       type: object
       properties:
-        arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ"}
-        max_pages: {type: integer, default: 5, description: "Số trang"}
-        max_chars: {type: integer, default: 8000, description: "Số ký tự"}
+        arxiv_url: {type: string, default: "", description: "arXiv ID or URL."}
+        max_pages: {type: integer, default: 5, description: "Max pages."}
+        max_chars: {type: integer, default: 8000, description: "Max characters."}
       required: [arxiv_url]
