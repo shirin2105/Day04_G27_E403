@@ -7,6 +7,19 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+if hasattr(sys.stderr, "reconfigure"):
+    try:
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 from env_loader import load_lab_env
 from providers import make_provider
 from providers.base import ToolCall
@@ -112,7 +125,10 @@ def run_model_tool_loop(
         non_clarification_events: list[dict[str, Any]] = []
 
         for call in calls:
-            print(f"🔧 {call.name}({json.dumps(call.args, ensure_ascii=False, sort_keys=True)})")
+            try:
+                print(f"[TOOL] {call.name}({json.dumps(call.args, ensure_ascii=False, sort_keys=True)})")
+            except Exception:
+                pass
             event = execute_tool_call(call)
             round_record["tool_results"].append(event)
             all_tool_events.append(event)

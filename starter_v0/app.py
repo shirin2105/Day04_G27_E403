@@ -3,6 +3,19 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from pathlib import Path
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+if hasattr(sys.stderr, "reconfigure"):
+    try:
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 import streamlit as st
 
 from env_loader import load_lab_env
