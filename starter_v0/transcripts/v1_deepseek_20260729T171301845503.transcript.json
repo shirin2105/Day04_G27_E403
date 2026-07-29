@@ -1,0 +1,336 @@
+{
+  "transcript_id": "v1_deepseek_20260729T171301845503",
+  "version": "v1",
+  "artifact_version": "v1+pc032923938ed+t1af99313ae63",
+  "prompt_hash": "c032923938ed679a37ac6f276655ff59bf64b0b3722b282b70bc8af1a79fa75c",
+  "tools_hash": "1af99313ae634d3230c0c2479bff563e67ca13c0d0fb37f7bd97e5d64dc9e686",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "system_prompt": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\tools.yaml",
+  "created_at": "2026-07-29T17:13:48",
+  "updated_at": "2026-07-29T17:13:48",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T17:13:20",
+      "user": "theo tweet I'm back là ai",
+      "status": "answered",
+      "ended_at": "2026-07-29T17:13:22",
+      "assistant_text": "Bạn đang hỏi về tweet \"I'm back\" — bạn có thể cho mình biết tài khoản Twitter/X cụ thể mà bạn muốn tra không? Hay bạn muốn mình tìm kiếm trên mạng xã hội về cụm từ \"I'm back\" để xem có thông tin gì nổi bật không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Bạn đang hỏi về tweet \"I'm back\" — bạn có thể cho mình biết tài khoản Twitter/X cụ thể mà bạn muốn tra không? Hay bạn muốn mình tìm kiếm trên mạng xã hội về cụm từ \"I'm back\" để xem có thông tin gì nổi bật không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": []
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T17:13:41",
+      "user": "tìm trên tweet đi",
+      "status": "answered",
+      "ended_at": "2026-07-29T17:13:48",
+      "assistant_text": "Kết quả tìm kiếm từ Twitter/X cho \"I'm back\" chủ yếu là các tweet thông thường của người dùng, không có một tweet \"I'm back\" nổi bật nào từ một nhân vật nổi tiếng cụ thể trong kết quả này.\n\nBạn có đang muốn hỏi về một ai đó cụ thể không? Ví dụ như:\n\n- **Sam Altman** (từng đăng \"I'm back\" khi quay lại OpenAI sau sự kiện bị sa thải năm 2023)\n- **Donald Trump** (từng đăng \"I'm back\" khi quay lại Twitter/X)\n- Hoặc một nhân vật nào khác?\n\nNếu bạn cho mình biết tên hoặc handle cụ thể, mình có thể tra chính xác hơn nhé!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Bạn muốn tìm kiếm trên Twitter/X về cụm từ \"I'm back\" đúng không? Mình sẽ dùng `social_search` để tra.",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "I'm back",
+                "search_type": "Latest",
+                "limit": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "I'm back",
+                "search_type": "Latest",
+                "limit": 10
+              },
+              "result": {
+                "tool": "search_tweets",
+                "query": "I'm back",
+                "search_type": "Latest",
+                "items": [
+                  {
+                    "title": "I text you “good morning baby”, you reply me back with “good morning sir”.",
+                    "summary": "I text you “good morning baby”, you reply me back with “good morning sir”.\nAs how? I ask you why you did so, you say because you want to respect me cos I’m 33 and you’re 25. Are you okay?\n\nWho respect help? Kindly disrespect me please.",
+                    "url": "https://x.com/lavezzedout/status/2082409197547696146",
+                    "source": "@lavezzedout",
+                    "date": "Wed Jul 29 10:13:36 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "I’m so pissed at work, and I’m not even there, that I don’t even feel like enjoying the concert, lll go get ready to to ",
+                    "summary": "I’m so pissed at work, and I’m not even there, that I don’t even feel like enjoying the concert, lll go get ready to to dye my hair and I’ll be back happier I hope",
+                    "url": "https://x.com/mimospuppy/status/2082409190975234505",
+                    "source": "@mimospuppy",
+                    "date": "Wed Jul 29 10:13:35 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "@TheRealJamieKay Chile. I went for the first time in 2007, been back 8 times as I have family there. It feels like home!",
+                    "summary": "@TheRealJamieKay Chile. I went for the first time in 2007, been back 8 times as I have family there. It feels like home! (I'm not short in Chile😄)",
+                    "url": "https://x.com/JoyShillaker/status/2082409174600757537",
+                    "source": "@JoyShillaker",
+                    "date": "Wed Jul 29 10:13:31 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "If my posts don’t always make sense it’s probably because many of them are just n-the-moment / stream of consciousness t",
+                    "summary": "If my posts don’t always make sense it’s probably because many of them are just n-the-moment / stream of consciousness thoughts I’m sending right back at the sim",
+                    "url": "https://x.com/justsomeguy741/status/2082409160344232195",
+                    "source": "@justsomeguy741",
+                    "date": "Wed Jul 29 10:13:27 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": "5"
+                    }
+                  },
+                  {
+                    "title": "I’m going back to the era of using pouch. ",
+                    "summary": "I’m going back to the era of using pouch. \n\nAll phones do today is scratch! No matter how gently I handle them",
+                    "url": "https://x.com/tobennna/status/2082409154434503043",
+                    "source": "@tobennna",
+                    "date": "Wed Jul 29 10:13:26 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "Nancy Grace explains why she refuses to close the Nolan Wells investigation ",
+                    "summary": "Nancy Grace explains why she refuses to close the Nolan Wells investigation \n\nStephen A. Smith: What do you make of those who have said the evidence is showing that they departed when they departed Nolan was alive, and they may have had absolutely, positively nothing to do with this? Is that your finding?\n\nNancy Grace: No. I don’t know the answer to that. They say Nolan chose to stay behind because he met a girl he wanted to talk to named Katie. That girl has spoken through her sister, we are told, and she says Nolan told her, “I’m going back with my friends.” So, who am I supposed to believe?\n\nI don’t know for a fact that what the boys are saying is true. I don’t know for a fact that what the boys are saying is false. I do know they called Sea Tow, S-E-A, second word, T-O-W, and said that their vessel was sinking. But yet, they continued boating around in it for hours after. Is there an innocent explanation? Maybe. Maybe they thought it was sinking, they found the problem, and they fixed it.\n\nNow, specters have been raised about audio suggesting Nolan had been on the boat on their return. I don’t know if that was doctored. I don’t know if it’s real. I do know this; he went to Horn Island with them. They came back alive, he’s dead. I’m going to investigate. You’re darn right I’m going to investigate.\n\nAnd my wish is that his friends are innocent, and that this was an accident. But it will be a cold day in H-E-double-L that I endorse closing down an investigation because somebody said, “I had nothing to do with that.”",
+                    "url": "https://x.com/heisdenji/status/2082409147568398573",
+                    "source": "@heisdenji",
+                    "date": "Wed Jul 29 10:13:24 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": "18"
+                    }
+                  },
+                  {
+                    "title": "@jonathanfg97120 @LeadingReport I'm almost praying it will be AOC and Jasmine Crockett, with 6-8 months on full display ",
+                    "summary": "@jonathanfg97120 @LeadingReport I'm almost praying it will be AOC and Jasmine Crockett, with 6-8 months on full display 24/7 every dumb 🍑 thing they've ever said will come back to bite them all the while they will be generating all new DUMBER sound bites. It will be like SNL back when it was funny.",
+                    "url": "https://x.com/numenlad/status/2082409114299220291",
+                    "source": "@numenlad",
+                    "date": "Wed Jul 29 10:13:16 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": "1"
+                    }
+                  },
+                  {
+                    "title": "I’m so forgiving, I feel &amp; love so hard! I hate it because as soon as some one starts back being nice to me, everyth",
+                    "summary": "I’m so forgiving, I feel &amp; love so hard! I hate it because as soon as some one starts back being nice to me, everything they did go out the window, only for them to literally turn around and do it again 😳",
+                    "url": "https://x.com/mzpr3ttyy/status/2082409112273379773",
+                    "source": "@mzpr3ttyy",
+                    "date": "Wed Jul 29 10:13:16 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "@G1RLFND Omg I wish they got a pic of him laying back I’m literally DROOLING https://t.co/5ppGPkqHYm",
+                    "summary": "@G1RLFND Omg I wish they got a pic of him laying back I’m literally DROOLING https://t.co/5ppGPkqHYm",
+                    "url": "https://x.com/love_kennediii/status/2082409099690467807",
+                    "source": "@love_kennediii",
+                    "date": "Wed Jul 29 10:13:13 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  },
+                  {
+                    "title": "Borrowed three people money.",
+                    "summary": "Borrowed three people money.\nIt's been 1 month since the day they said they would pay me back. \nI'm having to beg and double text and I feel so bad😭\nI have so much to do and I just have to wait it out.\nIt's unfair mehn💔",
+                    "url": "https://x.com/AnointingObiudo/status/2082409072238698824",
+                    "source": "@AnointingObiudo",
+                    "date": "Wed Jul 29 10:13:06 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 0,
+                      "views": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Kết quả tìm kiếm từ Twitter/X cho \"I'm back\" chủ yếu là các tweet thông thường của người dùng, không có một tweet \"I'm back\" nổi bật nào từ một nhân vật nổi tiếng cụ thể trong kết quả này.\n\nBạn có đang muốn hỏi về một ai đó cụ thể không? Ví dụ như:\n\n- **Sam Altman** (từng đăng \"I'm back\" khi quay lại OpenAI sau sự kiện bị sa thải năm 2023)\n- **Donald Trump** (từng đăng \"I'm back\" khi quay lại Twitter/X)\n- Hoặc một nhân vật nào khác?\n\nNếu bạn cho mình biết tên hoặc handle cụ thể, mình có thể tra chính xác hơn nhé!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "I'm back",
+            "search_type": "Latest",
+            "limit": 10
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "I'm back",
+            "search_type": "Latest",
+            "items": [
+              {
+                "title": "I text you “good morning baby”, you reply me back with “good morning sir”.",
+                "summary": "I text you “good morning baby”, you reply me back with “good morning sir”.\nAs how? I ask you why you did so, you say because you want to respect me cos I’m 33 and you’re 25. Are you okay?\n\nWho respect help? Kindly disrespect me please.",
+                "url": "https://x.com/lavezzedout/status/2082409197547696146",
+                "source": "@lavezzedout",
+                "date": "Wed Jul 29 10:13:36 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "I’m so pissed at work, and I’m not even there, that I don’t even feel like enjoying the concert, lll go get ready to to ",
+                "summary": "I’m so pissed at work, and I’m not even there, that I don’t even feel like enjoying the concert, lll go get ready to to dye my hair and I’ll be back happier I hope",
+                "url": "https://x.com/mimospuppy/status/2082409190975234505",
+                "source": "@mimospuppy",
+                "date": "Wed Jul 29 10:13:35 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "@TheRealJamieKay Chile. I went for the first time in 2007, been back 8 times as I have family there. It feels like home!",
+                "summary": "@TheRealJamieKay Chile. I went for the first time in 2007, been back 8 times as I have family there. It feels like home! (I'm not short in Chile😄)",
+                "url": "https://x.com/JoyShillaker/status/2082409174600757537",
+                "source": "@JoyShillaker",
+                "date": "Wed Jul 29 10:13:31 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "If my posts don’t always make sense it’s probably because many of them are just n-the-moment / stream of consciousness t",
+                "summary": "If my posts don’t always make sense it’s probably because many of them are just n-the-moment / stream of consciousness thoughts I’m sending right back at the sim",
+                "url": "https://x.com/justsomeguy741/status/2082409160344232195",
+                "source": "@justsomeguy741",
+                "date": "Wed Jul 29 10:13:27 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "5"
+                }
+              },
+              {
+                "title": "I’m going back to the era of using pouch. ",
+                "summary": "I’m going back to the era of using pouch. \n\nAll phones do today is scratch! No matter how gently I handle them",
+                "url": "https://x.com/tobennna/status/2082409154434503043",
+                "source": "@tobennna",
+                "date": "Wed Jul 29 10:13:26 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "Nancy Grace explains why she refuses to close the Nolan Wells investigation ",
+                "summary": "Nancy Grace explains why she refuses to close the Nolan Wells investigation \n\nStephen A. Smith: What do you make of those who have said the evidence is showing that they departed when they departed Nolan was alive, and they may have had absolutely, positively nothing to do with this? Is that your finding?\n\nNancy Grace: No. I don’t know the answer to that. They say Nolan chose to stay behind because he met a girl he wanted to talk to named Katie. That girl has spoken through her sister, we are told, and she says Nolan told her, “I’m going back with my friends.” So, who am I supposed to believe?\n\nI don’t know for a fact that what the boys are saying is true. I don’t know for a fact that what the boys are saying is false. I do know they called Sea Tow, S-E-A, second word, T-O-W, and said that their vessel was sinking. But yet, they continued boating around in it for hours after. Is there an innocent explanation? Maybe. Maybe they thought it was sinking, they found the problem, and they fixed it.\n\nNow, specters have been raised about audio suggesting Nolan had been on the boat on their return. I don’t know if that was doctored. I don’t know if it’s real. I do know this; he went to Horn Island with them. They came back alive, he’s dead. I’m going to investigate. You’re darn right I’m going to investigate.\n\nAnd my wish is that his friends are innocent, and that this was an accident. But it will be a cold day in H-E-double-L that I endorse closing down an investigation because somebody said, “I had nothing to do with that.”",
+                "url": "https://x.com/heisdenji/status/2082409147568398573",
+                "source": "@heisdenji",
+                "date": "Wed Jul 29 10:13:24 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "18"
+                }
+              },
+              {
+                "title": "@jonathanfg97120 @LeadingReport I'm almost praying it will be AOC and Jasmine Crockett, with 6-8 months on full display ",
+                "summary": "@jonathanfg97120 @LeadingReport I'm almost praying it will be AOC and Jasmine Crockett, with 6-8 months on full display 24/7 every dumb 🍑 thing they've ever said will come back to bite them all the while they will be generating all new DUMBER sound bites. It will be like SNL back when it was funny.",
+                "url": "https://x.com/numenlad/status/2082409114299220291",
+                "source": "@numenlad",
+                "date": "Wed Jul 29 10:13:16 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "1"
+                }
+              },
+              {
+                "title": "I’m so forgiving, I feel &amp; love so hard! I hate it because as soon as some one starts back being nice to me, everyth",
+                "summary": "I’m so forgiving, I feel &amp; love so hard! I hate it because as soon as some one starts back being nice to me, everything they did go out the window, only for them to literally turn around and do it again 😳",
+                "url": "https://x.com/mzpr3ttyy/status/2082409112273379773",
+                "source": "@mzpr3ttyy",
+                "date": "Wed Jul 29 10:13:16 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "@G1RLFND Omg I wish they got a pic of him laying back I’m literally DROOLING https://t.co/5ppGPkqHYm",
+                "summary": "@G1RLFND Omg I wish they got a pic of him laying back I’m literally DROOLING https://t.co/5ppGPkqHYm",
+                "url": "https://x.com/love_kennediii/status/2082409099690467807",
+                "source": "@love_kennediii",
+                "date": "Wed Jul 29 10:13:13 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": null
+                }
+              },
+              {
+                "title": "Borrowed three people money.",
+                "summary": "Borrowed three people money.\nIt's been 1 month since the day they said they would pay me back. \nI'm having to beg and double text and I feel so bad😭\nI have so much to do and I just have to wait it out.\nIt's unfair mehn💔",
+                "url": "https://x.com/AnointingObiudo/status/2082409072238698824",
+                "source": "@AnointingObiudo",
+                "date": "Wed Jul 29 10:13:06 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 0,
+                  "views": "1"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -131,14 +131,35 @@ with st.sidebar:
     
     provider_name = st.selectbox(
         "Model Provider",
-        options=["deepseek", "gemini", "openrouter", "openai"],
+        options=["openai", "deepseek", "gemini", "openrouter", "anthropic"],
         index=0,
         help="Chọn LLM provider để thực thi tool."
     )
     
+    # Model Presets
+    model_options_map = {
+        "openai": ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo", "gpt-4"],
+        "gemini": ["gemini-1.5-pro", "gemini-2.0-flash", "gemini-1.5-flash"],
+        "openrouter": ["openai/gpt-4o", "anthropic/claude-3.5-sonnet", "google/gemini-2.0-pro-exp-02-05:free", "deepseek/deepseek-chat"],
+        "anthropic": ["claude-3-5-sonnet-20241022", "claude-3-haiku-20240307"],
+        "deepseek": ["deepseek-chat", "deepseek-reasoner"],
+    }
+    
+    selected_model_choice = st.selectbox(
+        "Model Version / Pro Level",
+        options=model_options_map.get(provider_name, ["default"]) + ["Custom Model"],
+        index=0,
+        help="Chọn phiên bản Model (VD: GPT-4o Pro, Gemini 1.5 Pro, DeepSeek Chat...)"
+    )
+    
+    if selected_model_choice == "Custom Model":
+        selected_model = st.text_input("Nhập tên Model tùy chỉnh:", value="gpt-4o")
+    else:
+        selected_model = selected_model_choice
+
     version_label = st.selectbox(
         "Artifact Version",
-        options=["v1", "v0", "v2", "v3"],
+        options=["v3", "v1", "v0", "v2"],
         index=0,
         help="Chọn nhãn phiên bản tương ứng với prompt & tools artifact."
     )
@@ -249,7 +270,7 @@ if user_input:
                     provider=provider,
                     messages=messages_payload,
                     tools=openai_tools,
-                    model=None,
+                    model=selected_model,
                     max_tool_rounds=max_tool_rounds,
                 )
                 

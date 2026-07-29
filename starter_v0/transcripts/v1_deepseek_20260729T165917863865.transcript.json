@@ -1,0 +1,529 @@
+{
+  "transcript_id": "v1_deepseek_20260729T165917863865",
+  "version": "v1",
+  "artifact_version": "v1+pc032923938ed+t1af99313ae63",
+  "prompt_hash": "c032923938ed679a37ac6f276655ff59bf64b0b3722b282b70bc8af1a79fa75c",
+  "tools_hash": "1af99313ae634d3230c0c2479bff563e67ca13c0d0fb37f7bd97e5d64dc9e686",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "system_prompt": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\tools.yaml",
+  "created_at": "2026-07-29T17:00:34",
+  "updated_at": "2026-07-29T17:00:34",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:59:36",
+      "user": "kiến trúc Inception network là gì trong các bài báo",
+      "status": "answered",
+      "ended_at": "2026-07-29T16:59:50",
+      "assistant_text": "## Kiến trúc Inception Network — Giải thích từ các bài báo\n\n### 📄 Bài báo gốc\n\nKiến trúc Inception được giới thiệu lần đầu trong bài báo **\"Going Deeper with Convolutions\"** (Szegedy et al., 2014) — [arXiv: 1409.4842](http://arxiv.org/abs/1409.4842). Đây là kiến trúc đã giành chiến thắng trong **ILSVRC 2014** (ImageNet Large-Scale Visual Recognition Challenge) với tên gọi **GoogLeNet** — một mạng nơ-ron sâu 22 tầng.\n\n---\n\n### 🧠 Ý tưởng cốt lõi\n\n**1. Inception Module — Khối xây dựng cơ bản**\n\nThay vì chỉ dùng một loại filter (ví dụ chỉ 3×3 như VGG), Inception module cho phép **dùng nhiều kích thước filter song song** trên cùng một đầu vào:\n\n- **1×1 convolution** — giảm chiều (dimensionality reduction)\n- **3×3 convolution**\n- **5×5 convolution**\n- **3×3 max pooling**\n\nTất cả các nhánh này được **concatenate** lại ở đầu ra, giúp mạng học được đặc trưng ở **nhiều tỉ lệ (multi-scale)** khác nhau.\n\n**2. 1×1 Convolution — \"Bottleneck\" giảm tham số**\n\nĐiểm mấu chốt: trước mỗi convolution 3×3 hay 5×5, Inception dùng một lớp **1×1 convolution** để giảm số kênh (channel) đầu vào. Điều này giúp:\n- Giảm mạnh số lượng tham số\n- Giảm chi phí tính toán\n- Cho phép mạng **sâu hơn và rộng hơn** mà không tăng budget tính toán\n\n**3. Nguyên lý Hebbian & đa tỉ lệ**\n\nCác quyết định kiến trúc dựa trên:\n- **Nguyên lý Hebbian** (\"neurons that fire together, wire together\") — các đặc trưng tương quan nên được xử lý cùng nhau\n- **Xử lý đa tỉ lệ** — bắt feature ở nhiều scale khác nhau\n\n---\n\n### 📊 Các phiên bản Inception\n\n| Phiên bản | Đặc điểm chính |\n|-----------|---------------|\n| **Inception v1 (GoogLeNet)** | Module Inception cơ bản, 22 tầng, 2 classifier phụ (side branches) để regularize |\n| **Inception v2** | Thêm **batch normalization**, giảm \"internal covariate shift\" |\n| **Inception v3** | Phân rã convolution 5×5 → hai lớp 3×3, phân rã convolution n×n → 1×n + n×1 (tiết kiệm tham số hơn nữa) |\n| **Inception v4** | Kiến trúc đồng nhất hơn, tinh gọn hơn v3 |\n| **Inception-ResNet** | Kết hợp **residual connections** (từ ResNet) vào Inception module → huấn luyện nhanh hơn |\n\n---\n\n### 🔬 Tại sao Inception lại quan trọng?\n\nTrước Inception, các CNN chủ yếu xếp chồng các lớp convolution đồng nhất. Inception là bước đột phá vì:\n\n- ✅ **Tận dụng tài nguyên tính toán hiệu quả** — làm được nhiều hơn với cùng ngân sách tính toán\n- ✅ **Học đặc trưng đa tỉ lệ** trong cùng một module\n- ✅ **Giảm tham số** nhờ 1×1 bottleneck — hiệu quả hơn so với VGG cùng độ sâu\n- ✅ Mở đường cho các kiến trúc tự động tìm kiếm (NAS) và modular design sau này\n\n> **Tóm lại:** Inception network cho phép mạng vừa **sâu** vừa **rộng** mà vẫn giữ chi phí tính toán ở mức hợp lý, nhờ thiết kế module thông minh với các nhánh song song và bottleneck 1×1.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Hãy để tôi tra cứu thông tin về kiến trúc Inception network từ các bài báo khoa học.",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Inception network architecture",
+                "topic": "general",
+                "timeframe": "month",
+                "max_results": 5
+              }
+            },
+            {
+              "name": "papers",
+              "args": {
+                "query": "Inception network architecture GoogLeNet",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Inception network architecture",
+                "topic": "general",
+                "timeframe": "month",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Inception network architecture",
+                "topic": "general",
+                "timeframe": "month",
+                "items": [
+                  {
+                    "title": "Medium",
+                    "url": "https://gghantiwala.medium.com/understanding-the-architecture-of-the-inception-network-and-applying-it-to-a-real-world-dataset-169874795540",
+                    "source": "gghantiwala.medium.com",
+                    "summary": "Source\n\nSource\n\nInception network architecture makes it possible to use filters of multiple sizes without increasing the depth of the network. The different filters are added parallelly instead of being fully connected one after the other.\n\nSource\n\nThis is known as the naive version of the inception model. The problem with this model was the huge number of parameters. To mitigate the same, they came up with the below architecture.\n\nSource\n\n## How does this architecture reduce dimensionality? [...] > We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the [...] --\n\nSource\n\n```\nIndex Of Contents· Introduction· The architecture of Inception V1· How does this architecture reduce dimensionality?· What is different in the Inception V3 network from the inception V1 network?· Using transfer learning(pre-trained inception network) on an image classification problem.· References\n```",
+                    "score": 0.8989177
+                  },
+                  {
+                    "title": "Understanding the Inception Network: A Powerful Architecture for Image Classification",
+                    "url": "https://danghoangnhan.github.io/Inception-Network",
+                    "source": "danghoangnhan.github.io",
+                    "summary": "Understanding the Inception Network: A Powerful Architecture for Image Classification | Daniel's Blogs My personal blog, Creating for upload personal research, coding related resource. Understanding the Inception Network: A Powerful Architecture for Image Classification The Inception network, developed by researchers at Google, is a convolutional neural network architecture that has revolutionized image classification tasks. In this blog, we will delve into the key concepts behind the Inception network and explore its significance in the field of computer vision. Inception Modules: The Building Blocks The fundamental building block of the Inception network is the Inception module. This module takes the output from the previous layer and incorporates multiple branches with different convolutional filters. By utilizing various filter sizes, the network can capture features at different scales, enabling a comprehensive understanding of the input image. To optimize efficiency, the Inception module applies 1x1 convolutions to reduce the dimensionality of the input before performing larger convolutions. Additionally, 1x1 convolutions are used to adjust the number of channels in feature maps, allowing for greater flexibility in the network’s capacity. The Inception Network: Stacking Inception Modules The Inception network comprises a series of Inception modules stacked together. These modules are repeated throughout the network, often interspersed with max pooling layers to alter the height and width dimensions. The network culminates in fully connected layers and a softmax output for making predictions. The inclusion of side-branches in the Inception network is an interesting aspect. By incorporating these additional prediction layers, the network regularizes its features and prevents overfitting. Since the introduction of the original Inception module, researchers have developed newer versions of the Inception network. The inception network, fondly known as GoogleNet, is an example of the collaborative nature of the deep learning community. Researchers pay homage to previous works, and the Inception network draws inspiration from earlier networks. The Inception network has emerged as a powerful architecture for image classification tasks. With subsequent versions and variations, the Inception network continues to drive advancements in deep learning. « Understanding the Inception Network ArchitectureUnderstanding MobileNets: A Blog on Efficient Convolutional Neural Network Architecture » “Whenever you want to see me, always look at the sunset; I will be there.”",
+                    "score": 0.87807417
+                  },
+                  {
+                    "title": "Understanding Inception: Simplifying the Network Architecture",
+                    "url": "https://medium.com/swlh/understanding-inception-simplifying-the-network-architecture-54cd31d38949",
+                    "source": "medium.com",
+                    "summary": "Title: Understanding Inception: Simplifying the Network Architecture\n# Understanding Inception: Simplifying the Network Architecture | by Arjun Sarkar | The Startup | Medium. # Understanding Inception: Simplifying the Network Architecture. Google LeNet (Inception) architecture (Source: Image from the original paper). The Inception Block (Source: Image from the original paper). The inception block has it all. The first Inception Block (Source: Image created by author). The number of filters in each layer in the Inception blocks are designed in such a way that we get the desired number of channels as the output for the next block. For example, in the first inception block, as shown in Figure 3, the total number of channels add up to 256. Inception blocks vs 3x3 and 5x5 Convolutional blocks — to create 256 output channels (Source: Image created by author). The Inception blocks are designed in such a way that they need fewer parameters and less computational complexity than a single 3x3 or 5x5 convolutional layer, as shown in Table 1. So Inception blocks, essentially get the same job done as single convolutional layers, with much better memory and compute efficiency. Inception Network Simplified (Source: Image created by author). Stage 1 and 2 of the Inception network (Source: Image created by author). Stage 3 of the Inception network (Source: Image created by the author). As we see in Figure 6, stage 3 has two Inception blocks and in the end a Max Pool layer. But the inception blocks do not have the same channel allocation, as seen in the figure. So the input image of 192x28x28 now becomes 480x14x14, after the two inception blocks and the MaxPooling layer. Inception Block 2–512 channels. Inception Block 3–512 channels. Inception Block 4–512 channels. Inception Block 1–832 channels. **Inception V3** — Modified inception block (. A- original Inception Block, B- Inception block in Inception V3 (Source: Image from the original paper). Inception V3 block for stage 4 (Source: image created by author). Inception V3 block for stage 5 (Source: image created by author). The Inception architecture introduces various inception blocks, which contain multiple convolutional and pooling layers stacked together, to give better results and reduce computation costs.",
+                    "score": 0.86713725
+                  },
+                  {
+                    "title": "Inception Network | Build Inception Network from Scratch with Python",
+                    "url": "https://www.analyticsvidhya.com/blog/2021/06/build-inception-network-from-scratch-with-python",
+                    "source": "analyticsvidhya.com",
+                    "summary": "Dimension reduction is necessary and motivated (Network in-network)\n\n● Achieved with 1×1 convolutions\n\n○ Think learned pooling in-depth instead of max/average pooling in height/width.\n\n## Inception architecture:\n\nUsing the inception module that is dimension-reduced inception module, a deep neural network architecture was built (Inception v1). The architecture is shown below: [...] The popular versions of the Inception network are as follows:\n\n· Inception v1.\n\n· Inception v2\n\n· Inception v3.\n\n· Inception v4\n\n· Inception-ResNet.\n\n## Let’s Build Inception v1(GoogLeNet) from scratch:\n\nInception architecture uses the CNN blocks multiple times with different filters like 1×1, 3×3, 5×5, etc., so let us create a class for CNN block, which takes input channels and output channels along with batchnorm2d and ReLu activation. [...] The Inception network was a crucial milestone in the development of CNN Image classifiers. Prior to this architecture, most popular CNNs or the classifiers just used stacked convolution layers deeper and deeper to obtain better performance.\n\nThe Inception network, on the other hand, was heavily engineered and very much deep and complex. It used many different techniques to push its performance; both in terms of speed as well as accuracy.\n\n## What is Inception?",
+                    "score": 0.8364614
+                  },
+                  {
+                    "title": "Short history of the Inception deep learning architecture",
+                    "url": "https://nicolovaligi.com/articles/history-inception-deep-learning-architecture",
+                    "source": "nicolovaligi.com",
+                    "summary": "paper\n\nThis paper introduces the Inception v1 architecture, implemented in the winning ILSVRC 2014 submission GoogLeNet. The main contribution with respect to Network in Network is the application to the deeper nets needed for image classification. From a theoretical point of view, Google's researchers observed that some sparsity would be beneficial to the network's performance, and implemented it using today's computing techniques. [...] paper\n\nThis paper introduces Inception v4, a streamlined version of v3 with a more uniform architecture and better recognition performance. Also, the authors develop residual connection variants of both Inception architectures (Inception-ResNet v1 and v2) to speed up training.\n\n### Conclusion and pretrained models [...] After the initial breakthrough of the Inception architecture, most changes have been incremental. This means that any of these models would be good enough for initial work in new research areas outside of classification.",
+                    "score": 0.82425016
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Inception network architecture GoogLeNet",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Inception network architecture GoogLeNet",
+                "api_query": "all:Inception AND all:network AND all:architecture AND all:GoogLeNet",
+                "total_results": 11,
+                "items": [
+                  {
+                    "arxiv_id": "1502.00873v1",
+                    "title": "DeepID3: Face Recognition with Very Deep Neural Networks",
+                    "summary": "The state-of-the-art of face recognition has been significantly advanced by the emergence of deep learning. Very deep neural networks recently achieved great success on general object recognition because of their superb learning capacity. This motivates us to investigate their effectiveness on face recognition. This paper proposes two very deep neural network architectures, referred to as DeepID3, for face recognition. These two architectures are rebuilt from stacked convolution and inception layers proposed in VGG net and GoogLeNet to make them suitable to face recognition. Joint face identification-verification supervisory signals are added to both intermediate and final feature extraction layers during training. An ensemble of the proposed two architectures achieves 99.53% LFW face verification accuracy and 96.0% LFW rank-1 face identification accuracy, respectively. A further discussion of LFW face verification result is given in the end.",
+                    "authors": [
+                      "Yi Sun",
+                      "Ding Liang",
+                      "Xiaogang Wang",
+                      "Xiaoou Tang"
+                    ],
+                    "published": "2015-02-03T14:28:55Z",
+                    "updated": "2015-02-03T14:28:55Z",
+                    "url": "http://arxiv.org/abs/1502.00873v1",
+                    "pdf_url": "https://arxiv.org/pdf/1502.00873v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2003.06794v1",
+                    "title": "Performance Evaluation of Advanced Deep Learning Architectures for Offline Handwritten Character Recognition",
+                    "summary": "This paper presents a hand-written character recognition comparison and performance evaluation for robust and precise classification of different hand-written characters. The system utilizes advanced multilayer deep neural network by collecting features from raw pixel values. The hidden layers stack deep hierarchies of non-linear features since learning complex features from conventional neural networks is very challenging. Two state of the art deep learning architectures were used which includes Caffe AlexNet and GoogleNet models in NVIDIA DIGITS.The frameworks were trained and tested on two different datasets for incorporating diversity and complexity. One of them is the publicly available dataset i.e. Chars74K comprising of 7705 characters and has upper and lowercase English alphabets, along with numerical digits. While the other dataset created locally consists of 4320 characters. The local dataset consists of 62 classes and was created by 40 subjects. It also consists upper and lowercase English alphabets, along with numerical digits. The overall dataset is divided in the ratio of 80% for training and 20% for testing phase. The time required for training phase is approximately 90 minutes. For validation part, the results obtained were compared with the groundtruth. The accuracy level achieved with AlexNet was 77.77% and 88.89% with Google Net. The higher accuracy level of GoogleNet is due to its unique combination of inception modules, each including pooling, convolutions at various scales and concatenation procedures.",
+                    "authors": [
+                      "Moazam Soomro",
+                      "Muhammad Ali Farooq",
+                      "Rana Hammad Raza"
+                    ],
+                    "published": "2020-03-15T11:17:16Z",
+                    "updated": "2020-03-15T11:17:16Z",
+                    "url": "http://arxiv.org/abs/2003.06794v1",
+                    "pdf_url": "https://arxiv.org/pdf/2003.06794v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1810.13155v1",
+                    "title": "Structure Learning of Deep Neural Networks with Q-Learning",
+                    "summary": "Recently, with convolutional neural networks gaining significant achievements in many challenging machine learning fields, hand-crafted neural networks no longer satisfy our requirements as designing a network will cost a lot, and automatically generating architectures has attracted increasingly more attention and focus. Some research on auto-generated networks has achieved promising results. However, they mainly aim at picking a series of single layers such as convolution or pooling layers one by one. There are many elegant and creative designs in the carefully hand-crafted neural networks, such as Inception-block in GoogLeNet, residual block in residual network and dense block in dense convolutional network. Based on reinforcement learning and taking advantages of the superiority of these networks, we propose a novel automatic process to design a multi-block neural network, whose architecture contains multiple types of blocks mentioned above, with the purpose to do structure learning of deep neural networks and explore the possibility whether different blocks can be composed together to form a well-behaved neural network. The optimal network is created by the Q-learning agent who is trained to sequentially pick different types of blocks. To verify the validity of our proposed method, we use the auto-generated multi-block neural network to conduct experiments on image benchmark datasets MNIST, SVHN and CIFAR-10 image classification task with restricted computational resources. The results demonstrate that our method is very effective, achieving comparable or better performance than hand-crafted networks and advanced auto-generated neural networks.",
+                    "authors": [
+                      "Guoqiang Zhong",
+                      "Wencong Jiao",
+                      "Wei Gao"
+                    ],
+                    "published": "2018-10-31T08:39:22Z",
+                    "updated": "2018-10-31T08:39:22Z",
+                    "url": "http://arxiv.org/abs/1810.13155v1",
+                    "pdf_url": "https://arxiv.org/pdf/1810.13155v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "stat.ML"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1409.4842v1",
+                    "title": "Going Deeper with Convolutions",
+                    "summary": "We propose a deep convolutional neural network architecture codenamed \"Inception\", which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.",
+                    "authors": [
+                      "Christian Szegedy",
+                      "Wei Liu",
+                      "Yangqing Jia",
+                      "Pierre Sermanet",
+                      "Scott Reed",
+                      "Dragomir Anguelov",
+                      "Dumitru Erhan",
+                      "Vincent Vanhoucke",
+                      "Andrew Rabinovich"
+                    ],
+                    "published": "2014-09-17T01:03:11Z",
+                    "updated": "2014-09-17T01:03:11Z",
+                    "url": "http://arxiv.org/abs/1409.4842v1",
+                    "pdf_url": "https://arxiv.org/pdf/1409.4842v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2004.07922v1",
+                    "title": "Light-Weighted CNN for Text Classification",
+                    "summary": "For management, documents are categorized into a specific category, and to do these, most of the organizations use manual labor. In today's automation era, manual efforts on such a task are not justified, and to avoid this, we have so many software out there in the market. However, efficiency and minimal resource consumption is the focal point which is also creating a competition. The categorization of such documents into specified classes by machine provides excellent help. One of categorization technique is text classification using a Convolutional neural network(TextCNN). TextCNN uses multiple sizes of filters, as in the case of the inception layer introduced in Googlenet. The network provides good accuracy but causes high memory consumption due to a large number of trainable parameters. As a solution to this problem, we introduced a whole new architecture based on separable convolution. The idea of separable convolution already exists in the field of image classification but not yet introduces to text classification tasks. With the help of this architecture, we can achieve a drastic reduction in trainable parameters.",
+                    "authors": [
+                      "Ritu Yadav"
+                    ],
+                    "published": "2020-04-16T20:23:52Z",
+                    "updated": "2020-04-16T20:23:52Z",
+                    "url": "http://arxiv.org/abs/2004.07922v1",
+                    "pdf_url": "https://arxiv.org/pdf/2004.07922v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.CL",
+                      "stat.ML"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "## Kiến trúc Inception Network — Giải thích từ các bài báo\n\n### 📄 Bài báo gốc\n\nKiến trúc Inception được giới thiệu lần đầu trong bài báo **\"Going Deeper with Convolutions\"** (Szegedy et al., 2014) — [arXiv: 1409.4842](http://arxiv.org/abs/1409.4842). Đây là kiến trúc đã giành chiến thắng trong **ILSVRC 2014** (ImageNet Large-Scale Visual Recognition Challenge) với tên gọi **GoogLeNet** — một mạng nơ-ron sâu 22 tầng.\n\n---\n\n### 🧠 Ý tưởng cốt lõi\n\n**1. Inception Module — Khối xây dựng cơ bản**\n\nThay vì chỉ dùng một loại filter (ví dụ chỉ 3×3 như VGG), Inception module cho phép **dùng nhiều kích thước filter song song** trên cùng một đầu vào:\n\n- **1×1 convolution** — giảm chiều (dimensionality reduction)\n- **3×3 convolution**\n- **5×5 convolution**\n- **3×3 max pooling**\n\nTất cả các nhánh này được **concatenate** lại ở đầu ra, giúp mạng học được đặc trưng ở **nhiều tỉ lệ (multi-scale)** khác nhau.\n\n**2. 1×1 Convolution — \"Bottleneck\" giảm tham số**\n\nĐiểm mấu chốt: trước mỗi convolution 3×3 hay 5×5, Inception dùng một lớp **1×1 convolution** để giảm số kênh (channel) đầu vào. Điều này giúp:\n- Giảm mạnh số lượng tham số\n- Giảm chi phí tính toán\n- Cho phép mạng **sâu hơn và rộng hơn** mà không tăng budget tính toán\n\n**3. Nguyên lý Hebbian & đa tỉ lệ**\n\nCác quyết định kiến trúc dựa trên:\n- **Nguyên lý Hebbian** (\"neurons that fire together, wire together\") — các đặc trưng tương quan nên được xử lý cùng nhau\n- **Xử lý đa tỉ lệ** — bắt feature ở nhiều scale khác nhau\n\n---\n\n### 📊 Các phiên bản Inception\n\n| Phiên bản | Đặc điểm chính |\n|-----------|---------------|\n| **Inception v1 (GoogLeNet)** | Module Inception cơ bản, 22 tầng, 2 classifier phụ (side branches) để regularize |\n| **Inception v2** | Thêm **batch normalization**, giảm \"internal covariate shift\" |\n| **Inception v3** | Phân rã convolution 5×5 → hai lớp 3×3, phân rã convolution n×n → 1×n + n×1 (tiết kiệm tham số hơn nữa) |\n| **Inception v4** | Kiến trúc đồng nhất hơn, tinh gọn hơn v3 |\n| **Inception-ResNet** | Kết hợp **residual connections** (từ ResNet) vào Inception module → huấn luyện nhanh hơn |\n\n---\n\n### 🔬 Tại sao Inception lại quan trọng?\n\nTrước Inception, các CNN chủ yếu xếp chồng các lớp convolution đồng nhất. Inception là bước đột phá vì:\n\n- ✅ **Tận dụng tài nguyên tính toán hiệu quả** — làm được nhiều hơn với cùng ngân sách tính toán\n- ✅ **Học đặc trưng đa tỉ lệ** trong cùng một module\n- ✅ **Giảm tham số** nhờ 1×1 bottleneck — hiệu quả hơn so với VGG cùng độ sâu\n- ✅ Mở đường cho các kiến trúc tự động tìm kiếm (NAS) và modular design sau này\n\n> **Tóm lại:** Inception network cho phép mạng vừa **sâu** vừa **rộng** mà vẫn giữ chi phí tính toán ở mức hợp lý, nhờ thiết kế module thông minh với các nhánh song song và bottleneck 1×1.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Inception network architecture",
+            "topic": "general",
+            "timeframe": "month",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Inception network architecture",
+            "topic": "general",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "Medium",
+                "url": "https://gghantiwala.medium.com/understanding-the-architecture-of-the-inception-network-and-applying-it-to-a-real-world-dataset-169874795540",
+                "source": "gghantiwala.medium.com",
+                "summary": "Source\n\nSource\n\nInception network architecture makes it possible to use filters of multiple sizes without increasing the depth of the network. The different filters are added parallelly instead of being fully connected one after the other.\n\nSource\n\nThis is known as the naive version of the inception model. The problem with this model was the huge number of parameters. To mitigate the same, they came up with the below architecture.\n\nSource\n\n## How does this architecture reduce dimensionality? [...] > We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the [...] --\n\nSource\n\n```\nIndex Of Contents· Introduction· The architecture of Inception V1· How does this architecture reduce dimensionality?· What is different in the Inception V3 network from the inception V1 network?· Using transfer learning(pre-trained inception network) on an image classification problem.· References\n```",
+                "score": 0.8989177
+              },
+              {
+                "title": "Understanding the Inception Network: A Powerful Architecture for Image Classification",
+                "url": "https://danghoangnhan.github.io/Inception-Network",
+                "source": "danghoangnhan.github.io",
+                "summary": "Understanding the Inception Network: A Powerful Architecture for Image Classification | Daniel's Blogs My personal blog, Creating for upload personal research, coding related resource. Understanding the Inception Network: A Powerful Architecture for Image Classification The Inception network, developed by researchers at Google, is a convolutional neural network architecture that has revolutionized image classification tasks. In this blog, we will delve into the key concepts behind the Inception network and explore its significance in the field of computer vision. Inception Modules: The Building Blocks The fundamental building block of the Inception network is the Inception module. This module takes the output from the previous layer and incorporates multiple branches with different convolutional filters. By utilizing various filter sizes, the network can capture features at different scales, enabling a comprehensive understanding of the input image. To optimize efficiency, the Inception module applies 1x1 convolutions to reduce the dimensionality of the input before performing larger convolutions. Additionally, 1x1 convolutions are used to adjust the number of channels in feature maps, allowing for greater flexibility in the network’s capacity. The Inception Network: Stacking Inception Modules The Inception network comprises a series of Inception modules stacked together. These modules are repeated throughout the network, often interspersed with max pooling layers to alter the height and width dimensions. The network culminates in fully connected layers and a softmax output for making predictions. The inclusion of side-branches in the Inception network is an interesting aspect. By incorporating these additional prediction layers, the network regularizes its features and prevents overfitting. Since the introduction of the original Inception module, researchers have developed newer versions of the Inception network. The inception network, fondly known as GoogleNet, is an example of the collaborative nature of the deep learning community. Researchers pay homage to previous works, and the Inception network draws inspiration from earlier networks. The Inception network has emerged as a powerful architecture for image classification tasks. With subsequent versions and variations, the Inception network continues to drive advancements in deep learning. « Understanding the Inception Network ArchitectureUnderstanding MobileNets: A Blog on Efficient Convolutional Neural Network Architecture » “Whenever you want to see me, always look at the sunset; I will be there.”",
+                "score": 0.87807417
+              },
+              {
+                "title": "Understanding Inception: Simplifying the Network Architecture",
+                "url": "https://medium.com/swlh/understanding-inception-simplifying-the-network-architecture-54cd31d38949",
+                "source": "medium.com",
+                "summary": "Title: Understanding Inception: Simplifying the Network Architecture\n# Understanding Inception: Simplifying the Network Architecture | by Arjun Sarkar | The Startup | Medium. # Understanding Inception: Simplifying the Network Architecture. Google LeNet (Inception) architecture (Source: Image from the original paper). The Inception Block (Source: Image from the original paper). The inception block has it all. The first Inception Block (Source: Image created by author). The number of filters in each layer in the Inception blocks are designed in such a way that we get the desired number of channels as the output for the next block. For example, in the first inception block, as shown in Figure 3, the total number of channels add up to 256. Inception blocks vs 3x3 and 5x5 Convolutional blocks — to create 256 output channels (Source: Image created by author). The Inception blocks are designed in such a way that they need fewer parameters and less computational complexity than a single 3x3 or 5x5 convolutional layer, as shown in Table 1. So Inception blocks, essentially get the same job done as single convolutional layers, with much better memory and compute efficiency. Inception Network Simplified (Source: Image created by author). Stage 1 and 2 of the Inception network (Source: Image created by author). Stage 3 of the Inception network (Source: Image created by the author). As we see in Figure 6, stage 3 has two Inception blocks and in the end a Max Pool layer. But the inception blocks do not have the same channel allocation, as seen in the figure. So the input image of 192x28x28 now becomes 480x14x14, after the two inception blocks and the MaxPooling layer. Inception Block 2–512 channels. Inception Block 3–512 channels. Inception Block 4–512 channels. Inception Block 1–832 channels. **Inception V3** — Modified inception block (. A- original Inception Block, B- Inception block in Inception V3 (Source: Image from the original paper). Inception V3 block for stage 4 (Source: image created by author). Inception V3 block for stage 5 (Source: image created by author). The Inception architecture introduces various inception blocks, which contain multiple convolutional and pooling layers stacked together, to give better results and reduce computation costs.",
+                "score": 0.86713725
+              },
+              {
+                "title": "Inception Network | Build Inception Network from Scratch with Python",
+                "url": "https://www.analyticsvidhya.com/blog/2021/06/build-inception-network-from-scratch-with-python",
+                "source": "analyticsvidhya.com",
+                "summary": "Dimension reduction is necessary and motivated (Network in-network)\n\n● Achieved with 1×1 convolutions\n\n○ Think learned pooling in-depth instead of max/average pooling in height/width.\n\n## Inception architecture:\n\nUsing the inception module that is dimension-reduced inception module, a deep neural network architecture was built (Inception v1). The architecture is shown below: [...] The popular versions of the Inception network are as follows:\n\n· Inception v1.\n\n· Inception v2\n\n· Inception v3.\n\n· Inception v4\n\n· Inception-ResNet.\n\n## Let’s Build Inception v1(GoogLeNet) from scratch:\n\nInception architecture uses the CNN blocks multiple times with different filters like 1×1, 3×3, 5×5, etc., so let us create a class for CNN block, which takes input channels and output channels along with batchnorm2d and ReLu activation. [...] The Inception network was a crucial milestone in the development of CNN Image classifiers. Prior to this architecture, most popular CNNs or the classifiers just used stacked convolution layers deeper and deeper to obtain better performance.\n\nThe Inception network, on the other hand, was heavily engineered and very much deep and complex. It used many different techniques to push its performance; both in terms of speed as well as accuracy.\n\n## What is Inception?",
+                "score": 0.8364614
+              },
+              {
+                "title": "Short history of the Inception deep learning architecture",
+                "url": "https://nicolovaligi.com/articles/history-inception-deep-learning-architecture",
+                "source": "nicolovaligi.com",
+                "summary": "paper\n\nThis paper introduces the Inception v1 architecture, implemented in the winning ILSVRC 2014 submission GoogLeNet. The main contribution with respect to Network in Network is the application to the deeper nets needed for image classification. From a theoretical point of view, Google's researchers observed that some sparsity would be beneficial to the network's performance, and implemented it using today's computing techniques. [...] paper\n\nThis paper introduces Inception v4, a streamlined version of v3 with a more uniform architecture and better recognition performance. Also, the authors develop residual connection variants of both Inception architectures (Inception-ResNet v1 and v2) to speed up training.\n\n### Conclusion and pretrained models [...] After the initial breakthrough of the Inception architecture, most changes have been incremental. This means that any of these models would be good enough for initial work in new research areas outside of classification.",
+                "score": 0.82425016
+              }
+            ]
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Inception network architecture GoogLeNet",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Inception network architecture GoogLeNet",
+            "api_query": "all:Inception AND all:network AND all:architecture AND all:GoogLeNet",
+            "total_results": 11,
+            "items": [
+              {
+                "arxiv_id": "1502.00873v1",
+                "title": "DeepID3: Face Recognition with Very Deep Neural Networks",
+                "summary": "The state-of-the-art of face recognition has been significantly advanced by the emergence of deep learning. Very deep neural networks recently achieved great success on general object recognition because of their superb learning capacity. This motivates us to investigate their effectiveness on face recognition. This paper proposes two very deep neural network architectures, referred to as DeepID3, for face recognition. These two architectures are rebuilt from stacked convolution and inception layers proposed in VGG net and GoogLeNet to make them suitable to face recognition. Joint face identification-verification supervisory signals are added to both intermediate and final feature extraction layers during training. An ensemble of the proposed two architectures achieves 99.53% LFW face verification accuracy and 96.0% LFW rank-1 face identification accuracy, respectively. A further discussion of LFW face verification result is given in the end.",
+                "authors": [
+                  "Yi Sun",
+                  "Ding Liang",
+                  "Xiaogang Wang",
+                  "Xiaoou Tang"
+                ],
+                "published": "2015-02-03T14:28:55Z",
+                "updated": "2015-02-03T14:28:55Z",
+                "url": "http://arxiv.org/abs/1502.00873v1",
+                "pdf_url": "https://arxiv.org/pdf/1502.00873v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2003.06794v1",
+                "title": "Performance Evaluation of Advanced Deep Learning Architectures for Offline Handwritten Character Recognition",
+                "summary": "This paper presents a hand-written character recognition comparison and performance evaluation for robust and precise classification of different hand-written characters. The system utilizes advanced multilayer deep neural network by collecting features from raw pixel values. The hidden layers stack deep hierarchies of non-linear features since learning complex features from conventional neural networks is very challenging. Two state of the art deep learning architectures were used which includes Caffe AlexNet and GoogleNet models in NVIDIA DIGITS.The frameworks were trained and tested on two different datasets for incorporating diversity and complexity. One of them is the publicly available dataset i.e. Chars74K comprising of 7705 characters and has upper and lowercase English alphabets, along with numerical digits. While the other dataset created locally consists of 4320 characters. The local dataset consists of 62 classes and was created by 40 subjects. It also consists upper and lowercase English alphabets, along with numerical digits. The overall dataset is divided in the ratio of 80% for training and 20% for testing phase. The time required for training phase is approximately 90 minutes. For validation part, the results obtained were compared with the groundtruth. The accuracy level achieved with AlexNet was 77.77% and 88.89% with Google Net. The higher accuracy level of GoogleNet is due to its unique combination of inception modules, each including pooling, convolutions at various scales and concatenation procedures.",
+                "authors": [
+                  "Moazam Soomro",
+                  "Muhammad Ali Farooq",
+                  "Rana Hammad Raza"
+                ],
+                "published": "2020-03-15T11:17:16Z",
+                "updated": "2020-03-15T11:17:16Z",
+                "url": "http://arxiv.org/abs/2003.06794v1",
+                "pdf_url": "https://arxiv.org/pdf/2003.06794v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "1810.13155v1",
+                "title": "Structure Learning of Deep Neural Networks with Q-Learning",
+                "summary": "Recently, with convolutional neural networks gaining significant achievements in many challenging machine learning fields, hand-crafted neural networks no longer satisfy our requirements as designing a network will cost a lot, and automatically generating architectures has attracted increasingly more attention and focus. Some research on auto-generated networks has achieved promising results. However, they mainly aim at picking a series of single layers such as convolution or pooling layers one by one. There are many elegant and creative designs in the carefully hand-crafted neural networks, such as Inception-block in GoogLeNet, residual block in residual network and dense block in dense convolutional network. Based on reinforcement learning and taking advantages of the superiority of these networks, we propose a novel automatic process to design a multi-block neural network, whose architecture contains multiple types of blocks mentioned above, with the purpose to do structure learning of deep neural networks and explore the possibility whether different blocks can be composed together to form a well-behaved neural network. The optimal network is created by the Q-learning agent who is trained to sequentially pick different types of blocks. To verify the validity of our proposed method, we use the auto-generated multi-block neural network to conduct experiments on image benchmark datasets MNIST, SVHN and CIFAR-10 image classification task with restricted computational resources. The results demonstrate that our method is very effective, achieving comparable or better performance than hand-crafted networks and advanced auto-generated neural networks.",
+                "authors": [
+                  "Guoqiang Zhong",
+                  "Wencong Jiao",
+                  "Wei Gao"
+                ],
+                "published": "2018-10-31T08:39:22Z",
+                "updated": "2018-10-31T08:39:22Z",
+                "url": "http://arxiv.org/abs/1810.13155v1",
+                "pdf_url": "https://arxiv.org/pdf/1810.13155v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "stat.ML"
+                ]
+              },
+              {
+                "arxiv_id": "1409.4842v1",
+                "title": "Going Deeper with Convolutions",
+                "summary": "We propose a deep convolutional neural network architecture codenamed \"Inception\", which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.",
+                "authors": [
+                  "Christian Szegedy",
+                  "Wei Liu",
+                  "Yangqing Jia",
+                  "Pierre Sermanet",
+                  "Scott Reed",
+                  "Dragomir Anguelov",
+                  "Dumitru Erhan",
+                  "Vincent Vanhoucke",
+                  "Andrew Rabinovich"
+                ],
+                "published": "2014-09-17T01:03:11Z",
+                "updated": "2014-09-17T01:03:11Z",
+                "url": "http://arxiv.org/abs/1409.4842v1",
+                "pdf_url": "https://arxiv.org/pdf/1409.4842v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2004.07922v1",
+                "title": "Light-Weighted CNN for Text Classification",
+                "summary": "For management, documents are categorized into a specific category, and to do these, most of the organizations use manual labor. In today's automation era, manual efforts on such a task are not justified, and to avoid this, we have so many software out there in the market. However, efficiency and minimal resource consumption is the focal point which is also creating a competition. The categorization of such documents into specified classes by machine provides excellent help. One of categorization technique is text classification using a Convolutional neural network(TextCNN). TextCNN uses multiple sizes of filters, as in the case of the inception layer introduced in Googlenet. The network provides good accuracy but causes high memory consumption due to a large number of trainable parameters. As a solution to this problem, we introduced a whole new architecture based on separable convolution. The idea of separable convolution already exists in the field of image classification but not yet introduces to text classification tasks. With the help of this architecture, we can achieve a drastic reduction in trainable parameters.",
+                "authors": [
+                  "Ritu Yadav"
+                ],
+                "published": "2020-04-16T20:23:52Z",
+                "updated": "2020-04-16T20:23:52Z",
+                "url": "http://arxiv.org/abs/2004.07922v1",
+                "pdf_url": "https://arxiv.org/pdf/2004.07922v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.CL",
+                  "stat.ML"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T17:00:08",
+      "user": "up bài ngắn gọn lên telegram",
+      "status": "answered",
+      "ended_at": "2026-07-29T17:00:10",
+      "assistant_text": "Tôi cần bạn xác nhận nội dung muốn đăng. Bạn muốn tôi gửi đoạn tóm tắt về Inception network như trên, hay bạn có nội dung cụ thể khác muốn đăng?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi cần bạn xác nhận nội dung muốn đăng. Bạn muốn tôi gửi đoạn tóm tắt về Inception network như trên, hay bạn có nội dung cụ thể khác muốn đăng?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": []
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T17:00:21",
+      "user": "đúng vậy",
+      "status": "waiting_for_user",
+      "ended_at": "2026-07-29T17:00:23",
+      "assistant_text": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Vậy tôi sẽ hỏi bạn lần cuối trước khi gửi:\n\nBạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+                "response_type": "yes_no"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+                "response_type": "yes_no"
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+                "response_type": "yes_no",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có chắc chắn muốn gửi đoạn tóm tắt về Inception network lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T17:00:27",
+      "user": "đúng",
+      "status": "answered",
+      "ended_at": "2026-07-29T17:00:34",
+      "assistant_text": "✅ Đã gửi bài tóm tắt về **Inception Network** lên Telegram thành công!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "send",
+              "args": {
+                "text": "🧠 **Kiến trúc Inception Network là gì?**\n\n📄 Bài báo gốc: *\"Going Deeper with Convolutions\"* (Szegedy et al., 2014) — GoogLeNet thắng ILSVRC 2014.\n\n**Ý tưởng cốt lõi:**\n• **Inception Module** — chạy nhiều kích thước filter song song (1×1, 3×3, 5×5, pooling) rồi concatenate → học đặc trưng đa tỉ lệ\n• **1×1 Bottleneck** — giảm số kênh trước conv lớn → giảm mạnh tham số & chi phí tính toán\n• Cho phép mạng vừa **sâu** vừa **rộng** mà không quá tốn kém\n\n**Các phiên bản:**\n• v1 (GoogLeNet) — 22 tầng, 2 classifier phụ\n• v2 — thêm Batch Normalization\n• v3 — phân rã conv 5×5 → 2×3×3, conv n×n → 1×n + n×1\n• v4 — kiến trúc đồng nhất hơn\n• Inception-ResNet — kết hợp residual connections\n\n💡 **Tầm quan trọng:** Mở đường cho modular design, tận dụng tài nguyên hiệu quả, học đa tỉ lệ trong cùng một module.",
+                "confirmed": true
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "send",
+              "args": {
+                "text": "🧠 **Kiến trúc Inception Network là gì?**\n\n📄 Bài báo gốc: *\"Going Deeper with Convolutions\"* (Szegedy et al., 2014) — GoogLeNet thắng ILSVRC 2014.\n\n**Ý tưởng cốt lõi:**\n• **Inception Module** — chạy nhiều kích thước filter song song (1×1, 3×3, 5×5, pooling) rồi concatenate → học đặc trưng đa tỉ lệ\n• **1×1 Bottleneck** — giảm số kênh trước conv lớn → giảm mạnh tham số & chi phí tính toán\n• Cho phép mạng vừa **sâu** vừa **rộng** mà không quá tốn kém\n\n**Các phiên bản:**\n• v1 (GoogLeNet) — 22 tầng, 2 classifier phụ\n• v2 — thêm Batch Normalization\n• v3 — phân rã conv 5×5 → 2×3×3, conv n×n → 1×n + n×1\n• v4 — kiến trúc đồng nhất hơn\n• Inception-ResNet — kết hợp residual connections\n\n💡 **Tầm quan trọng:** Mở đường cho modular design, tận dụng tài nguyên hiệu quả, học đa tỉ lệ trong cùng một module.",
+                "confirmed": true
+              },
+              "result": {
+                "tool": "send_telegram",
+                "status": "sent"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "✅ Đã gửi bài tóm tắt về **Inception Network** lên Telegram thành công!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "🧠 **Kiến trúc Inception Network là gì?**\n\n📄 Bài báo gốc: *\"Going Deeper with Convolutions\"* (Szegedy et al., 2014) — GoogLeNet thắng ILSVRC 2014.\n\n**Ý tưởng cốt lõi:**\n• **Inception Module** — chạy nhiều kích thước filter song song (1×1, 3×3, 5×5, pooling) rồi concatenate → học đặc trưng đa tỉ lệ\n• **1×1 Bottleneck** — giảm số kênh trước conv lớn → giảm mạnh tham số & chi phí tính toán\n• Cho phép mạng vừa **sâu** vừa **rộng** mà không quá tốn kém\n\n**Các phiên bản:**\n• v1 (GoogLeNet) — 22 tầng, 2 classifier phụ\n• v2 — thêm Batch Normalization\n• v3 — phân rã conv 5×5 → 2×3×3, conv n×n → 1×n + n×1\n• v4 — kiến trúc đồng nhất hơn\n• Inception-ResNet — kết hợp residual connections\n\n💡 **Tầm quan trọng:** Mở đường cho modular design, tận dụng tài nguyên hiệu quả, học đa tỉ lệ trong cùng một module.",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "status": "sent"
+          }
+        }
+      ]
+    }
+  ]
+}

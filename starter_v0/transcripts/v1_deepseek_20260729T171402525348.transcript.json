@@ -1,0 +1,336 @@
+{
+  "transcript_id": "v1_deepseek_20260729T171402525348",
+  "version": "v1",
+  "artifact_version": "v1+pc032923938ed+t1af99313ae63",
+  "prompt_hash": "c032923938ed679a37ac6f276655ff59bf64b0b3722b282b70bc8af1a79fa75c",
+  "tools_hash": "1af99313ae634d3230c0c2479bff563e67ca13c0d0fb37f7bd97e5d64dc9e686",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "system_prompt": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\trand\\Downloads\\Learning - AI\\Vin\\Lab\\Day4\\Day04_G27_E403\\starter_v0\\artifacts\\tools.yaml",
+  "created_at": "2026-07-29T17:14:53",
+  "updated_at": "2026-07-29T17:14:53",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T17:14:39",
+      "user": "phản ứng mạng xã hội khi argentina loại ai cập ở world cup 2026",
+      "status": "answered",
+      "ended_at": "2026-07-29T17:14:53",
+      "assistant_text": "Dựa trên kết quả tìm kiếm, tôi thấy có một số thông tin thú vị nhưng cần làm rõ:\n\n**Thực tế về World Cup 2026 (theo dữ liệu tìm được):**\n\nCó vẻ như trong bối cảnh World Cup 2026 (diễn ra tháng 6-7/2026), **Argentina không loại Ai Cập**. Cụ thể:\n\n1. **Argentina ở bảng J** cùng với **Jordan, Algeria và Áo** — không có Ai Cập. Argentina thắng Jordan 3-1 ở vòng bảng.\n\n2. **Ai Cập** không xuất hiện trong các kết quả vòng bảng hay vòng knock-out mà dữ liệu tìm được đề cập đến.\n\n3. Trận đấu mà Argentina bị loại là **chung kết gặp Tây Ban Nha** (không phải loại Ai Cập). Một bài tweet mô tả Tây Ban Nha đánh bại Argentina ở chung kết, và có một bản kiến nghị với hơn 60.000 chữ ký yêu cầu FIFA đá lại trận chung kết đó.\n\n---\n\n**Tóm tắt phản ứng mạng xã hội (từ dữ liệu có được):**\n\n| Nội dung | Nguồn |\n|---|---|\n| Bài đăng cảm xúc về Messi và Argentina thua Tây Ban Nha ở chung kết, gọi đây có thể là trận cuối của Messi ở World Cup | @0xkyliekim |\n| Tranh cãi về việc FIFA xóa án treo giò cho cầu thủ trước World Cup, có nhắc đến Argentina (Otamendi) được hưởng lợi | @VietPhiTrung |\n| Argentina thắng Jordan 3-1 ở vòng bảng, Messi ghi siêu phẩm đá phạt | @cozy_xvn |\n| Dự đoán Argentina thắng Algeria 3-0 ở trận ra quân | @nhuhuu7 |\n| Fan token Argentina ($ARG) được quan tâm trên thị trường crypto | @Lee_Tuanx |\n| Hơn 60.000 CĐV Argentina ký kiến nghị yêu cầu FIFA đá lại chung kết với Tây Ban Nha | sportingnews.com |\n\n**Kết luận:** Dữ liệu hiện tại **không cho thấy có trận Argentina vs Ai Cập** ở World Cup 2026. Có thể bạn đang nhầm với một đội bóng khác (như **Algeria** — đội cùng bảng J với Argentina) hoặc một giải đấu khác. Bạn có muốn tôi tìm kiếm cụ thể hơn về thông tin này không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi sẽ tìm kiếm thông tin về phản ứng trên mạng xã hội khi Argentina loại Ai Cập ở World Cup 2026.",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "Argentina loại Ai Cập World Cup 2026",
+                "search_type": "Latest",
+                "limit": 10
+              }
+            },
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Argentina Ai Cập World Cup 2026",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "Argentina loại Ai Cập World Cup 2026",
+                "search_type": "Latest",
+                "limit": 10
+              },
+              "result": {
+                "tool": "search_tweets",
+                "query": "Argentina loại Ai Cập World Cup 2026",
+                "search_type": "Latest",
+                "items": [
+                  {
+                    "title": "Bóng đá thế giới đã có nhà vô địch!!!!!! Tây Ban Nha đã có một chiến thắng thực sự thuyết phục, họ bóp nghẹt Argentina ở",
+                    "summary": "Bóng đá thế giới đã có nhà vô địch!!!!!! Tây Ban Nha đã có một chiến thắng thực sự thuyết phục, họ bóp nghẹt Argentina ở mọi mặt, họ kiểm soát mọi thứ ở trên sân, họ khiến Messi gần như không thể hiện được bất cứ điều gì. Tây Ban Nha cũng có lợi thế lớn khi Licha và Romero chấn thương, Enzo thẻ đỏ… \n\nNhưng phải thú thực với các bạn là khi Torres ghi bàn, máy quay hướng về Messi, tôi vẫn có niềm tin rằng anh có thể làm được điều gì đó. Vì trong 4 trận đấu loại trực tiếp trước đó, Messi đã thể hiện những màn trình diễn như là một vị chúa của bóng đá. Và một khi bóng vẫn còn lăn, còi chưa được thổi thì hy vọng vẫn luôn còn. Argentina đã có những cơ hội, họp đã vùng lên, nhưng Tây Ban Nha không phải là Cabo Verde, Ai Cập, Thụy Sĩ hay Anh Quốc. Messi đã phải cúi đầu trong trận đấu này. \n\nĐây có lẽ là trận đấu cuối cùng của Messi tại đấu trường World Cup và một kết thúc buồn. Kylie không rõ là anh có định “tuổi 43 đỉnh cao đời người” hay không, nhưng dù kết thúc buồn như hôm nay, Messi vẫn là vĩ nhân đỉnh cao nhất của bóng đá thế giới và đã có một sự nghiệp hoàn hảo. Tôi nghĩ là những ai hâm mộ Messi sẽ buồn, nhưng họ cũng sẽ nhanh chóng vượt qua mà thôi. \n\nTạm biệt MESSI và chúc mừng Tây Ban Nha! \nTạm biệt World Cup 2026, tạm biệt những huyền thoại!\n#SelecciónArgentina #Fıfaworldcup2026 #VamosEspaña #MundialDelFútbol2026",
+                    "url": "https://x.com/0xkyliekim/status/2078998403200221649",
+                    "source": "@0xkyliekim",
+                    "date": "Mon Jul 20 00:20:19 +0000 2026",
+                    "metrics": {
+                      "favorites": 15,
+                      "retweets": 0,
+                      "views": "2166"
+                    }
+                  },
+                  {
+                    "title": "KHÔNG CÓ CHUYỆN TRUMP “GIẢI CỨU” BALOGUN",
+                    "summary": "KHÔNG CÓ CHUYỆN TRUMP “GIẢI CỨU” BALOGUN\nMấy hôm nay thấy nhiều anh em fan cuồng tạo bài: “FIFA thả Balogun vì Trump gây áp lực”, “Mỹ chơi bẩn”, “World Cup bị thao túng”….\nSỰ THẬT:\n1. FIFA cho Balogun đá vì luật áp dụng chung, không phải đặc cách cho Mỹ\nTrước World Cup 2026, FIFA tổ chức cuộc họp gồm với 6 chủ tịch liên đoàn bóng đá châu lục - đã thông qua cơ chế: xóa, hoãn án treo giò từ vòng loại để các đội vào World Cup có lực lượng mạnh nhất.\nDanh sách được xóa án trước Balogun:\n- Nicolás Otamendi – Argentina: Xóa thẻ đỏ, đá chính cả giải Copa America rồi vào World Cup\n- Moisés Caicedo – Ecuador: Xóa 2 thẻ vàng tích lũy\n- Tarek Salman – Qatar: Xóa thẻ đỏ trực tiếp\n- Folarin Balogun – Mỹ: Hoãn 1 trận treo giò. Balogun chỉ là người thứ 4\nNếu Trump “ép” được FIFA, sao Argentina, Ecuador, Qatar cũng được hưởng? Chẳng lẽ Trump làm tổng thống 3 nước đó luôn? mà ép được FIFA thì ép cho đội Mỹ giành chức vô địch luôn, mới đẳng cấp chứ!\n\n2. UEFA mới là người phản đối to nhất, không phải vì Trump\nUEFA ra tuyên bố chỉ trích FIFA “đe dọa tính công bằng”. Nếu thực sự có bằng chứng Trump can thiệp, UEFA đã gào lên rồi. Nhưng UEFA chỉ nói về “luật”, không nhắc chữ nào đến Trump hay Nhà Trắng.\nĐến cả HLV Rudi Garcia của Bỉ khi họp báo cũng chỉ dám nói “thất vọng với quyết định của FIFA” .\n\n3. Mỹ - Bỉ ngày 6/7 là trận sòng phẳng\nBalogun đá chính thì Bỉ vẫn có De Bruyne, Lukaku, Doku. Sân chơi World Cup, 11 đấu 11. Siêu máy tính Opta còn đánh giá Mỹ cửa trên vì lợi thế sân nhà Seattle. Thua thì nhận, đừng đổ cho “thuyết âm mưu”.\n\nGhét thì cứ ghét, nhưng tung tin “Trump ép FIFA” là bậy bạ, không có bằng chứng một tuyên bố chính thức, đó là tự biến mình thành trò cười. Nếu FIFA sai thì chửi FIFA, đừng lôi chính trị vào để lấp liếm.\nBóng đá nói chuyện bằng chân, không nói bằng mõm. Thứ Ba (vào lúc 7:00 AM) gặp nhau ở Seattle, ai hay hơn thì đi tiếp. Thế thôi.\nhttps://t.co/clzrvAvHSM\nAP News\nNguyen Hai Nhu",
+                    "url": "https://x.com/VietPhiTrung/status/2074242421177905643",
+                    "source": "@VietPhiTrung",
+                    "date": "Mon Jul 06 21:21:45 +0000 2026",
+                    "metrics": {
+                      "favorites": 16,
+                      "retweets": 1,
+                      "views": "1552"
+                    }
+                  },
+                  {
+                    "title": "ĐIỂM TIN BẢN TIN NGÀY 28/06/2026",
+                    "summary": "ĐIỂM TIN BẢN TIN NGÀY 28/06/2026\n1. Chiến Sự & Xung Đột Vũ Trang\nĐiểm nóng 1: Ukraine & Nga - Không kích diện rộng và gia tăng viện trợ. Các cuộc tập kích bằng UAV và tên lửa tiếp tục diễn ra tại các khu vực trọng điểm vùng biên giới. Ukraine tăng cường kêu gọi các đồng minh phương Tây đẩy nhanh tiến độ bàn giao các gói viện trợ khí tài và hệ thống phòng không thế hệ mới trước áp lực gia tăng từ đối phương.\n\nĐiểm nóng 2: Trung Đông - Tình hình thực địa căng thẳng. Cục diện giao tranh tại khu vực dải Gaza và các động thái quân sự qua lại ở biên giới phía Bắc vẫn chưa có dấu hiệu hạ nhiệt. Các tổ chức quốc tế tiếp tục cảnh báo về cuộc khủng hoảng nhân đạo và kêu gọi các bên thực hiện lệnh ngừng bắn khẩn cấp.\n\n2. Kinh Tế Vĩ Macro & Thị Trường\nTin tức 1: Lạm phát toàn cầu và chính sách của FED. Thị trường tài chính đổ dồn sự chú ý vào các chỉ số kinh tế mới từ Mỹ để dự đoán bước đi tiếp theo của Cục Dự trữ Liên bang (FED) về lộ trình lãi suất. Tâm lý thận trọng bao trùm khiến dòng tiền có xu hướng phòng thủ.\n\nTin tức 2: Giá dầu thô và Vàng biến động. Giá vàng thế giới ghi nhận các phiên giằng co mạnh do áp lực từ đồng USD. Trong khi đó, giá dầu thô (WTI và Brent) duy trì ở mức cao do những lo ngại về nguồn cung bị gián đoạn tại các tuyến đường hàng hải huyết mạch ở Trung Đông.\n\n3. Chính Trị Quốc Tế & Trong Nước\nSự kiện 1: Hội nghị Thượng đỉnh đa phương. Các nhà lãnh đạo toàn cầu tham gia thảo luận về các vấn đề nóng bao gồm an ninh năng lượng, biến đổi khí hậu và tái cấu trúc chuỗi cung ứng nhằm giảm thiểu rủi ro từ các cuộc xung đột địa chính trị.\n\nSự kiện 2: Chính sách công nghệ và Thuế quan. Các nền kinh tế lớn tiếp tục thắt chặt quy định kiểm soát đối với công nghệ AI và chất bán dẫn, đồng thời đưa ra các sắc lệnh mới về thuế quan gây ảnh hưởng trực tiếp đến hoạt động xuất nhập khẩu song phương.\n\n4. Thị Trường Crypto & Web3\nBiến động giá: Bitcoin (BTC) tiếp tục thử thách các vùng kháng cự quan trọng, dao động nhẹ quanh biên độ hẹp trong 24h qua. Ethereum (ETH) và các altcoin top đầu (BNB, SOL) ghi nhận sự phân hóa rõ rệt khi dòng tiền có dấu hiệu dịch chuyển sang các hệ sinh thái có tin tức nâng cấp công nghệ.\n\nTin tức nổi bật: Dòng vốn ETF và rào cản pháp lý. Các quỹ ETF Bitcoin và Ethereum giao ngay tiếp tục ghi nhận dòng vốn vào/ra luân phiên. Bên cạnh đó, các động thái pháp lý nghiêm ngặt từ SEC và các cơ quan quản lý châu Âu đối với phân khúc DeFi đang là tâm điểm chú ý của giới đầu tư.\n\n5. Thể Thao Đáng Chú Ý (World Cup 2026)\nKết quả loạt trận hạ màn: Anh, Argentina thị uy sức mạnh; Bồ Đào Nha rơi vào nhánh \"tử thần\". Loạt trận cuối cùng của các bảng J, K, L diễn ra ngày 28/06 đã chính thức khép lại vòng bảng lịch sử với 48 đội.\nTại bảng J, Argentina đánh bại Jordan 3-1 với siêu phẩm đá phạt của Lionel Messi, giúp anh tiếp tục phá sâu các kỷ lục vô tiền khoáng hậu tại World Cup. Ở trận cùng bảng, Algeria hòa nghẹt thở Áo 3-3.\nTại bảng L, Anh nhẹ nhàng vượt qua Panama 2-0 để chiếm ngôi nhất bảng, trong khi Croatia thắng Ghana 2-1. Kết quả này đưa Bồ Đào Nha (hòa Colombia 0-0 ở bảng K) ngậm ngùi xếp nhì bảng và sẽ phải chạm trán đối thủ đầy duyên nợ Croatia ngay tại vòng knock-out.\n\nCục diện vòng sau: Chính thức xác định các cặp đấu vòng 1/16 (Vòng 32 đội). Sân chơi World Cup 2026 đã lộ diện 32 cái tên xuất sắc nhất bước vào vòng loại trực tiếp khốc liệt. Hai trận đấu mở màn cho vòng 1/16 sẽ diễn ra vào ngày mai (29/06), bắt đầu với cuộc đối đầu giữa Canada vs Nam Phi, theo sau là các cặp đấu nảy lửa như Pháp - Thụy Điển hay Hà Lan - Maroc.\n\nTóm tắt xu hướng ngày hôm nay: Trái bóng Trionda tại World Cup 2026 đang chiếm trọn spotlight truyền thông thể thao toàn cầu khi vòng bảng chính thức khép lại, thiết lập nên một nhánh đấu knock-out đầy duyên nợ và kịch tính.",
+                    "url": "https://x.com/cozy_xvn/status/2071264323964752061",
+                    "source": "@cozy_xvn",
+                    "date": "Sun Jun 28 16:07:51 +0000 2026",
+                    "metrics": {
+                      "favorites": 2,
+                      "retweets": 0,
+                      "views": "221"
+                    }
+                  },
+                  {
+                    "title": "🌍 LỊCH THI ĐẤU WORLD CUP 2026 - SÁNG NGÀY 17/6/2026",
+                    "summary": "🌍 LỊCH THI ĐẤU WORLD CUP 2026 - SÁNG NGÀY 17/6/2026\nCác trận bóng đá hấp dẫn chỉ trong vài tiếng tới!\nChào các fan bóng đá! ⚽️\nĐêm nay và sáng mai chúng ta sẽ có một lịch thi đấu cực nóng với 3 trận đấu thuộc vòng bảng World Cup 2026. Dưới đây là thông tin chi tiết, dự đoán và những điểm nhấn đáng chú ý nhất.\n1. Pháp vs Senegal\n🕒 02:00 ngày 17/6\nNhà á quân thế giới Pháp chạm trán với “Sư tử Teranga” Senegal – đội bóng luôn rất khó chịu ở các giải lớn.\nĐiểm nhấn:\n•  Mbappé đang ở phong độ cao, liệu anh có sớm bùng nổ?\n•  Senegal sở hữu hàng thủ chắc chắn và những cầu thủ tốc độ nguy hiểm.\n•  Lịch sử đối đầu: Pháp nhỉnh hơn, nhưng Senegal từng gây sốc ở World Cup 2002.\nDự đoán: Pháp thắng 2-1\nXem ở đâu: VTV3 / VTVgo\n2. Iraq vs Na Uy\n🕒 05:00 ngày 17/6\nNa Uy với dàn sao châu Âu (Haaland, Ødegaard…) được đánh giá cao hơn rất nhiều so với Iraq.\nĐiểm nhấn:\n•  Đây là cơ hội để Haaland và các đồng đội khẳng định sức mạnh.\n•  Iraq có thể chơi phòng ngự phản công và chờ đợi sai lầm từ đối thủ.\n•  Na Uy đang rất quyết tâm sau khi vượt qua vòng loại đầy ấn tượng.\nDự đoán: Na Uy thắng 3-1\nXem ở đâu: VTV6 / VTVgo\n3. Argentina vs Algeria\n🕒 08:00 ngày 17/6\nTrận đấu nóng nhất sáng nay! Nhà đương kim vô địch Argentina của Lionel Messi ra quân gặp Algeria.\nĐiểm nhấn:\n•  Messi và các đồng đội bắt đầu hành trình bảo vệ ngôi vương.\n•  Algeria có lối chơi kỷ luật, nhưng Argentina đang sở hữu đội hình cực mạnh.\n•  Khả năng cao Argentina sẽ thắng đậm để tạo đà tâm lý.\nDự đoán: Argentina thắng 3-0\nXem ở đâu: VTV3 / VTVgo\n\nLịch thi đấu tổng hợp sáng 17/6\n•  02:00: Pháp – Senegal\n•  05:00: Iraq – Na Uy\n•  08:00: Argentina – Algeria\nBạn dự định xem hết 3 trận không? 🔥\nHãy comment đội bạn ủng hộ nhất và dự đoán tỉ số bên dưới nhé!\nAi xem cùng mình thì like + share bài viết này để cùng cổ vũ. Các trận sau mình sẽ cập nhật tiếp!\nCùng đồng hành cùng World Cup 2026! 🇦🇷🇫🇷🇳🇴",
+                    "url": "https://x.com/nhuhuu7/status/2066896574861701482",
+                    "source": "@nhuhuu7",
+                    "date": "Tue Jun 16 14:51:59 +0000 2026",
+                    "metrics": {
+                      "favorites": 8,
+                      "retweets": 0,
+                      "views": "219"
+                    }
+                  },
+                  {
+                    "title": "ĐÓN TREND “FAN TOKEN” MÙA WOLD CUP VÀ NHỮNG ĐIỀU CẦN LƯUÝ",
+                    "summary": "ĐÓN TREND “FAN TOKEN” MÙA WOLD CUP VÀ NHỮNG ĐIỀU CẦN LƯUÝ\n\nGood morning ae, hôm qua U23 Việt Nam chiến thắng nhiều cảm xúc quá, đi bão về chợt nhớ ra là năm nay cũng có sự kiện WC 2026. Sự kiện bóng đá lớn nhất hành tinh sẽ diễn ra vào giữa năm nay (T6/2026). Và như thường lệ, cứ có sự kiện gì lớn bên ngoài đời sống thì thị trường Crypto cũng lại bắt trend và ăn theo khá mạnh.\n\nBài viết này nhằm mục đích research các thông tin, nhận định và các vấn đề dễ hiểu cho người mới về vấn đề FAN TOKEN cũng như cách chơi và kinh nghiệm từ việc chơi #FANTOKEN hồi WC 2022 hay Euro trước đó.\nOkay. Let’so thôi nào !!!\n\n1. TẠI SAO LẠI LÀ FAN TOKEN ?\nCó nhiều lý do, nhưng theo mình nghĩ rằng chung quy lại có\ncác điểm chính.\n\n- Sự kiện bóng đá lớn nhất thế giới World Cup 4 năm mới có 1 lần sẽ diễn ra vào giữa năm nay (Tháng 6/2026)\n\n- Thị trường cần một trend mới để tạo làn sóng mới hút dòng\ntiền người dùng sau chuỗi down của coin công nghệ.\n\n- Chơi Fantoken thì cần chơi sớm và rút sớm trước khi sự kiện diễn ra vài tuần, tránh hold dài và đợi sát ngày diễn ra giải đấu thì cơ bản giá cả đã chạy xong không còn ngon để đầu tư nữa. Khi mà truyền thông rầm rộ về WC thì FANTOKEN có thể đã chạy xong sóng của nó và ra tin là lúc cá mập chốt lời rồi. Vì vậy, đã không chơi thì thôi, còn đã chơi thì phải chơi sớm và rút sớm !!!\n=> Tuy nhiên để lựa chọn đúng dự án có lợi nhuận tốt cũng\nkhông đơn giản. Anh em cần lưu ý research kĩ lưỡng. Và chơi theo trend thì có lời\nlà ưu tiên chốt gốc, không có dca và nhấn nhá lâu. Phần tiếp theo mình sẽ phân\ntích kĩ hơn 1 chút.\n\n2. TỔNG QUAN VỀ CÁC LOẠI FANTOKEN HIỆN NAY\nNhìn đi nhìn lại, năm nay mình thấy cũng chỉ có 2 nhóm đang có chân trong miếng bánh Fantoken này.\n\n- Nhóm các CLB bóng đá: Mình chỉ quan tâm 3 đội\nbóng #SANTOS, $PORTO, #LAZIO => Lý do vì sao chỉ quan tâm 3 đội này thì mình sẽ viết ở bên dưới\n\n- Nhóm các DTQG: Mình chỉ quan tâm 4 đội bóng:\n+ Đội tuyển Argentina (#ARG) của siêu sao Messi \n+ Bồ Đào Nha của anh bảy CR7 (#POR), \n+ Brazil (#BFT) \n+ Tây Ban Nha (#SNFT)\n\n3. RESEARCH KĨ HƠN VỀ TỤI FAN TOKEN TRONG ĐÁM NÀY\n- Top gainers tăng giá trên Binance bao giờ cũng là loanh\nquanh mấy con hàng từng được Launch Pad trong quá khứ như $SANTOS , $LAZIO , $PORTO .v.v. mặc dù xét trên bình diện bóng đá, các câu lạc bộ này không thể nào lớn mạnh và có nhiều ngôi sao như PSG, CITY, ARSENAL.v.v. \n- Thậm chí bản thân mình là một người đam mê bóng đá chắc cũng không biết cầu thủ nào của SANTOS hay LAZIO cả, nhưng tại sao nhóm bộ 3 kể trên nó vẫn thường được bơm mạnh mẽ ở mỗi đợt bơm của Fan Token ?\n\nAnh em biết vì sao không ?\nĐơn giản là bởi vì đây là các con hàng từng Launchpad và hợp tác cùng Binance thì Cz nắm nhiều token, đẩy pump tung tóc để có lợi nhuận tốt nhất. Các dự án Fan token còn lại như $CITY và $PSG được List trên Binance là hàng con đẻ của bên $CHZ  nên thường sẽ được hưởng ké sóng đẩy ăn theo, không có lực mạnh như hàng của CZ.\n\n- Tuy nhiên theo phân tích ở trên, sắp tới là WOLDCUP là\ndành cho đội tuyển quốc gia. Chứ không phải là CLB như bên trên, vậy theo anh em chúng ta nên Resarch điều gì ở đây nhỉ?\n\n- Không lẽ mùa WC mà các Token của CLB được bơm, lúc đây có CLB nào thi đấu đâu, mà sẽ quay về tập trung cùng đội tuyển hết. Trong số các DTQG hợp tác với 3 ông lớn này nổi bất và dễ đoạt cúp vàng vô địch nhất có lẽ là các đội như sau:\n\n- 2 đội tuyển hot nhất lúc này cùng 2 siêu sao bóng đá vĩ đại\nbậc nhất trong lịch sử là Messi cùng đội Argentina ($ARG) và\nRonaldo cùng đội tuyển Bồ Đào Nha ($POR).\n- Ngoài ra, có 2 đội nữa là Brazil (BFT) và Tây ban nha (SNFT) hiện đang được list trên sàn MEXC. Cũng là 2 đội tuyển rất mạnh và nổi tiếng.\n\n5. NHẬN ĐỊNH TRONG TƯƠNG LAI\n- Đây nhiều khả năng là kì WC cuối cùng của MESSI và\nRONALDO, 2 cái tên có sức ảnh hưởng bậc nhất trên bản đồ bóng đá thế giới. Rất có thể các tay to cũng nhân cơ hội đẩy tới trend này. Tuy nhiên cần theo dõi thêm sát tình hình gần cuối năm hoặc ít nhất là 1-2 tháng tới đối với các QTQG hoặc nhóm FANTOKEN hàng launchpad của CZ\n\n6. TIPS CHƠI FANTOKEN\n\n- Hàng nhà Binance trồng có volumn và thanh khoản tốt hơn mặc dù ko liên quan mấy tới WC nhưng cũng xuôi xuôi theo trend Fan token\n\n- Bản thân chính đồng CHZ cũng là phù hợp với trend này cùng một loạt tiện ích. CHZ là native token của Chiliz, vì muốn mua trên sàn Chiliz Exchange cần nạp USD lên sàn và swap qua đồng Chz để mua, các cặp giao dịch đều được niêm yết cùng Chz, ví dụ: ACM/CHZ, ARG/CHZ…v.v.\n\n- Vì là Trend nên nếu ai chơi mà có lời thì nên té, ưu tiên\nchốt gốc và tuyệt đối không DCA , cũng như phải theo dõi sát tin tức, sự kiện bên ngoài. \n(Bài học trước đây của mình là đã Dca một số dự án GameFi và không thấy ngày về)\n\n-Nếu chơi QTQG thì ae nên chốt sạch trước khi diễn ra giải đấu chính thức tầm 2-4 tuần, vì theo kinh nghiệm từ WC trước. Khi bắt đâu giải đấu thì hầu hết các mã token đã bước vào giai đoạn phân phối, tuyệt đối không DCA lúc này nữa.\n\n- Coin/token theo trend thì hết trend lại bay màu về lòng đất,\nvà lại có trend khác mọc lên, bản thân các Fan token này không có gì quá đặc biệt về mặt công nghệ cả, chỉ đơn giản là một sản phẩm dùng để hút dòng tiền và bơm thổi của MM mà thôi.\n\nKẾT LUẬN\nTrên đây là những Research mà mình tìm hiểu được từ các nguồn khác nhau nhằm mục đích đưa ra cái nhìn dễ hiểu nhất về các dự án Fan Token hiện nay. Nếu anh em nào có hứng thú muốn bắt trend này có thể tham khảo thông tin và cân nhắc trước khi quyết định đầu tư. Tránh nghe người này call mua con này con nọ mà không hiểu gì về bản chất bên trong của dự án mình đang đầu tư thì sẽ dễ bị đu đỉnh và tạo thanh khoản cho người khác.\n\nP/S: Bài viết cũng vì mục đích cung cấp thông tin tổng thể, không phải lời khuyên đầu tư mua con này, con nọ. Cám ơn anh em đã ủng hộ! \n#Fantoken, #wc2026",
+                    "url": "https://x.com/Lee_Tuanx/status/2012366066174050411",
+                    "source": "@Lee_Tuanx",
+                    "date": "Sat Jan 17 03:27:12 +0000 2026",
+                    "metrics": {
+                      "favorites": 16,
+                      "retweets": 1,
+                      "views": "2926"
+                    }
+                  },
+                  {
+                    "title": "📰Tin mới nhất bóng đá sáng 13/11: Ten Hag \"cuồng\" công việc, quyết giúp MU hồi sinh",
+                    "summary": "📰Tin mới nhất bóng đá sáng 13/11: Ten Hag \"cuồng\" công việc, quyết giúp MU hồi sinh\n\nBản tin bóng đá cập nhật sáng 13/11: Nguồn tin nội bộ từ MU cho biết HLV Ten Hag đang dồn toàn lực cho công việc ở sân Old Trafford.\n\nTen Hag \"cuồng\" công việc, quyết giúp MU hồi sinh\n\nTheo Mirror, HLV Erik Ten Hag thường xuất hiện tại trung tâm huấn luyện Carrington của MU trước 7 giờ sáng và ra về muộn hơn các cầu thủ vài tiếng đồng hồ.\n\nHLV Ten Hag dồn toàn lực cho MU\n\nThỉnh thoảng, nhà cầm quân người Hà Lan về nhà khoảng 2 tiếng vào giờ nghỉ trưa, sau đó trở lại làm việc đến 20h30. Nguồn tin này cho biết thêm, Ten Hag muốn dành nhiều thời gian nhất có thể để cố gắng giúp MU trở lại sau chuỗi thành tích không tốt.\n\n“Không ai có thể buộc tội Ten Hag thiếu nỗ lực. Đôi khi ông ấy tới trung tâm huấn luyện sớm đến mức khiến nhân viên an ninh và nhà bếp phải giật mình”, trích nguồn tin từ Mirror.\n\nReal sa thải người đứng đầu bộ phận y tế\n\nTheo Marca, Real Madrid đã chia tay Giám đốc Y tế Niko Mihic. Niko Mihic có hơn 30 năm kinh nghiệm và đảm nhận vai trò đứng đầu bộ phận y tế của đội chủ sân Bernabeu từ năm 2017.\n\nMột trong những nguyên nhân khiến Mihic ra đi là do chấn thương của hàng loạt cầu thủ Real, bao gồm Arda Guler mùa này. Tài năng trẻ người Thổ Nhĩ Kỳ mới gia nhập \"Đội bóng Hoàng gia\" nhưng liên tục dính chấn thương, thậm chí chưa thi đấu bất kì trận nào.\n\nMessi háo hức trở lại ĐT Argentina, chờ đại chiến Uruguay & Brazil\n\nTrên Instagram cá nhân, Lionel Messi đã chia sẻ khoảnh khắc tạo dáng bên bức ảnh ăn mừng cúp vô địch World Cup 2022 ở đại bản doanh của ĐT Argentina kèm dòng tâm sự: \"Rất vui được trở lại\". Tại vòng loại World Cup 2026 khu vực Nam Mỹ, ĐT Argentina dẫn đầu với 4 trận toàn thắng. Nhà đương kim vô địch thế giới sẽ lần lượt chạm trán 2 đội xếp sau là Uruguay (17/11) và Brazil (22/11) trong tháng 11.\n\nMessi hội quân cùng ĐT Argentina\n\nCựu sao Liverpool lập siêu phẩm từ giữa sân\n\nỞ trận đấu giữa Caykur Rizespor và Istanbulspor thuộc vòng 12 giải VĐQG Thổ Nhĩ Kỳ, đội chủ nhà đã giành chiến thắng nhờ pha lập công duy nhất của Jonjo Shelvey ngay phút thứ 5. Đáng chú ý, tiền vệ người Anh thực hiện cú dứt điểm đẳng cấp từ cự li giữa sân sau khi thấy thủ môn đối phương lên cao.\n\nShelvey hiện chơi cho Caykur Rizespor từ Nottingham Forest dưới dạng cho mượn. Thời đỉnh cao, cầu thủ 31 tuổi từng khoác áo Liverpool (2010-2013), Newcastle (2016-2023).",
+                    "url": "https://x.com/news_football_o/status/1723894661008285772",
+                    "source": "@news_football_o",
+                    "date": "Mon Nov 13 02:44:50 +0000 2023",
+                    "metrics": {
+                      "favorites": 6,
+                      "retweets": 0,
+                      "views": "65"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Argentina Ai Cập World Cup 2026",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Argentina Ai Cập World Cup 2026",
+                "topic": "news",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "Why more than 60,000 Argentina fans are petitioning for FIFA to replay World Cup final vs. Spain - sportingnews.com",
+                    "url": "https://www.sportingnews.com/in/football/news/why-argentina-fans-petitioning-replay-world-cup-final/d59112ba84c54b417ff4acfa",
+                    "source": "sportingnews.com",
+                    "summary": "# Why more than 60,000 Argentina fans are petitioning for FIFA to replay World Cup final vs. One fan who believes Argentina was robbed of a win due to poor refereeing has created a petition that has since garnered more than 60,000 signatures. Here's why a large group of La Albiceleste fans has signed a petition to replay the World Cup final and whether FIFA is allowed to replay a match due to a petition. ## Argentina-Spain World Cup final petition. According to beIN SPORTS, Gisela Sanchez created a petition on Change.org to have FIFA replay the 2026 World Cup final match between Argentina and Spain. > NEWS | Argentine fans launch petition to replay 2026 World Cup Final as signatures surpass 61,000. > Argentine fans have launched an online petition calling for the 2026 FIFA World Cup Final between Argentina and Spain to be replayed, with the campaign gathering more than 61,500… pic.twitter.com/SIXHeylpNz.",
+                    "score": 0.4527543
+                  },
+                  {
+                    "title": "The 2026 FIFA World Cup gave us no shortage of incredible saves. - FOX Sports",
+                    "url": "https://www.foxsports.com/watch-vertical/fmc-z6go4o2puwkyfolu",
+                    "source": "foxsports.com",
+                    "summary": "# The 2026 FIFA World Cup gave us no shortage of incredible saves. FIFA Men's World Cup. ### FIFA World Cup fans shared their favorite thing about America 🇺🇸. ### Jameis Winston brought the energy all summer long at the 2026 FIFA World Cup 🗣️. ### The 2026 FIFA World Cup™ delivered some of the most beautiful assists you will see. ### The USMNT made a positive impact on soccer in the US at this 2026 FIFA World Cup 🇺🇸. ### How America has been viewed after this summer might be the best legacy this 2026 FIFA World Cup 🇺🇸. ### Beautiful scenes from Argentina as the players receive a hero's welcome despite the result. FIFA World Cup 2026™ Best Betting Apps & Sites Best Sportsbook Promos. Use of this website (including any and all parts and components) constitutes your acceptance of these  Terms of Use and  Privacy Policy |  Advertising Choices |  Your Privacy Choices |  Closed Captioning.",
+                    "score": 0.38741276
+                  },
+                  {
+                    "title": "Nasdaq lags on angst over AI spending ahead of earnings reports - Reuters",
+                    "url": "https://www.reuters.com/video/watch/idRW069924072026RP1",
+                    "source": "reuters.com",
+                    "summary": "Exclusive news, data and analytics for financial market professionals Learn more about Refinitiv. ## Browse World. *   Israel and Hamas at War. *   Ukraine and Russia at War. ## Browse Business. ## Browse Markets. # Reuters Video. Image 1: Nasdaq lags on angst over AI spending ahead of earnings reports. ## Nasdaq lags on angst over AI spending ahead of earnings reports. The tech-heavy Nasdaq fell on Friday (July 24) as investors sold chip stocks on worries about massive spending on AI ahead of the next batch of megacap earnings reports, while falling oil prices provided Wall Street with some support even as Middle East hostilities continued. *   Spain's soccer stars arrive home with the World Cup July 20, 2026. *   Argentina fans celebrate win over England to reach World Cup final July 16, 2026. *   Spain fans celebrate 2-0 win over France at World Cup semifinal July 15, 2026. *   Reuters and AI, opens new tab. *   #### World-Check, opens new tab.",
+                    "score": 0.3844273
+                  },
+                  {
+                    "title": "Yordan Alvarez's MLB-leading 34th HR puts Astros ahead of the Marlins - ESPN",
+                    "url": "https://www.espn.com/watch/player/_/id/49429111",
+                    "source": "espn.com",
+                    "summary": "## World Cup musings: Argentina let Messi down; England have regressed. Now that the dust has settled on the 2026 FIFA World Cup, what better time for Gabriele Marcotti to pause and reflect on what we've seen? ## How will the 2026 World Cup be remembered? 2022 was Messi's win. What will 2026 be remembered for? * Grading the 2026 World Cup from Spain's A to Infantino's F. ## ASEAN CHAMPIONSHIP. ## Celebrating 30 years of the ASEAN Championship: A look back at every edition. * 📅 ASEAN Championship: Hyundai Cup Fixtures and Results. * ⬆⬇ ASEAN Championship: Hyundai Cup Standings. ## 10 transfer storylines you may have missed during the World Cup. ## What Buster Olney and Jeff Passan are hearing: Will this trade deadline rock MLB or be a dud? * ## 2026 ASEAN Championship: Fixtures, results, standings, how to watch. The 16th ASEAN Championship -- officially known as the ASEAN Hyundai Cup 2026 -- will take place from July 24 to Aug. 26.",
+                    "score": 0.37312227
+                  },
+                  {
+                    "title": "Argentina Fans Launch Petition to Replay 2026 World Cup Final - Telecom Asia Sport",
+                    "url": "https://www.telecomasia.net/news/football/argentina-fans-petition-replay-2026-world-cup-final/",
+                    "source": "telecomasia.net",
+                    "summary": "# Argentina Fans Launch Petition to Replay 2026 World Cup Final. Image 2: Argentina Fans Launch Petition to Replay 2026 World Cup Final. **Argentinian fans have initiated a petition demanding a replay of the 2026 World Cup final.**. In the decisive match of the tournament, Argentina lost to Spain 1-0 after extra time. Image 3: Bookmakers Assess Spain's Chances in Nations League, Euro 2028, and World Cup 2030 Bookmakers Assess Spain's Chances in Nations League, Euro 2028, and World Cup 2030Image 4: Matthäus Names Favorites for Ballon d'Or After 2026 World Cup Matthäus Names Favorites for Ballon d'Or After 2026 World CupImage 5: FBI Detains President of Argentine Football Association After 2026 World Cup Final FBI Detains President of Argentine Football Association After 2026 World Cup Final. Image 10: USA to Tax Spain's World Cup 2026 Prize Money by 30%. 24/07/2026 09:50USA to Tax Spain's World Cup 2026 Prize Money by 30%. *   Best Betting Sites in South Africa.",
+                    "score": 0.36936113
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dựa trên kết quả tìm kiếm, tôi thấy có một số thông tin thú vị nhưng cần làm rõ:\n\n**Thực tế về World Cup 2026 (theo dữ liệu tìm được):**\n\nCó vẻ như trong bối cảnh World Cup 2026 (diễn ra tháng 6-7/2026), **Argentina không loại Ai Cập**. Cụ thể:\n\n1. **Argentina ở bảng J** cùng với **Jordan, Algeria và Áo** — không có Ai Cập. Argentina thắng Jordan 3-1 ở vòng bảng.\n\n2. **Ai Cập** không xuất hiện trong các kết quả vòng bảng hay vòng knock-out mà dữ liệu tìm được đề cập đến.\n\n3. Trận đấu mà Argentina bị loại là **chung kết gặp Tây Ban Nha** (không phải loại Ai Cập). Một bài tweet mô tả Tây Ban Nha đánh bại Argentina ở chung kết, và có một bản kiến nghị với hơn 60.000 chữ ký yêu cầu FIFA đá lại trận chung kết đó.\n\n---\n\n**Tóm tắt phản ứng mạng xã hội (từ dữ liệu có được):**\n\n| Nội dung | Nguồn |\n|---|---|\n| Bài đăng cảm xúc về Messi và Argentina thua Tây Ban Nha ở chung kết, gọi đây có thể là trận cuối của Messi ở World Cup | @0xkyliekim |\n| Tranh cãi về việc FIFA xóa án treo giò cho cầu thủ trước World Cup, có nhắc đến Argentina (Otamendi) được hưởng lợi | @VietPhiTrung |\n| Argentina thắng Jordan 3-1 ở vòng bảng, Messi ghi siêu phẩm đá phạt | @cozy_xvn |\n| Dự đoán Argentina thắng Algeria 3-0 ở trận ra quân | @nhuhuu7 |\n| Fan token Argentina ($ARG) được quan tâm trên thị trường crypto | @Lee_Tuanx |\n| Hơn 60.000 CĐV Argentina ký kiến nghị yêu cầu FIFA đá lại chung kết với Tây Ban Nha | sportingnews.com |\n\n**Kết luận:** Dữ liệu hiện tại **không cho thấy có trận Argentina vs Ai Cập** ở World Cup 2026. Có thể bạn đang nhầm với một đội bóng khác (như **Algeria** — đội cùng bảng J với Argentina) hoặc một giải đấu khác. Bạn có muốn tôi tìm kiếm cụ thể hơn về thông tin này không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "Argentina loại Ai Cập World Cup 2026",
+            "search_type": "Latest",
+            "limit": 10
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "Argentina loại Ai Cập World Cup 2026",
+            "search_type": "Latest",
+            "items": [
+              {
+                "title": "Bóng đá thế giới đã có nhà vô địch!!!!!! Tây Ban Nha đã có một chiến thắng thực sự thuyết phục, họ bóp nghẹt Argentina ở",
+                "summary": "Bóng đá thế giới đã có nhà vô địch!!!!!! Tây Ban Nha đã có một chiến thắng thực sự thuyết phục, họ bóp nghẹt Argentina ở mọi mặt, họ kiểm soát mọi thứ ở trên sân, họ khiến Messi gần như không thể hiện được bất cứ điều gì. Tây Ban Nha cũng có lợi thế lớn khi Licha và Romero chấn thương, Enzo thẻ đỏ… \n\nNhưng phải thú thực với các bạn là khi Torres ghi bàn, máy quay hướng về Messi, tôi vẫn có niềm tin rằng anh có thể làm được điều gì đó. Vì trong 4 trận đấu loại trực tiếp trước đó, Messi đã thể hiện những màn trình diễn như là một vị chúa của bóng đá. Và một khi bóng vẫn còn lăn, còi chưa được thổi thì hy vọng vẫn luôn còn. Argentina đã có những cơ hội, họp đã vùng lên, nhưng Tây Ban Nha không phải là Cabo Verde, Ai Cập, Thụy Sĩ hay Anh Quốc. Messi đã phải cúi đầu trong trận đấu này. \n\nĐây có lẽ là trận đấu cuối cùng của Messi tại đấu trường World Cup và một kết thúc buồn. Kylie không rõ là anh có định “tuổi 43 đỉnh cao đời người” hay không, nhưng dù kết thúc buồn như hôm nay, Messi vẫn là vĩ nhân đỉnh cao nhất của bóng đá thế giới và đã có một sự nghiệp hoàn hảo. Tôi nghĩ là những ai hâm mộ Messi sẽ buồn, nhưng họ cũng sẽ nhanh chóng vượt qua mà thôi. \n\nTạm biệt MESSI và chúc mừng Tây Ban Nha! \nTạm biệt World Cup 2026, tạm biệt những huyền thoại!\n#SelecciónArgentina #Fıfaworldcup2026 #VamosEspaña #MundialDelFútbol2026",
+                "url": "https://x.com/0xkyliekim/status/2078998403200221649",
+                "source": "@0xkyliekim",
+                "date": "Mon Jul 20 00:20:19 +0000 2026",
+                "metrics": {
+                  "favorites": 15,
+                  "retweets": 0,
+                  "views": "2166"
+                }
+              },
+              {
+                "title": "KHÔNG CÓ CHUYỆN TRUMP “GIẢI CỨU” BALOGUN",
+                "summary": "KHÔNG CÓ CHUYỆN TRUMP “GIẢI CỨU” BALOGUN\nMấy hôm nay thấy nhiều anh em fan cuồng tạo bài: “FIFA thả Balogun vì Trump gây áp lực”, “Mỹ chơi bẩn”, “World Cup bị thao túng”….\nSỰ THẬT:\n1. FIFA cho Balogun đá vì luật áp dụng chung, không phải đặc cách cho Mỹ\nTrước World Cup 2026, FIFA tổ chức cuộc họp gồm với 6 chủ tịch liên đoàn bóng đá châu lục - đã thông qua cơ chế: xóa, hoãn án treo giò từ vòng loại để các đội vào World Cup có lực lượng mạnh nhất.\nDanh sách được xóa án trước Balogun:\n- Nicolás Otamendi – Argentina: Xóa thẻ đỏ, đá chính cả giải Copa America rồi vào World Cup\n- Moisés Caicedo – Ecuador: Xóa 2 thẻ vàng tích lũy\n- Tarek Salman – Qatar: Xóa thẻ đỏ trực tiếp\n- Folarin Balogun – Mỹ: Hoãn 1 trận treo giò. Balogun chỉ là người thứ 4\nNếu Trump “ép” được FIFA, sao Argentina, Ecuador, Qatar cũng được hưởng? Chẳng lẽ Trump làm tổng thống 3 nước đó luôn? mà ép được FIFA thì ép cho đội Mỹ giành chức vô địch luôn, mới đẳng cấp chứ!\n\n2. UEFA mới là người phản đối to nhất, không phải vì Trump\nUEFA ra tuyên bố chỉ trích FIFA “đe dọa tính công bằng”. Nếu thực sự có bằng chứng Trump can thiệp, UEFA đã gào lên rồi. Nhưng UEFA chỉ nói về “luật”, không nhắc chữ nào đến Trump hay Nhà Trắng.\nĐến cả HLV Rudi Garcia của Bỉ khi họp báo cũng chỉ dám nói “thất vọng với quyết định của FIFA” .\n\n3. Mỹ - Bỉ ngày 6/7 là trận sòng phẳng\nBalogun đá chính thì Bỉ vẫn có De Bruyne, Lukaku, Doku. Sân chơi World Cup, 11 đấu 11. Siêu máy tính Opta còn đánh giá Mỹ cửa trên vì lợi thế sân nhà Seattle. Thua thì nhận, đừng đổ cho “thuyết âm mưu”.\n\nGhét thì cứ ghét, nhưng tung tin “Trump ép FIFA” là bậy bạ, không có bằng chứng một tuyên bố chính thức, đó là tự biến mình thành trò cười. Nếu FIFA sai thì chửi FIFA, đừng lôi chính trị vào để lấp liếm.\nBóng đá nói chuyện bằng chân, không nói bằng mõm. Thứ Ba (vào lúc 7:00 AM) gặp nhau ở Seattle, ai hay hơn thì đi tiếp. Thế thôi.\nhttps://t.co/clzrvAvHSM\nAP News\nNguyen Hai Nhu",
+                "url": "https://x.com/VietPhiTrung/status/2074242421177905643",
+                "source": "@VietPhiTrung",
+                "date": "Mon Jul 06 21:21:45 +0000 2026",
+                "metrics": {
+                  "favorites": 16,
+                  "retweets": 1,
+                  "views": "1552"
+                }
+              },
+              {
+                "title": "ĐIỂM TIN BẢN TIN NGÀY 28/06/2026",
+                "summary": "ĐIỂM TIN BẢN TIN NGÀY 28/06/2026\n1. Chiến Sự & Xung Đột Vũ Trang\nĐiểm nóng 1: Ukraine & Nga - Không kích diện rộng và gia tăng viện trợ. Các cuộc tập kích bằng UAV và tên lửa tiếp tục diễn ra tại các khu vực trọng điểm vùng biên giới. Ukraine tăng cường kêu gọi các đồng minh phương Tây đẩy nhanh tiến độ bàn giao các gói viện trợ khí tài và hệ thống phòng không thế hệ mới trước áp lực gia tăng từ đối phương.\n\nĐiểm nóng 2: Trung Đông - Tình hình thực địa căng thẳng. Cục diện giao tranh tại khu vực dải Gaza và các động thái quân sự qua lại ở biên giới phía Bắc vẫn chưa có dấu hiệu hạ nhiệt. Các tổ chức quốc tế tiếp tục cảnh báo về cuộc khủng hoảng nhân đạo và kêu gọi các bên thực hiện lệnh ngừng bắn khẩn cấp.\n\n2. Kinh Tế Vĩ Macro & Thị Trường\nTin tức 1: Lạm phát toàn cầu và chính sách của FED. Thị trường tài chính đổ dồn sự chú ý vào các chỉ số kinh tế mới từ Mỹ để dự đoán bước đi tiếp theo của Cục Dự trữ Liên bang (FED) về lộ trình lãi suất. Tâm lý thận trọng bao trùm khiến dòng tiền có xu hướng phòng thủ.\n\nTin tức 2: Giá dầu thô và Vàng biến động. Giá vàng thế giới ghi nhận các phiên giằng co mạnh do áp lực từ đồng USD. Trong khi đó, giá dầu thô (WTI và Brent) duy trì ở mức cao do những lo ngại về nguồn cung bị gián đoạn tại các tuyến đường hàng hải huyết mạch ở Trung Đông.\n\n3. Chính Trị Quốc Tế & Trong Nước\nSự kiện 1: Hội nghị Thượng đỉnh đa phương. Các nhà lãnh đạo toàn cầu tham gia thảo luận về các vấn đề nóng bao gồm an ninh năng lượng, biến đổi khí hậu và tái cấu trúc chuỗi cung ứng nhằm giảm thiểu rủi ro từ các cuộc xung đột địa chính trị.\n\nSự kiện 2: Chính sách công nghệ và Thuế quan. Các nền kinh tế lớn tiếp tục thắt chặt quy định kiểm soát đối với công nghệ AI và chất bán dẫn, đồng thời đưa ra các sắc lệnh mới về thuế quan gây ảnh hưởng trực tiếp đến hoạt động xuất nhập khẩu song phương.\n\n4. Thị Trường Crypto & Web3\nBiến động giá: Bitcoin (BTC) tiếp tục thử thách các vùng kháng cự quan trọng, dao động nhẹ quanh biên độ hẹp trong 24h qua. Ethereum (ETH) và các altcoin top đầu (BNB, SOL) ghi nhận sự phân hóa rõ rệt khi dòng tiền có dấu hiệu dịch chuyển sang các hệ sinh thái có tin tức nâng cấp công nghệ.\n\nTin tức nổi bật: Dòng vốn ETF và rào cản pháp lý. Các quỹ ETF Bitcoin và Ethereum giao ngay tiếp tục ghi nhận dòng vốn vào/ra luân phiên. Bên cạnh đó, các động thái pháp lý nghiêm ngặt từ SEC và các cơ quan quản lý châu Âu đối với phân khúc DeFi đang là tâm điểm chú ý của giới đầu tư.\n\n5. Thể Thao Đáng Chú Ý (World Cup 2026)\nKết quả loạt trận hạ màn: Anh, Argentina thị uy sức mạnh; Bồ Đào Nha rơi vào nhánh \"tử thần\". Loạt trận cuối cùng của các bảng J, K, L diễn ra ngày 28/06 đã chính thức khép lại vòng bảng lịch sử với 48 đội.\nTại bảng J, Argentina đánh bại Jordan 3-1 với siêu phẩm đá phạt của Lionel Messi, giúp anh tiếp tục phá sâu các kỷ lục vô tiền khoáng hậu tại World Cup. Ở trận cùng bảng, Algeria hòa nghẹt thở Áo 3-3.\nTại bảng L, Anh nhẹ nhàng vượt qua Panama 2-0 để chiếm ngôi nhất bảng, trong khi Croatia thắng Ghana 2-1. Kết quả này đưa Bồ Đào Nha (hòa Colombia 0-0 ở bảng K) ngậm ngùi xếp nhì bảng và sẽ phải chạm trán đối thủ đầy duyên nợ Croatia ngay tại vòng knock-out.\n\nCục diện vòng sau: Chính thức xác định các cặp đấu vòng 1/16 (Vòng 32 đội). Sân chơi World Cup 2026 đã lộ diện 32 cái tên xuất sắc nhất bước vào vòng loại trực tiếp khốc liệt. Hai trận đấu mở màn cho vòng 1/16 sẽ diễn ra vào ngày mai (29/06), bắt đầu với cuộc đối đầu giữa Canada vs Nam Phi, theo sau là các cặp đấu nảy lửa như Pháp - Thụy Điển hay Hà Lan - Maroc.\n\nTóm tắt xu hướng ngày hôm nay: Trái bóng Trionda tại World Cup 2026 đang chiếm trọn spotlight truyền thông thể thao toàn cầu khi vòng bảng chính thức khép lại, thiết lập nên một nhánh đấu knock-out đầy duyên nợ và kịch tính.",
+                "url": "https://x.com/cozy_xvn/status/2071264323964752061",
+                "source": "@cozy_xvn",
+                "date": "Sun Jun 28 16:07:51 +0000 2026",
+                "metrics": {
+                  "favorites": 2,
+                  "retweets": 0,
+                  "views": "221"
+                }
+              },
+              {
+                "title": "🌍 LỊCH THI ĐẤU WORLD CUP 2026 - SÁNG NGÀY 17/6/2026",
+                "summary": "🌍 LỊCH THI ĐẤU WORLD CUP 2026 - SÁNG NGÀY 17/6/2026\nCác trận bóng đá hấp dẫn chỉ trong vài tiếng tới!\nChào các fan bóng đá! ⚽️\nĐêm nay và sáng mai chúng ta sẽ có một lịch thi đấu cực nóng với 3 trận đấu thuộc vòng bảng World Cup 2026. Dưới đây là thông tin chi tiết, dự đoán và những điểm nhấn đáng chú ý nhất.\n1. Pháp vs Senegal\n🕒 02:00 ngày 17/6\nNhà á quân thế giới Pháp chạm trán với “Sư tử Teranga” Senegal – đội bóng luôn rất khó chịu ở các giải lớn.\nĐiểm nhấn:\n•  Mbappé đang ở phong độ cao, liệu anh có sớm bùng nổ?\n•  Senegal sở hữu hàng thủ chắc chắn và những cầu thủ tốc độ nguy hiểm.\n•  Lịch sử đối đầu: Pháp nhỉnh hơn, nhưng Senegal từng gây sốc ở World Cup 2002.\nDự đoán: Pháp thắng 2-1\nXem ở đâu: VTV3 / VTVgo\n2. Iraq vs Na Uy\n🕒 05:00 ngày 17/6\nNa Uy với dàn sao châu Âu (Haaland, Ødegaard…) được đánh giá cao hơn rất nhiều so với Iraq.\nĐiểm nhấn:\n•  Đây là cơ hội để Haaland và các đồng đội khẳng định sức mạnh.\n•  Iraq có thể chơi phòng ngự phản công và chờ đợi sai lầm từ đối thủ.\n•  Na Uy đang rất quyết tâm sau khi vượt qua vòng loại đầy ấn tượng.\nDự đoán: Na Uy thắng 3-1\nXem ở đâu: VTV6 / VTVgo\n3. Argentina vs Algeria\n🕒 08:00 ngày 17/6\nTrận đấu nóng nhất sáng nay! Nhà đương kim vô địch Argentina của Lionel Messi ra quân gặp Algeria.\nĐiểm nhấn:\n•  Messi và các đồng đội bắt đầu hành trình bảo vệ ngôi vương.\n•  Algeria có lối chơi kỷ luật, nhưng Argentina đang sở hữu đội hình cực mạnh.\n•  Khả năng cao Argentina sẽ thắng đậm để tạo đà tâm lý.\nDự đoán: Argentina thắng 3-0\nXem ở đâu: VTV3 / VTVgo\n\nLịch thi đấu tổng hợp sáng 17/6\n•  02:00: Pháp – Senegal\n•  05:00: Iraq – Na Uy\n•  08:00: Argentina – Algeria\nBạn dự định xem hết 3 trận không? 🔥\nHãy comment đội bạn ủng hộ nhất và dự đoán tỉ số bên dưới nhé!\nAi xem cùng mình thì like + share bài viết này để cùng cổ vũ. Các trận sau mình sẽ cập nhật tiếp!\nCùng đồng hành cùng World Cup 2026! 🇦🇷🇫🇷🇳🇴",
+                "url": "https://x.com/nhuhuu7/status/2066896574861701482",
+                "source": "@nhuhuu7",
+                "date": "Tue Jun 16 14:51:59 +0000 2026",
+                "metrics": {
+                  "favorites": 8,
+                  "retweets": 0,
+                  "views": "219"
+                }
+              },
+              {
+                "title": "ĐÓN TREND “FAN TOKEN” MÙA WOLD CUP VÀ NHỮNG ĐIỀU CẦN LƯUÝ",
+                "summary": "ĐÓN TREND “FAN TOKEN” MÙA WOLD CUP VÀ NHỮNG ĐIỀU CẦN LƯUÝ\n\nGood morning ae, hôm qua U23 Việt Nam chiến thắng nhiều cảm xúc quá, đi bão về chợt nhớ ra là năm nay cũng có sự kiện WC 2026. Sự kiện bóng đá lớn nhất hành tinh sẽ diễn ra vào giữa năm nay (T6/2026). Và như thường lệ, cứ có sự kiện gì lớn bên ngoài đời sống thì thị trường Crypto cũng lại bắt trend và ăn theo khá mạnh.\n\nBài viết này nhằm mục đích research các thông tin, nhận định và các vấn đề dễ hiểu cho người mới về vấn đề FAN TOKEN cũng như cách chơi và kinh nghiệm từ việc chơi #FANTOKEN hồi WC 2022 hay Euro trước đó.\nOkay. Let’so thôi nào !!!\n\n1. TẠI SAO LẠI LÀ FAN TOKEN ?\nCó nhiều lý do, nhưng theo mình nghĩ rằng chung quy lại có\ncác điểm chính.\n\n- Sự kiện bóng đá lớn nhất thế giới World Cup 4 năm mới có 1 lần sẽ diễn ra vào giữa năm nay (Tháng 6/2026)\n\n- Thị trường cần một trend mới để tạo làn sóng mới hút dòng\ntiền người dùng sau chuỗi down của coin công nghệ.\n\n- Chơi Fantoken thì cần chơi sớm và rút sớm trước khi sự kiện diễn ra vài tuần, tránh hold dài và đợi sát ngày diễn ra giải đấu thì cơ bản giá cả đã chạy xong không còn ngon để đầu tư nữa. Khi mà truyền thông rầm rộ về WC thì FANTOKEN có thể đã chạy xong sóng của nó và ra tin là lúc cá mập chốt lời rồi. Vì vậy, đã không chơi thì thôi, còn đã chơi thì phải chơi sớm và rút sớm !!!\n=> Tuy nhiên để lựa chọn đúng dự án có lợi nhuận tốt cũng\nkhông đơn giản. Anh em cần lưu ý research kĩ lưỡng. Và chơi theo trend thì có lời\nlà ưu tiên chốt gốc, không có dca và nhấn nhá lâu. Phần tiếp theo mình sẽ phân\ntích kĩ hơn 1 chút.\n\n2. TỔNG QUAN VỀ CÁC LOẠI FANTOKEN HIỆN NAY\nNhìn đi nhìn lại, năm nay mình thấy cũng chỉ có 2 nhóm đang có chân trong miếng bánh Fantoken này.\n\n- Nhóm các CLB bóng đá: Mình chỉ quan tâm 3 đội\nbóng #SANTOS, $PORTO, #LAZIO => Lý do vì sao chỉ quan tâm 3 đội này thì mình sẽ viết ở bên dưới\n\n- Nhóm các DTQG: Mình chỉ quan tâm 4 đội bóng:\n+ Đội tuyển Argentina (#ARG) của siêu sao Messi \n+ Bồ Đào Nha của anh bảy CR7 (#POR), \n+ Brazil (#BFT) \n+ Tây Ban Nha (#SNFT)\n\n3. RESEARCH KĨ HƠN VỀ TỤI FAN TOKEN TRONG ĐÁM NÀY\n- Top gainers tăng giá trên Binance bao giờ cũng là loanh\nquanh mấy con hàng từng được Launch Pad trong quá khứ như $SANTOS , $LAZIO , $PORTO .v.v. mặc dù xét trên bình diện bóng đá, các câu lạc bộ này không thể nào lớn mạnh và có nhiều ngôi sao như PSG, CITY, ARSENAL.v.v. \n- Thậm chí bản thân mình là một người đam mê bóng đá chắc cũng không biết cầu thủ nào của SANTOS hay LAZIO cả, nhưng tại sao nhóm bộ 3 kể trên nó vẫn thường được bơm mạnh mẽ ở mỗi đợt bơm của Fan Token ?\n\nAnh em biết vì sao không ?\nĐơn giản là bởi vì đây là các con hàng từng Launchpad và hợp tác cùng Binance thì Cz nắm nhiều token, đẩy pump tung tóc để có lợi nhuận tốt nhất. Các dự án Fan token còn lại như $CITY và $PSG được List trên Binance là hàng con đẻ của bên $CHZ  nên thường sẽ được hưởng ké sóng đẩy ăn theo, không có lực mạnh như hàng của CZ.\n\n- Tuy nhiên theo phân tích ở trên, sắp tới là WOLDCUP là\ndành cho đội tuyển quốc gia. Chứ không phải là CLB như bên trên, vậy theo anh em chúng ta nên Resarch điều gì ở đây nhỉ?\n\n- Không lẽ mùa WC mà các Token của CLB được bơm, lúc đây có CLB nào thi đấu đâu, mà sẽ quay về tập trung cùng đội tuyển hết. Trong số các DTQG hợp tác với 3 ông lớn này nổi bất và dễ đoạt cúp vàng vô địch nhất có lẽ là các đội như sau:\n\n- 2 đội tuyển hot nhất lúc này cùng 2 siêu sao bóng đá vĩ đại\nbậc nhất trong lịch sử là Messi cùng đội Argentina ($ARG) và\nRonaldo cùng đội tuyển Bồ Đào Nha ($POR).\n- Ngoài ra, có 2 đội nữa là Brazil (BFT) và Tây ban nha (SNFT) hiện đang được list trên sàn MEXC. Cũng là 2 đội tuyển rất mạnh và nổi tiếng.\n\n5. NHẬN ĐỊNH TRONG TƯƠNG LAI\n- Đây nhiều khả năng là kì WC cuối cùng của MESSI và\nRONALDO, 2 cái tên có sức ảnh hưởng bậc nhất trên bản đồ bóng đá thế giới. Rất có thể các tay to cũng nhân cơ hội đẩy tới trend này. Tuy nhiên cần theo dõi thêm sát tình hình gần cuối năm hoặc ít nhất là 1-2 tháng tới đối với các QTQG hoặc nhóm FANTOKEN hàng launchpad của CZ\n\n6. TIPS CHƠI FANTOKEN\n\n- Hàng nhà Binance trồng có volumn và thanh khoản tốt hơn mặc dù ko liên quan mấy tới WC nhưng cũng xuôi xuôi theo trend Fan token\n\n- Bản thân chính đồng CHZ cũng là phù hợp với trend này cùng một loạt tiện ích. CHZ là native token của Chiliz, vì muốn mua trên sàn Chiliz Exchange cần nạp USD lên sàn và swap qua đồng Chz để mua, các cặp giao dịch đều được niêm yết cùng Chz, ví dụ: ACM/CHZ, ARG/CHZ…v.v.\n\n- Vì là Trend nên nếu ai chơi mà có lời thì nên té, ưu tiên\nchốt gốc và tuyệt đối không DCA , cũng như phải theo dõi sát tin tức, sự kiện bên ngoài. \n(Bài học trước đây của mình là đã Dca một số dự án GameFi và không thấy ngày về)\n\n-Nếu chơi QTQG thì ae nên chốt sạch trước khi diễn ra giải đấu chính thức tầm 2-4 tuần, vì theo kinh nghiệm từ WC trước. Khi bắt đâu giải đấu thì hầu hết các mã token đã bước vào giai đoạn phân phối, tuyệt đối không DCA lúc này nữa.\n\n- Coin/token theo trend thì hết trend lại bay màu về lòng đất,\nvà lại có trend khác mọc lên, bản thân các Fan token này không có gì quá đặc biệt về mặt công nghệ cả, chỉ đơn giản là một sản phẩm dùng để hút dòng tiền và bơm thổi của MM mà thôi.\n\nKẾT LUẬN\nTrên đây là những Research mà mình tìm hiểu được từ các nguồn khác nhau nhằm mục đích đưa ra cái nhìn dễ hiểu nhất về các dự án Fan Token hiện nay. Nếu anh em nào có hứng thú muốn bắt trend này có thể tham khảo thông tin và cân nhắc trước khi quyết định đầu tư. Tránh nghe người này call mua con này con nọ mà không hiểu gì về bản chất bên trong của dự án mình đang đầu tư thì sẽ dễ bị đu đỉnh và tạo thanh khoản cho người khác.\n\nP/S: Bài viết cũng vì mục đích cung cấp thông tin tổng thể, không phải lời khuyên đầu tư mua con này, con nọ. Cám ơn anh em đã ủng hộ! \n#Fantoken, #wc2026",
+                "url": "https://x.com/Lee_Tuanx/status/2012366066174050411",
+                "source": "@Lee_Tuanx",
+                "date": "Sat Jan 17 03:27:12 +0000 2026",
+                "metrics": {
+                  "favorites": 16,
+                  "retweets": 1,
+                  "views": "2926"
+                }
+              },
+              {
+                "title": "📰Tin mới nhất bóng đá sáng 13/11: Ten Hag \"cuồng\" công việc, quyết giúp MU hồi sinh",
+                "summary": "📰Tin mới nhất bóng đá sáng 13/11: Ten Hag \"cuồng\" công việc, quyết giúp MU hồi sinh\n\nBản tin bóng đá cập nhật sáng 13/11: Nguồn tin nội bộ từ MU cho biết HLV Ten Hag đang dồn toàn lực cho công việc ở sân Old Trafford.\n\nTen Hag \"cuồng\" công việc, quyết giúp MU hồi sinh\n\nTheo Mirror, HLV Erik Ten Hag thường xuất hiện tại trung tâm huấn luyện Carrington của MU trước 7 giờ sáng và ra về muộn hơn các cầu thủ vài tiếng đồng hồ.\n\nHLV Ten Hag dồn toàn lực cho MU\n\nThỉnh thoảng, nhà cầm quân người Hà Lan về nhà khoảng 2 tiếng vào giờ nghỉ trưa, sau đó trở lại làm việc đến 20h30. Nguồn tin này cho biết thêm, Ten Hag muốn dành nhiều thời gian nhất có thể để cố gắng giúp MU trở lại sau chuỗi thành tích không tốt.\n\n“Không ai có thể buộc tội Ten Hag thiếu nỗ lực. Đôi khi ông ấy tới trung tâm huấn luyện sớm đến mức khiến nhân viên an ninh và nhà bếp phải giật mình”, trích nguồn tin từ Mirror.\n\nReal sa thải người đứng đầu bộ phận y tế\n\nTheo Marca, Real Madrid đã chia tay Giám đốc Y tế Niko Mihic. Niko Mihic có hơn 30 năm kinh nghiệm và đảm nhận vai trò đứng đầu bộ phận y tế của đội chủ sân Bernabeu từ năm 2017.\n\nMột trong những nguyên nhân khiến Mihic ra đi là do chấn thương của hàng loạt cầu thủ Real, bao gồm Arda Guler mùa này. Tài năng trẻ người Thổ Nhĩ Kỳ mới gia nhập \"Đội bóng Hoàng gia\" nhưng liên tục dính chấn thương, thậm chí chưa thi đấu bất kì trận nào.\n\nMessi háo hức trở lại ĐT Argentina, chờ đại chiến Uruguay & Brazil\n\nTrên Instagram cá nhân, Lionel Messi đã chia sẻ khoảnh khắc tạo dáng bên bức ảnh ăn mừng cúp vô địch World Cup 2022 ở đại bản doanh của ĐT Argentina kèm dòng tâm sự: \"Rất vui được trở lại\". Tại vòng loại World Cup 2026 khu vực Nam Mỹ, ĐT Argentina dẫn đầu với 4 trận toàn thắng. Nhà đương kim vô địch thế giới sẽ lần lượt chạm trán 2 đội xếp sau là Uruguay (17/11) và Brazil (22/11) trong tháng 11.\n\nMessi hội quân cùng ĐT Argentina\n\nCựu sao Liverpool lập siêu phẩm từ giữa sân\n\nỞ trận đấu giữa Caykur Rizespor và Istanbulspor thuộc vòng 12 giải VĐQG Thổ Nhĩ Kỳ, đội chủ nhà đã giành chiến thắng nhờ pha lập công duy nhất của Jonjo Shelvey ngay phút thứ 5. Đáng chú ý, tiền vệ người Anh thực hiện cú dứt điểm đẳng cấp từ cự li giữa sân sau khi thấy thủ môn đối phương lên cao.\n\nShelvey hiện chơi cho Caykur Rizespor từ Nottingham Forest dưới dạng cho mượn. Thời đỉnh cao, cầu thủ 31 tuổi từng khoác áo Liverpool (2010-2013), Newcastle (2016-2023).",
+                "url": "https://x.com/news_football_o/status/1723894661008285772",
+                "source": "@news_football_o",
+                "date": "Mon Nov 13 02:44:50 +0000 2023",
+                "metrics": {
+                  "favorites": 6,
+                  "retweets": 0,
+                  "views": "65"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Argentina Ai Cập World Cup 2026",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Argentina Ai Cập World Cup 2026",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Why more than 60,000 Argentina fans are petitioning for FIFA to replay World Cup final vs. Spain - sportingnews.com",
+                "url": "https://www.sportingnews.com/in/football/news/why-argentina-fans-petitioning-replay-world-cup-final/d59112ba84c54b417ff4acfa",
+                "source": "sportingnews.com",
+                "summary": "# Why more than 60,000 Argentina fans are petitioning for FIFA to replay World Cup final vs. One fan who believes Argentina was robbed of a win due to poor refereeing has created a petition that has since garnered more than 60,000 signatures. Here's why a large group of La Albiceleste fans has signed a petition to replay the World Cup final and whether FIFA is allowed to replay a match due to a petition. ## Argentina-Spain World Cup final petition. According to beIN SPORTS, Gisela Sanchez created a petition on Change.org to have FIFA replay the 2026 World Cup final match between Argentina and Spain. > NEWS | Argentine fans launch petition to replay 2026 World Cup Final as signatures surpass 61,000. > Argentine fans have launched an online petition calling for the 2026 FIFA World Cup Final between Argentina and Spain to be replayed, with the campaign gathering more than 61,500… pic.twitter.com/SIXHeylpNz.",
+                "score": 0.4527543
+              },
+              {
+                "title": "The 2026 FIFA World Cup gave us no shortage of incredible saves. - FOX Sports",
+                "url": "https://www.foxsports.com/watch-vertical/fmc-z6go4o2puwkyfolu",
+                "source": "foxsports.com",
+                "summary": "# The 2026 FIFA World Cup gave us no shortage of incredible saves. FIFA Men's World Cup. ### FIFA World Cup fans shared their favorite thing about America 🇺🇸. ### Jameis Winston brought the energy all summer long at the 2026 FIFA World Cup 🗣️. ### The 2026 FIFA World Cup™ delivered some of the most beautiful assists you will see. ### The USMNT made a positive impact on soccer in the US at this 2026 FIFA World Cup 🇺🇸. ### How America has been viewed after this summer might be the best legacy this 2026 FIFA World Cup 🇺🇸. ### Beautiful scenes from Argentina as the players receive a hero's welcome despite the result. FIFA World Cup 2026™ Best Betting Apps & Sites Best Sportsbook Promos. Use of this website (including any and all parts and components) constitutes your acceptance of these  Terms of Use and  Privacy Policy |  Advertising Choices |  Your Privacy Choices |  Closed Captioning.",
+                "score": 0.38741276
+              },
+              {
+                "title": "Nasdaq lags on angst over AI spending ahead of earnings reports - Reuters",
+                "url": "https://www.reuters.com/video/watch/idRW069924072026RP1",
+                "source": "reuters.com",
+                "summary": "Exclusive news, data and analytics for financial market professionals Learn more about Refinitiv. ## Browse World. *   Israel and Hamas at War. *   Ukraine and Russia at War. ## Browse Business. ## Browse Markets. # Reuters Video. Image 1: Nasdaq lags on angst over AI spending ahead of earnings reports. ## Nasdaq lags on angst over AI spending ahead of earnings reports. The tech-heavy Nasdaq fell on Friday (July 24) as investors sold chip stocks on worries about massive spending on AI ahead of the next batch of megacap earnings reports, while falling oil prices provided Wall Street with some support even as Middle East hostilities continued. *   Spain's soccer stars arrive home with the World Cup July 20, 2026. *   Argentina fans celebrate win over England to reach World Cup final July 16, 2026. *   Spain fans celebrate 2-0 win over France at World Cup semifinal July 15, 2026. *   Reuters and AI, opens new tab. *   #### World-Check, opens new tab.",
+                "score": 0.3844273
+              },
+              {
+                "title": "Yordan Alvarez's MLB-leading 34th HR puts Astros ahead of the Marlins - ESPN",
+                "url": "https://www.espn.com/watch/player/_/id/49429111",
+                "source": "espn.com",
+                "summary": "## World Cup musings: Argentina let Messi down; England have regressed. Now that the dust has settled on the 2026 FIFA World Cup, what better time for Gabriele Marcotti to pause and reflect on what we've seen? ## How will the 2026 World Cup be remembered? 2022 was Messi's win. What will 2026 be remembered for? * Grading the 2026 World Cup from Spain's A to Infantino's F. ## ASEAN CHAMPIONSHIP. ## Celebrating 30 years of the ASEAN Championship: A look back at every edition. * 📅 ASEAN Championship: Hyundai Cup Fixtures and Results. * ⬆⬇ ASEAN Championship: Hyundai Cup Standings. ## 10 transfer storylines you may have missed during the World Cup. ## What Buster Olney and Jeff Passan are hearing: Will this trade deadline rock MLB or be a dud? * ## 2026 ASEAN Championship: Fixtures, results, standings, how to watch. The 16th ASEAN Championship -- officially known as the ASEAN Hyundai Cup 2026 -- will take place from July 24 to Aug. 26.",
+                "score": 0.37312227
+              },
+              {
+                "title": "Argentina Fans Launch Petition to Replay 2026 World Cup Final - Telecom Asia Sport",
+                "url": "https://www.telecomasia.net/news/football/argentina-fans-petition-replay-2026-world-cup-final/",
+                "source": "telecomasia.net",
+                "summary": "# Argentina Fans Launch Petition to Replay 2026 World Cup Final. Image 2: Argentina Fans Launch Petition to Replay 2026 World Cup Final. **Argentinian fans have initiated a petition demanding a replay of the 2026 World Cup final.**. In the decisive match of the tournament, Argentina lost to Spain 1-0 after extra time. Image 3: Bookmakers Assess Spain's Chances in Nations League, Euro 2028, and World Cup 2030 Bookmakers Assess Spain's Chances in Nations League, Euro 2028, and World Cup 2030Image 4: Matthäus Names Favorites for Ballon d'Or After 2026 World Cup Matthäus Names Favorites for Ballon d'Or After 2026 World CupImage 5: FBI Detains President of Argentine Football Association After 2026 World Cup Final FBI Detains President of Argentine Football Association After 2026 World Cup Final. Image 10: USA to Tax Spain's World Cup 2026 Prize Money by 30%. 24/07/2026 09:50USA to Tax Spain's World Cup 2026 Prize Money by 30%. *   Best Betting Sites in South Africa.",
+                "score": 0.36936113
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
